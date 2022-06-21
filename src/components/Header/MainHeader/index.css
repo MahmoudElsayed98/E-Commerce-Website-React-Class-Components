@@ -1,0 +1,95 @@
+.navbar {
+  position: relative;
+  z-index: 1;
+  color: var(--mainColor);
+  box-shadow: 0 1.5px 2.5px 0px var(--thirdColor);
+}
+@media (max-width: 991px) {
+  .navbar {
+    background-color: unset;
+  }
+}
+.navbar-light .navbar-brand {
+  width: 90px;
+}
+.navbar-light .navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+.navbar-light .navbar-toggler svg {
+  color: var(--secondaryColor);
+  font-size: 35px;
+}
+.search:hover {
+  color: var(--thirdColor);
+}
+.search-input:focus,
+.search:focus,
+.search:active:focus {
+  box-shadow: none;
+}
+.search:focus {
+  box-shadow: 0 0 0 0.5px rgb(13 202 240 / 50%);
+}
+.navbar-collapse .navbar-nav form {
+  max-height: 38px;
+}
+
+.navbar-expand-lg .navbar-nav {
+  width: 100%;
+  justify-content: space-between;
+}
+.navbar-collapse .navbar-nav form input {
+  background-color: #f8f9fa;
+  color: var(--mainColor);
+  border-color: var(--mainColor);
+  border-radius: 0;
+  border-left: none;
+}
+.navbar-collapse .navbar-nav form select {
+  background-color: var(--mainColor);
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  color: var(--thirdColor);
+  border: 1px solid var(--mainColor);
+  width: fit-content;
+}
+.navbar-collapse .navbar-nav form select:focus-visible {
+  outline: none;
+}
+.navbar-collapse .navbar-nav form select option {
+  width: fit-content;
+}
+.navbar-collapse .navbar-nav form input::placeholder {
+  color: var(--mainColor);
+}
+.navbar-collapse .navbar-nav form .btn-outline-dark {
+  background-color: var(--mainColor);
+  border-color: var(--mainColor);
+  color: var(--thirdColor);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.navbar-collapse .navbar-nav form .btn-outline-dark:hover {
+  background-color: var(--hoverColor);
+}
+@media (max-width: 991px) {
+  .navbar > .container {
+    position: relative;
+  }
+  .navbar-expand-lg .navbar-nav {
+    background-color: var(--secondaryColor);
+    border-radius: 5px;
+    padding: 12.5px;
+    /* position: relative;
+    top: 10px; */
+  }
+  .navbar-collapse {
+    position: absolute;
+    width: 100%;
+    top: 65.47px;
+    left: 0;
+  }
+}

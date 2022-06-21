@@ -1,0 +1,16 @@
+.links,
+.links a {
+  font-size: 15px;
+  color: var(--secondaryColor);
+}
+@media (max-width: 991px) {
+  .links a {
+    font-size: 13.75px;
+  }
+}
+.links span {
+  transform: translate(-50%, -50%);
+}
+.delivery svg {
+  font-size: 20px;
+}
