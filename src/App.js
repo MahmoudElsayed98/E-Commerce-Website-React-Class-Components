@@ -23,23 +23,23 @@ class App extends Component {
             path="/E-Commerce-Website-React-Class-Components/products"
             element={<ProductsHeader />}
           >
-            <Route index element={<Products category="" />} />
-            <Route path="all" element={<Products category="" />} />
+            <Route index element={<Products category="" skeletonCardsNo={20} />} />
+            <Route path="all" element={<Products category="" skeletonCardsNo={20} />} />
             <Route
               path="men's%20clothing"
-              element={<Products category={"category/men's%20clothing"} />}
+              element={<Products category={"category/men's%20clothing"} skeletonCardsNo={4} />}
             />
             <Route
               path="woman's%20clothing"
-              element={<Products category={"category/women's%20clothing"} />}
+              element={<Products category={"category/women's%20clothing"} skeletonCardsNo={6} />}
             />
             <Route
               path="jewelery"
-              element={<Products category="category/jewelery" />}
+              element={<Products category="category/jewelery" skeletonCardsNo={4}/>}
             />
             <Route
               path="electronics"
-              element={<Products category="category/electronics" />}
+              element={<Products category="category/electronics" skeletonCardsNo={6}/>}
             />
           </Route>
           <Route

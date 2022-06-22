@@ -2,10 +2,6 @@
   width: calc((100% - 72px) / 4);
   height: 575px;
 }
-/* .card-skeleton span {
-  height: 100%;
-  display: block;
-} */
 @media (max-width: 1199px) {
   .card-skeleton {
     width: calc((100% - 48px) / 3);
@@ -20,4 +16,18 @@
   .card-skeleton {
     width: 100%;
   }
+}
+
+.card-skeleton .image {
+  height: 360px;
+}
+.card-skeleton .text {
+  border-top: var(--mainBorder);
+  height: 177px;
+}
+.card-skeleton .text .heading {
+  height: 85px;
+}
+.card-skeleton .text p {
+  height: 92px;
 }

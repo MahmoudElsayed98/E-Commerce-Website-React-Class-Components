@@ -15,8 +15,15 @@ export class Products extends Component {
       loading: false,
     };
   }
+  enableLoading() {
+    if (this.state.loading === true) {
+      this.setState({
+        loading: false,
+      });
+    }
+  }
   componentDidMount() {
-    console.log("componentDidMount");
+    // console.log("componentDidMount");
     axios
       .get(`https://fakestoreapi.com/products/${this.props.category}`)
       .then((res) => {
@@ -33,13 +40,14 @@ export class Products extends Component {
   }
   componentDidUpdate(prevProps) {
     if (prevProps.category !== this.props.category) {
-      console.log("componentDidUpdate");
+      this.enableLoading();
+      // console.log("componentDidUpdate");
       axios
         .get(`https://fakestoreapi.com/products/${this.props.category}`)
         .then((res) => {
           this.setState({
             products: res.data,
-            // loading: true,
+            loading: true,
           });
         })
         .catch((err) => {
@@ -51,8 +59,10 @@ export class Products extends Component {
   }
   render() {
     const { products, loading } = this.state;
-    console.log("products");
-    console.log(products);
+    const { skeletonCardsNo } = this.props;
+    // console.log("products");
+    // console.log(products);
+    // console.log("loading", loading);
     return (
       <>
         <div className="products py-4">
@@ -90,7 +100,7 @@ export class Products extends Component {
                 })
               ) : (
                 // <Loading />
-                <CardSkeleton />
+                <CardSkeleton skeletonCardsNo={skeletonCardsNo} />
               )}
             </div>
           </div>
