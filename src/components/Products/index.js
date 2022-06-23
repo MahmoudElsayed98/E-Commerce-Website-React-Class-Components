@@ -3,8 +3,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 import React, { Component } from "react";
 import "./index.css";
 // import Loading from "./Loading";
-import { AiFillStar } from "react-icons/ai";
 import CardSkeleton from "./CardSkeleton";
+import ProductCard from "./ProductCard";
 export class Products extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +24,18 @@ export class Products extends Component {
   }
   componentDidMount() {
     // console.log("componentDidMount");
+    this.fetchApiData();
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.category !== this.props.category) {
+      this.enableLoading();
+      // console.log("componentDidUpdate");
+      setTimeout(() => {
+        this.fetchApiData();
+      }, 3000);
+    }
+  }
+  fetchApiData() {
     axios
       .get(`https://fakestoreapi.com/products/${this.props.category}`)
       .then((res) => {
@@ -37,25 +49,6 @@ export class Products extends Component {
           error: err,
         });
       });
-  }
-  componentDidUpdate(prevProps) {
-    if (prevProps.category !== this.props.category) {
-      this.enableLoading();
-      // console.log("componentDidUpdate");
-      axios
-        .get(`https://fakestoreapi.com/products/${this.props.category}`)
-        .then((res) => {
-          this.setState({
-            products: res.data,
-            loading: true,
-          });
-        })
-        .catch((err) => {
-          this.setState({
-            error: err,
-          });
-        });
-    }
   }
   render() {
     const { products, loading } = this.state;
@@ -71,31 +64,15 @@ export class Products extends Component {
               {loading ? (
                 products.map((e) => {
                   return (
-                    <div className="product-card rounded-top" key={e.id}>
-                      <div className="image d-flex justify-content-center align-items-center rounded-top">
-                        <img
-                          src={e.image}
-                          alt={e.title}
-                          className="img-fluid"
-                        />
-                      </div>
-                      <div className="text px-2 text-center bg-light">
-                        <h6 className="d-flex justify-content-center align-items-center">
-                          {e.title}
-                        </h6>
-                        <p className="text-capitalize mb-0 d-flex flex-column justify-content-center align-items-center">
-                          {"$"}
-                          {e.price} <br />
-                          {e.category} <br />
-                          <span className="d-flex justify-content-center align-items-center gap-1">
-                            {e.rating.rate} <AiFillStar />
-                          </span>
-                        </p>
-                      </div>
-                      <button className="add-to-card-btn btn btn-primary w-100 text-uppercase">
-                        Add To Cart
-                      </button>
-                    </div>
+                    <ProductCard
+                      key={e.id}
+                      id={e.id}
+                      title={e.title}
+                      image={e.image}
+                      category={e.category}
+                      price={e.price}
+                      ratingRate={e.rating.rate}
+                    />
                   );
                 })
               ) : (

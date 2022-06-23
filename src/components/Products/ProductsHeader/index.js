@@ -1,20 +1,19 @@
-import React, { Component, createRef } from "react";
+import React, { Component } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import "./index.css";
 
 export class ProductsHeader extends Component {
-  constructor(props) {
-    super(props);
-
-    this.productsRef = createRef();
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.productsRef = createRef();
+  // }
   // componentDidMount() {
   //   Object.values(this.productsRef.current.children).forEach((e) => {
   //     e.addEventListener("click", () => {
   //       Object.values(this.productsRef.current.children).forEach((e) => {
-  //         e.firstElementChild.classList.remove("active");
+  //         e.classList.remove("active");
   //       });
-  //       e.firstElementChild.classList.add("active");
+  //       e.classList.add("active");
   //     });
   //   });
   // }
@@ -48,7 +47,7 @@ export class ProductsHeader extends Component {
             </NavLink>
 
             <NavLink
-              to="woman's%20clothing"
+              to="women's%20clothing"
               className="text-light text-decoration-none"
             >
               Woman's clothing

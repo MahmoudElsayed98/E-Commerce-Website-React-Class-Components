@@ -14,7 +14,7 @@ export class CardSkeleton extends Component {
           </div>
           <div className="text px-2">
             <div className="heading d-flex justify-content-center align-items-center">
-              <Skeleton width={250} height={48} />
+              <Skeleton width={220} height={48} />
             </div>
             <p className="mb-0 d-flex flex-column justify-content-center align-items-center">
               <Skeleton width={57} />

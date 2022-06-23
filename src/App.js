@@ -8,6 +8,7 @@ import Products from "./components/Products";
 import NotFound from "./components/NotFound";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import ProductDetails from "./components/Products/ProductDetails";
 
 class App extends Component {
   render() {
@@ -23,24 +24,45 @@ class App extends Component {
             path="/E-Commerce-Website-React-Class-Components/products"
             element={<ProductsHeader />}
           >
-            <Route index element={<Products category="" skeletonCardsNo={20} />} />
-            <Route path="all" element={<Products category="" skeletonCardsNo={20} />} />
             <Route
-              path="men's%20clothing"
-              element={<Products category={"category/men's%20clothing"} skeletonCardsNo={4} />}
+              index
+              element={<Products category="" skeletonCardsNo={20} />}
             />
             <Route
-              path="woman's%20clothing"
-              element={<Products category={"category/women's%20clothing"} skeletonCardsNo={6} />}
+              path="all"
+              element={<Products category="" skeletonCardsNo={20} />}
+            />
+            <Route
+              path="men's%20clothing"
+              element={
+                <Products
+                  category={"category/men's clothing"}
+                  skeletonCardsNo={4}
+                />
+              }
+            />
+            <Route
+              path="women's%20clothing"
+              element={
+                <Products
+                  category={"category/women's clothing"}
+                  skeletonCardsNo={6}
+                />
+              }
             />
             <Route
               path="jewelery"
-              element={<Products category="category/jewelery" skeletonCardsNo={4}/>}
+              element={
+                <Products category="category/jewelery" skeletonCardsNo={4} />
+              }
             />
             <Route
               path="electronics"
-              element={<Products category="category/electronics" skeletonCardsNo={6}/>}
+              element={
+                <Products category="category/electronics" skeletonCardsNo={6} />
+              }
             />
+            <Route path=":id" element={<ProductDetails />} />
           </Route>
           <Route
             path="E-Commerce-Website-React-Class-Components/about"

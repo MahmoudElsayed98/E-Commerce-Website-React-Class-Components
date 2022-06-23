@@ -19,7 +19,7 @@ export class MainHeader extends Component {
     return (
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/E-Commerce-Website-React-Class-Components/">
             <img src={logo} className="img-fluid" alt="website logo" />
           </Navbar.Brand>
           <Navbar.Toggle
