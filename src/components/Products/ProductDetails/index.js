@@ -13,7 +13,7 @@ export class ProductDetails extends Component {
     };
   }
   componentDidMount() {
-    const id = window.location.href.split("/");
+    const id = window.location.href.split("/")[5];
     console.log(id);
     this.fetchApiProductDetails(id);
   }
