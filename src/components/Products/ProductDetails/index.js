@@ -8,6 +8,7 @@ function ProductDetails(props) {
   const [product, setProduct] = useState({});
   const [productQuantity, setProductQuantity] = useState(1);
   const { id } = useParams();
+  console.log(id);
 
   useEffect(() => {
     axios.get(`http://fakestoreapi.com/products/${id}`).then((res) => {
