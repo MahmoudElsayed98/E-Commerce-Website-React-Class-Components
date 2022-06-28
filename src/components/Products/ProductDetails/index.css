@@ -1,6 +1,5 @@
 .product-details {
   height: calc(100vh - (30.5px + 81.47px + 49px));
-  position: relative;
 }
 .product-details::after {
   content: "";
@@ -15,6 +14,9 @@
 }
 .product-details .image img {
   width: 90%;
+}
+.product-details .image img::selection {
+  background-color: transparent;
 }
 .product-details .right-side h3 {
   height: 67.19px;
@@ -36,6 +38,61 @@
 .product-details .desc {
   height: 220.07px;
 }
+.product-details .desc h5::selection {
+  background-color: transparent;
+}
+@media (max-width: 1199px) {
+  .product-details .desc {
+    height: 256.75px;
+  }
+  .product-details .desc p {
+    font-size: 15.25px;
+  }
+  .product-details .image img {
+    width: 80%;
+  }
+  .product-details .right-side h3 {
+    height: 65.94px;
+  }
+  .product-details .right-side h4 {
+    height: 28.5px;
+  }
+  .product-details .add-to-cart {
+    height: 38px;
+  }
+}
+@media (max-width: 991px) {
+  .product-details .right-side h3 {
+    font-size: 22px;
+    height: 52.78px;
+  }
+  .product-details .right-side h4 {
+    font-size: 21px;
+    height: 25.19px;
+  }
+  .product-details .desc {
+    height: 260.19px;
+  }
+  .product-details .desc h5 {
+    font-size: 18.5px;
+  }
+  .product-details .desc p {
+    font-size: 13px;
+  }
+  .product-details .btn-primary {
+    /* padding: 4px 10px; */
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+  }
+  .product-details .add-to-cart .product-quantity {
+    width: 43px;
+    height: 31px;
+  }
+  .product-details .add-to-cart {
+    height: 34px;
+  }
+}
 .product-details .btn-primary {
   background-color: var(--mainColor);
   border: 1px solid transparent;
@@ -43,4 +100,22 @@
 .product-details .btn-primary:hover {
   background-color: var(--hoverColor);
   border-color: var(--hoverColor);
+}
+@media (max-width: 767px) {
+  .product-details {
+    height: auto;
+    padding: 1.5px;
+  }
+  .product-details .left-side {
+    margin-bottom: 15px;
+  }
+  .product-details .right-side h3 {
+    font-size: 20px;
+  }
+  .product-details .right-side h4 {
+    font-size: 18px;
+  }
+  .product-details .desc {
+    height: auto;
+  }
 }

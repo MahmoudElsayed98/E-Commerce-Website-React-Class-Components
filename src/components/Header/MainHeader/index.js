@@ -14,8 +14,9 @@ import Icons from "./Icons";
 import { FaBars } from "react-icons/fa";
 import "./index.css";
 
-export class MainHeader extends Component {
+class MainHeader extends Component {
   render() {
+    const { removeProductFromCart } = this.props;
     return (
       <Navbar bg="light" expand="lg">
         <Container>
@@ -53,7 +54,7 @@ export class MainHeader extends Component {
                   <FaSearch />
                 </Button>
               </Form>
-              <Icons />
+              <Icons removeProductFromCart={removeProductFromCart} />
             </Nav>
           </Navbar.Collapse>
         </Container>

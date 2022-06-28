@@ -1,12 +1,14 @@
 .navbar {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   color: var(--mainColor);
-  box-shadow: 0 1.5px 2.5px 0px var(--thirdColor);
+  box-shadow: 0px 7.5px 7.5px 0px #00000007;
 }
 @media (max-width: 991px) {
   .navbar {
     background-color: unset;
+    position: relative;
+    z-index: 6;
   }
 }
 .navbar-light .navbar-brand {
@@ -19,7 +21,7 @@
   box-shadow: none;
 }
 .navbar-light .navbar-toggler svg {
-  color: var(--secondaryColor);
+  color: var(--mainColor);
   font-size: 35px;
 }
 .search:hover {
@@ -80,7 +82,7 @@
     position: relative;
   }
   .navbar-expand-lg .navbar-nav {
-    background-color: var(--secondaryColor);
+    background-color: var(--mainColor);
     border-radius: 5px;
     padding: 12.5px;
     /* position: relative;

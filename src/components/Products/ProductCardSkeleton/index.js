@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Skeleton from "react-loading-skeleton";
 import "./index.css";
 
-export class CardSkeleton extends Component {
+class productCardSkeleton extends Component {
   render() {
     const { skeletonCardsNo } = this.props;
     return Array(skeletonCardsNo)
@@ -28,4 +28,4 @@ export class CardSkeleton extends Component {
   }
 }
 
-export default CardSkeleton;
+export default productCardSkeleton;

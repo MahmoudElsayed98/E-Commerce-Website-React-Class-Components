@@ -3,36 +3,38 @@ import "react-loading-skeleton/dist/skeleton.css";
 import React, { Component } from "react";
 import "./index.css";
 // import Loading from "./Loading";
-import CardSkeleton from "./CardSkeleton";
 import ProductCard from "./ProductCard";
-export class Products extends Component {
+import ProductCardSkeleton from "./ProductCardSkeleton";
+class Products extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       products: [],
       error: "",
-      loading: false,
+      productsLoading: false,
     };
   }
   enableLoading() {
-    if (this.state.loading === true) {
+    if (this.state.productsLoading === true) {
       this.setState({
-        loading: false,
+        productsLoading: false,
       });
     }
   }
   componentDidMount() {
     // console.log("componentDidMount");
+    // setTimeout(() => {
     this.fetchApiData();
+    // }, 3000);
   }
   componentDidUpdate(prevProps) {
     if (prevProps.category !== this.props.category) {
       this.enableLoading();
       // console.log("componentDidUpdate");
-      setTimeout(() => {
-        this.fetchApiData();
-      }, 3000);
+      // setTimeout(() => {
+      this.fetchApiData();
+      // }, 3000);
     }
   }
   fetchApiData() {
@@ -41,7 +43,7 @@ export class Products extends Component {
       .then((res) => {
         this.setState({
           products: res.data,
-          loading: true,
+          productsLoading: true,
         });
       })
       .catch((err) => {
@@ -51,8 +53,8 @@ export class Products extends Component {
       });
   }
   render() {
-    const { products, loading } = this.state;
-    const { skeletonCardsNo } = this.props;
+    const { products, productsLoading } = this.state;
+    const { skeletonCardsNo, addToCart } = this.props;
     // console.log("products");
     // console.log(products);
     // console.log("loading", loading);
@@ -60,24 +62,16 @@ export class Products extends Component {
       <>
         <div className="products py-4">
           <div className="container">
-            <div className="content">
-              {loading ? (
-                products.map((e) => {
+            <div className="content d-flex w-100 flex-wrap justify-content-center justify-content-md-start">
+              {productsLoading ? (
+                products.map((p) => {
                   return (
-                    <ProductCard
-                      key={e.id}
-                      id={e.id}
-                      title={e.title}
-                      image={e.image}
-                      category={e.category}
-                      price={e.price}
-                      ratingRate={e.rating.rate}
-                    />
+                    <ProductCard product={p} key={p.id} addToCart={addToCart} />
                   );
                 })
               ) : (
                 // <Loading />
-                <CardSkeleton skeletonCardsNo={skeletonCardsNo} />
+                <ProductCardSkeleton skeletonCardsNo={skeletonCardsNo} />
               )}
             </div>
           </div>

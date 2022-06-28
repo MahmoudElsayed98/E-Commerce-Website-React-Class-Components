@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import "./index.css";
 
-export class ProductsHeader extends Component {
+class ProductsHeader extends Component {
   // constructor(props) {
   //   super(props);
   //   this.productsRef = createRef();
@@ -30,9 +30,9 @@ export class ProductsHeader extends Component {
   render() {
     return (
       <>
-        <div className="lower-links">
+        <div className="categories-links">
           <nav
-            className="container list-unstyled mb-0 d-flex fw-bold flex-column flex-md-row"
+            className="container list-unstyled mb-0 d-flex flex-wrap justify-content-center text-center text-md-start fw-bold"
             ref={this.productsRef}
           >
             <NavLink to="all" className="text-light text-decoration-none">

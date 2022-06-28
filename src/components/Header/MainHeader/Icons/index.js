@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { FaUserCircle } from "react-icons/fa";
-import { RiEditCircleFill } from "react-icons/ri";
+import { RiEditCircleFill, RiCloseFill } from "react-icons/ri";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { BiGitCompare } from "react-icons/bi";
 import "./index.css";
+import { CartProducts, ProductQuantityContext } from "../../../../App";
+import { Link } from "react-router-dom";
 
-export class Icons extends Component {
+class Icons extends Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +18,7 @@ export class Icons extends Component {
   }
   render() {
     const { itemsNumber, itemPrice } = this.state;
-
+    const { removeProductFromCart } = this.props;
     return (
       <>
         <div className="icons d-flex flex-column flex-lg-row align-items-center">
@@ -38,13 +40,71 @@ export class Icons extends Component {
           </div>
         </div>
         <div
-          className="cart d-flex justify-content-center align-items-center"
+          className="cart d-flex align-items-center justify-content-center"
           role="button"
+          onClick={this.openShoppingCart}
         >
-          <p>
-            {itemsNumber} item(s) - $ {itemPrice.toFixed(2)}
-          </p>
-          <AiOutlineShoppingCart className="fs-1" />
+          <span className="d-flex justify-content-center align-items-center">
+            <p>
+              {itemsNumber} item(s) - $ {itemPrice.toFixed(2)}
+            </p>
+            <AiOutlineShoppingCart className="fs-1" />
+          </span>
+          <div className="cart-content rounded text-center">
+            <div className="content p-3 d-flex flex-column">
+              <CartProducts.Consumer>
+                {(cartProducts) => (
+                  <ProductQuantityContext.Consumer>
+                    {() =>
+                      cartProducts.length === 0 ? (
+                        <span className="d-block">
+                          <p className="mb-0">Your shopping cart is empty!</p>
+                        </span>
+                      ) : (
+                        cartProducts.map((e) => {
+                          return (
+                            <div
+                              key={e.id}
+                              className="cart-product py-2 d-flex align-items-center"
+                            >
+                              <Link
+                                to={`/E-Commerce-Website-React-Class-Components/products/${e.id}`}
+                                className="w-25 d-flex align-items-center justify-content-center"
+                              >
+                                <img
+                                  src={e.image}
+                                  className="img-fluid w-50"
+                                  alt={e.title}
+                                />
+                              </Link>
+                              <Link
+                                to={`/E-Commerce-Website-React-Class-Components/products/${e.id}`}
+                                className="w-25 text-light d-flex align-items-center"
+                              >
+                                {e.title}
+                              </Link>
+                              <div className="d-flex align-items-center justify-content-between w-50">
+                                <p className="w-25 text-center mb-0">
+                                  x {e.qty}
+                                </p>
+                                <p className="w-25 text-center mb-0">
+                                  ${e.price}
+                                </p>
+                                <RiCloseFill
+                                  className="text-light w-25"
+                                  onClick={() => removeProductFromCart(e)}
+                                />
+                              </div>
+                            </div>
+                          );
+                        })
+                      )
+                    }
+                  </ProductQuantityContext.Consumer>
+                )}
+              </CartProducts.Consumer>
+            </div>
+          </div>
         </div>
       </>
     );

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import MainHeader from "../Header/MainHeader";
 import UpperHeader from "./UpperHeader";
-export class Header extends Component {
+class Header extends Component {
   render() {
+    const { removeProductFromCart } = this.props;
     return (
       <header>
         <UpperHeader />
-        <MainHeader />
+        <MainHeader removeProductFromCart={removeProductFromCart} />
       </header>
     );
   }

@@ -5,10 +5,61 @@
   cursor: pointer;
 }
 .sign-in p,
-.cart p {
+.cart > span p {
   font-size: 14px;
   margin-bottom: 0;
 }
+.cart {
+  position: relative;
+}
+.cart span::after {
+  content: "";
+  position: absolute;
+  top: 42.5px;
+  right: 10px;
+  border: 10px solid;
+  border-color: transparent transparent var(--mainColor) transparent;
+  transition: 0.5s;
+  display: none;
+}
+.cart .cart-content {
+  position: absolute;
+  top: 62.5px;
+  right: -2.5px;
+  width: 600px;
+  max-height: 300px;
+  background-color: var(--mainColor);
+  color: var(--thirdColor);
+  display: none;
+  transition: 0.5s;
+  z-index: 1;
+  overflow-y: auto;
+}
+.cart .cart-product:not(:first-of-type) {
+  border-top: 2px solid var(--hoverColor);
+}
+.cart .cart-product a {
+  height: 120px;
+}
+.cart .cart-content::-webkit-scrollbar {
+  width: 13px;
+}
+.cart .cart-content::-webkit-scrollbar-track {
+  background: var(--mainColor);
+}
+.cart .cart-content::-webkit-scrollbar-thumb {
+  background: var(--hoverColor);
+}
+.cart .cart-content::-webkit-scrollbar-thumb:hover {
+  background: var(--hoverColor);
+}
+.cart:hover > .cart-content,
+.cart:hover > span::after {
+  display: block;
+}
+/* .cart .cart-content .content {
+  position: relative;
+} */
 .sign-in svg,
 .icons + .cart svg {
   color: var(--mainColor);

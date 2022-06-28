@@ -1,10 +1,16 @@
-.lower-links {
+.categories-links {
   background-color: var(--secondaryColor);
 }
-.lower-links nav .active {
+.categories-links nav .active {
   background-color: var(--mainColor);
 }
-.lower-links nav a {
+.categories-links nav a {
   display: block;
   padding: 12.5px;
+}
+@media (max-width: 767px) {
+  .categories-links nav a {
+    padding: 7px;
+    width: calc(100% / 2);
+  }
 }

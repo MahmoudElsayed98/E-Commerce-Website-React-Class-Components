@@ -4,7 +4,7 @@ import image from "../../assets/images/glossy-e-commerce.png";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
-export class Home extends Component {
+class Home extends Component {
   render() {
     return (
       <div className="home">

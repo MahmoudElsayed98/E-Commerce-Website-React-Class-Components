@@ -5,7 +5,7 @@ import { BsShop } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import "./index.css";
 
-export class UpperHeader extends Component {
+class UpperHeader extends Component {
   render() {
     return (
       <nav className="links">
