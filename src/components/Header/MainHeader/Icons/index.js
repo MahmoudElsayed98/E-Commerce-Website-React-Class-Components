@@ -4,20 +4,15 @@ import { RiEditCircleFill, RiCloseFill } from "react-icons/ri";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { BiGitCompare } from "react-icons/bi";
 import "./index.css";
-import { CartProducts, ProductQuantityContext } from "../../../../App";
+import {
+  CartProducts,
+  ProductQuantityContext,
+  CartProductsTotalSalaryContext,
+} from "../../../../App";
 import { Link } from "react-router-dom";
 
 class Icons extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      itemsNumber: 0,
-      itemPrice: 0,
-    };
-  }
   render() {
-    const { itemsNumber, itemPrice } = this.state;
     const { removeProductFromCart } = this.props;
     return (
       <>
@@ -46,18 +41,28 @@ class Icons extends Component {
         >
           <span className="d-flex justify-content-center align-items-center">
             <p>
-              {itemsNumber} item(s) - $ {itemPrice.toFixed(2)}
+              <CartProducts.Consumer>
+                {(cartProducts) => (
+                  <CartProductsTotalSalaryContext.Consumer>
+                    {(cartProductsTotalSalary) =>
+                      cartProducts.length +
+                      " Item(s) - $" +
+                      cartProductsTotalSalary
+                    }
+                  </CartProductsTotalSalaryContext.Consumer>
+                )}
+              </CartProducts.Consumer>
             </p>
             <AiOutlineShoppingCart className="fs-1" />
           </span>
           <div className="cart-content rounded text-center">
-            <div className="content p-3 d-flex flex-column">
+            <div className="content d-flex flex-column">
               <CartProducts.Consumer>
                 {(cartProducts) => (
                   <ProductQuantityContext.Consumer>
                     {() =>
                       cartProducts.length === 0 ? (
-                        <span className="d-block">
+                        <span className="d-block p-3">
                           <p className="mb-0">Your shopping cart is empty!</p>
                         </span>
                       ) : (
@@ -71,15 +76,17 @@ class Icons extends Component {
                                 to={`/E-Commerce-Website-React-Class-Components/products/${e.id}`}
                                 className="w-25 d-flex align-items-center justify-content-center"
                               >
-                                <img
-                                  src={e.image}
-                                  className="img-fluid w-50"
-                                  alt={e.title}
-                                />
+                                <div className="image w-50 p-2 rounded">
+                                  <img
+                                    src={e.image}
+                                    className="img-fluid"
+                                    alt={e.title}
+                                  />
+                                </div>
                               </Link>
                               <Link
                                 to={`/E-Commerce-Website-React-Class-Components/products/${e.id}`}
-                                className="w-25 text-light d-flex align-items-center"
+                                className="w-25 text-light d-flex align-items-center title"
                               >
                                 {e.title}
                               </Link>
@@ -91,7 +98,7 @@ class Icons extends Component {
                                   ${e.price}
                                 </p>
                                 <RiCloseFill
-                                  className="text-light w-25"
+                                  className="text-light w-25 fs-5"
                                   onClick={() => removeProductFromCart(e)}
                                 />
                               </div>

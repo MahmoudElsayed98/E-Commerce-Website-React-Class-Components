@@ -21,3 +21,17 @@ body {
   --thirdColor: #fff;
   --mainBorder: 1px solid #dee2e6;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--thirdColor);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--secondaryColor);
+  border-radius: 100px;
+}
