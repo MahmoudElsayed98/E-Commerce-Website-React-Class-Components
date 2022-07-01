@@ -60,7 +60,7 @@ class Products extends Component {
     // console.log("loading", loading);
     return (
       <>
-        <div className="products py-4">
+        <div className="products py-3">
           <div className="container">
             <div className="content d-flex w-100 flex-wrap justify-content-center justify-content-md-start">
               {productsLoading ? (

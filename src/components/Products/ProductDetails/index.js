@@ -26,20 +26,20 @@ class ProductDetails extends Component {
           <div className="row d-flex justify-content-center align-items-center">
             {productsDetailsLoading ? (
               <>
-                <div className="left-side col-7 col-md-5 col-lg-4 col-xl-3 me-lg-4">
+                <div className="left-side col-7 col-md-5 col-lg-4 col-xl-4 me-lg-4">
                   <div className="image text-center">
                     <img src={product.image} alt={product.title} />
                   </div>
                 </div>
-                <div className="right-side col-12 col-md-7 col-xl-8 text-center text-md-start">
-                  <h3 className="fw-bold mb-0 d-flex justify-content-center justify-content-md-start align-items-center">
+                <div className="right-side col-12 col-md-7 col-xl-7 text-center text-md-start ">
+                  <h3 className="fw-bold mb-1 mb-md-0 d-flex justify-content-center justify-content-md-start align-items-center">
                     {product.title}
                   </h3>
-                  <h4 className="mb-0 mt-md-1 mt-xl-2 d-flex justify-content-center justify-content-md-start align-items-center">
+                  <h4 className="mb-0 mt-md-1 mt-lg-2 d-flex justify-content-center justify-content-md-start align-items-center">
                     {"$"}
                     {product.price}
                   </h4>
-                  <div className="add-to-cart d-flex justify-content-center justify-content-md-start align-items-center my-1 mt-md-2 mt-xl-3 mb-md-0">
+                  <div className="add-to-cart d-flex justify-content-center justify-content-md-start align-items-center my-1 mt-md-1 mt-lg-2 mb-md-0">
                     <div className="product-quantity d-flex align-items-center rounded me-2">
                       <span className="d-flex justify-content-center align-items-center w-50 h-100 border-end">
                         {productQuantity}
@@ -64,7 +64,7 @@ class ProductDetails extends Component {
                       Add To Cart
                     </button>
                   </div>
-                  <div className="desc mt-md-2 mt-xl-3 mb-0">
+                  <div className="desc mt-md-1 mt-lg-2 mb-0">
                     <h5 className="mb-1 mt-2 mt-md-0 mb-lg-1 fw-bold d-flex justify-content-center justify-content-md-start align-items-center">
                       <GoPrimitiveDot className="fs-6 me-1" /> Product Details{" "}
                       <GoPrimitiveDot className="fs-6 ms-1" />

@@ -29,7 +29,7 @@ class ProductCard extends Component {
               {product.title}
             </Link>
           </h6>
-          <p className="text-capitalize mb-0 d-flex flex-column justify-content-center align-items-center">
+          <p className="text-capitalize mb-0 d-flex flex-column justify-content-center align-items-center pb-1">
             {"$"}
             {product.price} <br />
             {product.category} <br />

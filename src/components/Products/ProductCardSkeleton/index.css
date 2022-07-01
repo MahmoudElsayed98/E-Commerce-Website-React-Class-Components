@@ -1,15 +1,16 @@
 .card-skeleton {
-  width: calc((100% - 72px) / 4);
-  height: 602.42px;
+  width: calc((100% - 45px) / 4);
+  height: 571.65px;
 }
 @media (max-width: 1199px) {
   .card-skeleton {
-    width: calc((100% - 48px) / 3);
+    width: calc((100% - 30px) / 3);
+    height: 547.3px;
   }
 }
 @media (max-width: 991px) {
   .card-skeleton {
-    width: calc((100% - 24px) / 2);
+    width: calc((100% - 15px) / 2);
   }
 }
 @media (max-width: 767px) {

@@ -72,11 +72,10 @@ class App extends Component {
           cartProductsTotalSalary: product.price,
         });
       } else {
-        const productClone = product;
+        let productClone = { ...product };
         productClone.price *= productQuantity;
-        console.log("product", product);
-        console.log("productClone", productClone);
         cartProductsClone.push({ ...productClone, qty: productQuantity });
+        this.calculateCartProductsTotalPrice();
       }
     }
     this.setState({
