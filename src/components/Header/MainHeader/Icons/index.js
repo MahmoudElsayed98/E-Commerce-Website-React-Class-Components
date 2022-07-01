@@ -47,7 +47,7 @@ class Icons extends Component {
                     {(cartProductsTotalSalary) =>
                       cartProducts.length +
                       " Item(s) - $" +
-                      cartProductsTotalSalary
+                      cartProductsTotalSalary.toFixed(2)
                     }
                   </CartProductsTotalSalaryContext.Consumer>
                 )}
@@ -95,7 +95,7 @@ class Icons extends Component {
                                   x {e.qty}
                                 </p>
                                 <p className="w-25 text-center mb-0">
-                                  ${e.price}
+                                  ${e.price.toFixed(2)}
                                 </p>
                                 <RiCloseFill
                                   className="text-light w-25 fs-5"

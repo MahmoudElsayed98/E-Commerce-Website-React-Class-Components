@@ -1,5 +1,5 @@
 .product-card {
-  height: 575px;
+  height: 602.43px;
   width: calc((100% - 72px) / 4);
 }
 .product-card .image {
@@ -58,7 +58,6 @@
   }
 }
 .product-card .text {
-  height: 177px;
   border-right: var(--mainBorder);
   border-left: var(--mainBorder);
   border-top: var(--mainBorder);
@@ -68,7 +67,7 @@
   line-height: 1.6;
 }
 .product-card .text h6 a {
-  height: 85px;
+  height: 112.43px;
   padding-top: 10px;
   color: #212529;
 }

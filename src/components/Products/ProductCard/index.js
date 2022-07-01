@@ -34,7 +34,7 @@ class ProductCard extends Component {
             {product.price} <br />
             {product.category} <br />
             <span className="d-flex justify-content-center align-items-center gap-1">
-              {product.ratingRate} <AiFillStar />
+              {product.rating.rate} <AiFillStar />
             </span>
           </p>
         </div>

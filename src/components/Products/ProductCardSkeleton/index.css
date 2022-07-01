@@ -1,6 +1,6 @@
 .card-skeleton {
   width: calc((100% - 72px) / 4);
-  height: 575px;
+  height: 602.42px;
 }
 @media (max-width: 1199px) {
   .card-skeleton {
@@ -23,7 +23,7 @@
 }
 .card-skeleton .text {
   border-top: var(--mainBorder);
-  height: 177px;
+  height: 205.52px;
 }
 .card-skeleton .text .heading {
   height: 85px;

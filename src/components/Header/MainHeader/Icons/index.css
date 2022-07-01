@@ -27,7 +27,7 @@
   top: 62.5px;
   right: -2.5px;
   width: 600px;
-  max-height: 300px;
+  max-height: 360px;
   background-color: var(--mainColor);
   color: var(--thirdColor);
   display: none;
@@ -39,7 +39,7 @@
   border-top: 2px solid var(--hoverColor);
 }
 .cart .cart-product a {
-  height: 127px;
+  height: 160px;
 }
 .cart .cart-product a .image {
   background-color: #fff;

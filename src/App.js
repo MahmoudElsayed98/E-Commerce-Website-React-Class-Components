@@ -53,20 +53,31 @@ class App extends Component {
     }
   };
   addToCart = (product) => {
-    const { cartProducts } = this.state;
+    const { cartProducts, productQuantity } = this.state;
     const cartProductsClone = cartProducts;
     let alreadyAdded = false;
     cartProductsClone.forEach((p) => {
       if (p.id === product.id) {
         alreadyAdded = true;
         p.qty++;
+        console.log(p.qty);
+        p.price = p.qty * product.price;
+        this.calculateCartProductsTotalPrice();
       }
     });
     if (alreadyAdded === false) {
-      cartProductsClone.push({ ...product, qty: 1 });
-      this.setState({
-        cartProductsTotalSalary: product.salary,
-      });
+      if (productQuantity === 1) {
+        cartProductsClone.push({ ...product, qty: 1 });
+        this.setState({
+          cartProductsTotalSalary: product.price,
+        });
+      } else {
+        const productClone = product;
+        productClone.price *= productQuantity;
+        console.log("product", product);
+        console.log("productClone", productClone);
+        cartProductsClone.push({ ...productClone, qty: productQuantity });
+      }
     }
     this.setState({
       cartProducts: cartProductsClone,
@@ -79,7 +90,7 @@ class App extends Component {
       (p) => p.id !== product.id
     );
     const newCartProductsTotalSalary =
-      this.state.cartProductsTotalSalary - product.salary;
+      this.state.cartProductsTotalSalary - product.price;
     this.setState({
       cartProducts: newCartProducts,
       cartProductsTotalSalary: newCartProductsTotalSalary,
@@ -89,18 +100,19 @@ class App extends Component {
     if (
       prevState.cartProductsTotalSalary !== this.state.cartProductsTotalSalary
     ) {
-      let { cartProducts } = this.state;
-      let cartProductsClone = cartProducts;
-      let totalSalary = cartProductsClone.reduce((acc, cur) => {
-        return acc + cur.price;
-      }, 0);
-      console.log(this.state.cartProductsTotalSalary);
-      console.log(totalSalary);
-      this.setState({
-        cartProductsTotalSalary: totalSalary,
-      });
+      this.calculateCartProductsTotalPrice();
     }
   }
+  calculateCartProductsTotalPrice = () => {
+    let { cartProducts } = this.state;
+    let cartProductsClone = cartProducts;
+    let totalSalary = cartProductsClone.reduce((acc, cur) => {
+      return acc + cur.price;
+    }, 0);
+    this.setState({
+      cartProductsTotalSalary: totalSalary,
+    });
+  };
   render() {
     const {
       product,
