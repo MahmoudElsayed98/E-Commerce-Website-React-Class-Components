@@ -10,6 +10,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import ProductDetails from "./components/Products/ProductDetails";
 import axios from "axios";
+import Footer from "./components/Footer";
 
 export const CartProducts = createContext();
 export const ProductQuantityContext = createContext();
@@ -28,6 +29,12 @@ class App extends Component {
     };
   }
   fetchApiProductDetails = (id) => {
+    const { ProductQuantity } = this.state;
+    if (ProductQuantity !== 1) {
+      this.setState({
+        productQuantity: 1,
+      });
+    }
     if (this.state.productsDetailsLoading === true) {
       this.setState({
         productsDetailsLoading: false,
@@ -59,24 +66,31 @@ class App extends Component {
     cartProductsClone.forEach((p) => {
       if (p.id === product.id) {
         alreadyAdded = true;
-        p.qty++;
-        console.log(p.qty);
+        // if (productQuantity === 1) {
+        // p.qty++;
+        p.qty += productQuantity;
         p.price = p.qty * product.price;
         this.calculateCartProductsTotalPrice();
+        // } else {
+        // p.price = p.qty * product.price;
+        // this.calculateCartProductsTotalPrice();
+        this.setState({
+          productQuantity: 1,
+        });
+        // }
       }
     });
     if (alreadyAdded === false) {
-      if (productQuantity === 1) {
-        cartProductsClone.push({ ...product, qty: 1 });
-        this.setState({
-          cartProductsTotalSalary: product.price,
-        });
-      } else {
-        let productClone = { ...product };
-        productClone.price *= productQuantity;
-        cartProductsClone.push({ ...productClone, qty: productQuantity });
-        this.calculateCartProductsTotalPrice();
-      }
+      let productClone = { ...product };
+      productClone.price *= productQuantity;
+      cartProductsClone.push({ ...productClone, qty: productQuantity });
+      this.setState({
+        cartProductsTotalSalary: productClone.price,
+      });
+      this.calculateCartProductsTotalPrice();
+      this.setState({
+        productQuantity: 1,
+      });
     }
     this.setState({
       cartProducts: cartProductsClone,
@@ -223,6 +237,7 @@ class App extends Component {
                 />
                 <Route path="*" element={<NotFound />} />
               </Routes>
+              <Footer />
             </div>
           </CartProductsTotalSalaryContext.Provider>
         </ProductQuantityContext.Provider>

@@ -54,12 +54,9 @@
 .cart .cart-content::-webkit-scrollbar-track {
   background: var(--mainColor);
 }
-/* .cart .cart-content::-webkit-scrollbar-thumb {
-  background: var(--hoverColor);
-} */
-/* .cart .cart-content::-webkit-scrollbar-thumb:hover {
-  background: var(--hoverColor);
-} */
+.cart .cart-content::-webkit-scrollbar-thumb {
+  background: var(--secondaryColor);
+}
 @media (min-width: 992px) {
   .cart:hover > .cart-content,
   .cart:hover > span::after {

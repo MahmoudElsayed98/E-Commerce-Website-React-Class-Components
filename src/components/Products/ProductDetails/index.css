@@ -1,5 +1,6 @@
 .product-details {
   height: calc(100vh - (30.5px + 81.47px + 49px));
+  position: relative;
 }
 .product-details::after {
   content: "";
