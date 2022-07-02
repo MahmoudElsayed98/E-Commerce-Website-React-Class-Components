@@ -11,8 +11,9 @@ import Contact from "./components/Contact";
 import ProductDetails from "./components/Products/ProductDetails";
 import axios from "axios";
 import Footer from "./components/Footer";
+import Cart from "./components/Cart/Cart";
 
-export const CartProducts = createContext();
+export const CartProductsContext = createContext();
 export const ProductQuantityContext = createContext();
 export const CartProductsTotalSalaryContext = createContext();
 
@@ -23,6 +24,7 @@ class App extends Component {
     this.state = {
       cartProducts: [],
       productQuantity: 1,
+      deliveryCost: 50,
       cartProductsTotalSalary: 0,
       product: {},
       productsDetailsLoading: false,
@@ -133,9 +135,10 @@ class App extends Component {
       productsDetailsLoading,
       cartProducts,
       cartProductsTotalSalary,
+      deliveryCost,
     } = this.state;
     return (
-      <CartProducts.Provider value={cartProducts}>
+      <CartProductsContext.Provider value={cartProducts}>
         <ProductQuantityContext.Provider value={productQuantity}>
           <CartProductsTotalSalaryContext.Provider
             value={cartProductsTotalSalary}
@@ -146,6 +149,15 @@ class App extends Component {
                 <Route
                   path="/E-Commerce-Website-React-Class-Components/"
                   element={<Home />}
+                />
+                <Route
+                  path="/E-Commerce-Website-React-Class-Components/cart"
+                  element={
+                    <Cart
+                      removeProductFromCart={this.removeProductFromCart}
+                      deliveryCost={deliveryCost}
+                    />
+                  }
                 />
                 <Route
                   path="/E-Commerce-Website-React-Class-Components/products"
@@ -241,7 +253,7 @@ class App extends Component {
             </div>
           </CartProductsTotalSalaryContext.Provider>
         </ProductQuantityContext.Provider>
-      </CartProducts.Provider>
+      </CartProductsContext.Provider>
     );
   }
 }

@@ -12,6 +12,9 @@
 .cart {
   position: relative;
 }
+.cart span p {
+  color: var(--mainColor);
+}
 .cart span::after {
   content: "";
   position: absolute;
@@ -26,7 +29,7 @@
   position: absolute;
   top: 62.5px;
   right: -2.5px;
-  width: 600px;
+  width: 550px;
   max-height: 360px;
   background-color: var(--mainColor);
   color: var(--thirdColor);
@@ -35,20 +38,20 @@
   z-index: 1;
   overflow-y: auto;
 }
-.cart .cart-product:not(:first-of-type) {
+.cart .cart-item:not(:first-of-type) {
   border-top: 2px solid var(--hoverColor);
 }
-.cart .cart-product a {
+.cart .cart-item a {
   height: 160px;
 }
-.cart .cart-product a .image {
+.cart .cart-item a .image {
   background-color: #fff;
 }
-.cart .cart-product .title {
+.cart .cart-item .title {
   text-decoration: none;
   transition: 0.5s;
 }
-.cart .cart-product .title:hover {
+.cart .cart-item .title:hover {
   text-decoration: underline;
 }
 .cart .cart-content::-webkit-scrollbar-track {

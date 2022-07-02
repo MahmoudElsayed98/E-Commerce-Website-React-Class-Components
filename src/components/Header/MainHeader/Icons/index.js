@@ -5,7 +5,7 @@ import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { BiGitCompare } from "react-icons/bi";
 import "./index.css";
 import {
-  CartProducts,
+  CartProductsContext,
   ProductQuantityContext,
   CartProductsTotalSalaryContext,
 } from "../../../../App";
@@ -37,27 +37,31 @@ class Icons extends Component {
         <div
           className="cart d-flex align-items-center justify-content-center"
           role="button"
-          onClick={this.openShoppingCart}
         >
-          <span className="d-flex justify-content-center align-items-center">
-            <p>
-              <CartProducts.Consumer>
-                {(cartProducts) => (
-                  <CartProductsTotalSalaryContext.Consumer>
-                    {(cartProductsTotalSalary) =>
-                      cartProducts.length +
-                      " Item(s) - $" +
-                      cartProductsTotalSalary.toFixed(2)
-                    }
-                  </CartProductsTotalSalaryContext.Consumer>
-                )}
-              </CartProducts.Consumer>
-            </p>
-            <AiOutlineShoppingCart className="fs-1" />
-          </span>
+          <Link
+            to="/E-Commerce-Website-React-Class-Components/cart"
+            className="text-decoration-none"
+          >
+            <span className="d-flex justify-content-center align-items-center">
+              <p className="mb-0">
+                <CartProductsContext.Consumer>
+                  {(cartProducts) => (
+                    <CartProductsTotalSalaryContext.Consumer>
+                      {(cartProductsTotalSalary) =>
+                        cartProducts.length +
+                        " Item(s) - $" +
+                        cartProductsTotalSalary.toFixed(2)
+                      }
+                    </CartProductsTotalSalaryContext.Consumer>
+                  )}
+                </CartProductsContext.Consumer>
+              </p>
+              <AiOutlineShoppingCart className="fs-1" />
+            </span>
+          </Link>
           <div className="cart-content rounded text-center">
             <div className="content d-flex flex-column">
-              <CartProducts.Consumer>
+              <CartProductsContext.Consumer>
                 {(cartProducts) => (
                   <ProductQuantityContext.Consumer>
                     {() =>
@@ -70,11 +74,11 @@ class Icons extends Component {
                           return (
                             <div
                               key={e.id}
-                              className="cart-product py-2 d-flex align-items-center"
+                              className="cart-item py-2 d-flex align-items-center"
                             >
                               <Link
                                 to={`/E-Commerce-Website-React-Class-Components/products/${e.id}`}
-                                className="w-25 d-flex align-items-center justify-content-center"
+                                className="d-flex align-items-center justify-content-center"
                               >
                                 <div className="image w-50 p-2 rounded">
                                   <img
@@ -86,21 +90,21 @@ class Icons extends Component {
                               </Link>
                               <Link
                                 to={`/E-Commerce-Website-React-Class-Components/products/${e.id}`}
-                                className="w-25 text-light d-flex align-items-center title"
+                                className="text-light d-flex align-items-center title"
                               >
                                 {e.title}
                               </Link>
-                              <div className="d-flex align-items-center justify-content-between w-50">
-                                <p className="w-25 text-center mb-0">
-                                  x {e.qty}
-                                </p>
-                                <p className="w-25 text-center mb-0">
+                              <div className="cart-details d-flex align-items-center justify-content-evenly">
+                                <p className="text-center mb-0">x {e.qty}</p>
+                                <p className="text-center mb-0">
                                   ${e.price.toFixed(2)}
                                 </p>
-                                <RiCloseFill
-                                  className="text-light w-25 fs-5"
+                                <button
+                                  className="btn btn-primary p-0 close rounded-circle d-flex justify-content-center align-items-center"
                                   onClick={() => removeProductFromCart(e)}
-                                />
+                                >
+                                  <RiCloseFill className="fs-5 text-light" />
+                                </button>
                               </div>
                             </div>
                           );
@@ -109,7 +113,7 @@ class Icons extends Component {
                     }
                   </ProductQuantityContext.Consumer>
                 )}
-              </CartProducts.Consumer>
+              </CartProductsContext.Consumer>
             </div>
           </div>
         </div>
