@@ -1,5 +1,5 @@
 .contact {
-  height: calc(100vh - 168.97px);
+  height: calc(100vh - (32px + 81.47px + 57px));
   position: relative;
 }
 .contact::after {

@@ -18,6 +18,18 @@
   color: var(--mainColor);
   transition: var(--mainDuration);
 }
+.cart a span {
+  display: flex;
+}
+.cart a span > .changed {
+  width: 15px;
+  top: 2.5px;
+  height: 15px;
+  background-color: red;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  display: none;
+}
 .cart:hover a span p,
 .cart:hover a span svg {
   color: var(--secondaryColor);
@@ -69,13 +81,10 @@
 }
 @media (min-width: 992px) {
   .cart:hover > .cart-content,
-  .cart:hover > span::after {
+  .cart:hover > a span::after {
     display: block;
   }
 }
-/* .cart .cart-content .content {
-  position: relative;
-} */
 .sign-in svg,
 .icons + .cart svg {
   color: var(--mainColor);
@@ -92,7 +101,7 @@
   .cart,
   .sign-in svg,
   .icons + .cart svg,
-  .cart span p {
+  .cart a span p {
     color: var(--thirdColor);
   }
 }

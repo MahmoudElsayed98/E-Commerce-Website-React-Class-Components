@@ -1,5 +1,5 @@
 .products {
-  min-height: calc(100vh - (30.5px + 81.47px + 49px));
+  min-height: calc(100vh - (32px + 81.47px + 49px));
   position: relative;
 }
 .products::after {

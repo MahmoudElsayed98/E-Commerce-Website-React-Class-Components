@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { FaEnvelope, FaHome, FaUserCircle } from "react-icons/fa";
+import { FaEnvelope, FaHome } from "react-icons/fa";
+import { FcAbout } from "react-icons/fc";
 import { MdDeliveryDining } from "react-icons/md";
-import { BsShop } from "react-icons/bs";
+import { IoStorefrontSharp } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import "./index.css";
 
@@ -22,14 +23,14 @@ class UpperHeader extends Component {
               to="/E-Commerce-Website-React-Class-Components/products"
               className="text-decoration-none d-flex justify-content-center align-items-center me-2"
             >
-              <BsShop className="me-1" />
+              <IoStorefrontSharp className="me-1" />
               Shop
             </NavLink>
             <NavLink
               to="/E-Commerce-Website-React-Class-Components/about"
               className="text-decoration-none d-flex justify-content-center align-items-center me-2"
             >
-              <FaUserCircle className="me-1" />
+              <FcAbout className="me-1" />
               About Us
             </NavLink>
             <NavLink

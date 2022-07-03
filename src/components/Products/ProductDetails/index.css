@@ -1,5 +1,6 @@
 .product-details {
-  height: calc(100vh - (30.5px + 81.47px + 49px));
+  height: auto;
+  min-height: calc(100vh - (32px + 81.47px + 49px + 57px));
   position: relative;
 }
 .product-details::after {
@@ -105,6 +106,7 @@
 @media (max-width: 767px) {
   .product-details {
     height: auto;
+    min-height: calc(100vh - (32px + 81.47px + 114px + 57px));
     padding: 1.5px;
   }
   .product-details .left-side {

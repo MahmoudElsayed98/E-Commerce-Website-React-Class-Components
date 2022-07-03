@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { FaUserCircle } from "react-icons/fa";
-import { RiEditCircleFill, RiCloseFill } from "react-icons/ri";
-import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { FaUserCircle, FaUserEdit } from "react-icons/fa";
+import { RiCloseFill } from "react-icons/ri";
+import { AiOutlineHeart } from "react-icons/ai";
 import { BiGitCompare } from "react-icons/bi";
+import { TiShoppingCart } from "react-icons/ti";
 import "./index.css";
 import {
   CartProductsContext,
@@ -22,7 +23,7 @@ class Icons extends Component {
             <p>Sign In</p>
           </div>
           <div className="sign-in d-flex flex-column justify-content-center align-items-center">
-            <RiEditCircleFill className="fs-3" />
+            <FaUserEdit className="fs-3" />
             <p>Register</p>
           </div>
           <div className="sign-in d-flex flex-column justify-content-center align-items-center">
@@ -42,22 +43,25 @@ class Icons extends Component {
             to="/E-Commerce-Website-React-Class-Components/cart"
             className="text-decoration-none"
           >
-            <span className="d-flex justify-content-center align-items-center">
-              <p className="mb-0">
-                <CartProductsContext.Consumer>
-                  {(cartProducts) => (
-                    <CartProductsTotalSalaryContext.Consumer>
-                      {(cartProductsTotalSalary) =>
-                        cartProducts.length +
-                        " Item(s) - $" +
-                        cartProductsTotalSalary.toFixed(2)
-                      }
-                    </CartProductsTotalSalaryContext.Consumer>
+            <CartProductsContext.Consumer>
+              {(cartProducts) => (
+                <CartProductsTotalSalaryContext.Consumer>
+                  {(cartProductsTotalSalary) => (
+                    <span className="d-flex justify-content-center align-items-center">
+                      <p className="mb-0">
+                        {cartProducts.length +
+                          " Item(s) - $" +
+                          cartProductsTotalSalary.toFixed(2)}
+                      </p>
+                      <TiShoppingCart className="fs-1 position relative" />
+                      <span className="changed position-absolute end-0 justify-content-center align-items-center rounded-circle text-light">
+                        {cartProducts.length}
+                      </span>
+                    </span>
                   )}
-                </CartProductsContext.Consumer>
-              </p>
-              <AiOutlineShoppingCart className="fs-1" />
-            </span>
+                </CartProductsTotalSalaryContext.Consumer>
+              )}
+            </CartProductsContext.Consumer>
           </Link>
           <div className="cart-content rounded text-center">
             <div className="content d-flex flex-column">

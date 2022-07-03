@@ -1,6 +1,5 @@
 .home {
-  /* height: calc(100vh - 111.97px); */
-  height: calc(100vh - 168.97px);
+  height: calc(100vh - (32px + 81.47px + 57px));
   position: relative;
   z-index: 0;
   background-color: #f8f9fa;
@@ -19,11 +18,10 @@
 }
 .home .container .row img {
   animation-name: up-down;
-  animation-duration: 1.25s;
+  animation-duration: calc(var(--mainDuration) * 3);
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-direction: alternate;
-  /* animation-fill-mode: both; */
 }
 @keyframes up-down {
   from {
