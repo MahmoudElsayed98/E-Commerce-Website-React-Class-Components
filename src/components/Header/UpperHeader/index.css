@@ -2,6 +2,16 @@
 .links a {
   font-size: 15px;
   color: var(--secondaryColor);
+  transition: var(--mainDuration);
+}
+.links .delivery {
+  transition: var(--mainDuration);
+}
+.links a:hover,
+.links .delivery:hover svg,
+.links .delivery:hover,
+.links span:hover {
+  color: var(--mainColor);
 }
 
 @media (max-width: 991px) {

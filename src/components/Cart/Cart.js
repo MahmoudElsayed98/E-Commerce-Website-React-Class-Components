@@ -31,8 +31,10 @@ export class Cart extends Component {
               <CartProductsContext.Consumer>
                 {(cartProducts) =>
                   cartProducts.length === 0 ? (
-                    <span className="cart-info d-block position-absolute top-50 start-50">
-                      <p className="mb-0 fs-1">Your shopping cart is empty!</p>
+                    <span className="w-100 cart-info d-block position-absolute top-50 start-50">
+                      <p className="mb-0 text-center">
+                        Your shopping cart is empty!
+                      </p>
                       <Link
                         to="/E-Commerce-Website-React-Class-Components/products"
                         className="text-decoration-none"

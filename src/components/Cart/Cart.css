@@ -48,6 +48,9 @@
   width: 30px;
   height: 30px;
 }
+.cart-info p {
+  font-size: 42px;
+}
 @media (max-width: 991px) {
   .cart-comp .cart-item a:nth-of-type(2) {
     font-size: 15px;
@@ -58,5 +61,25 @@
   }
   .cart-comp .cart-details .close svg {
     font-size: 16px !important;
+  }
+  .cart-info p {
+    font-size: 35px;
+  }
+  .cart-info a button {
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+  }
+}
+@media (max-width: 767px) {
+  .cart-info p {
+    font-size: 25px;
+  }
+  .cart-info a button {
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    border-radius: 0.3rem;
   }
 }

@@ -57,6 +57,10 @@
   color: var(--thirdColor);
   border: 1px solid var(--mainColor);
   width: fit-content;
+  transition: var(--mainDuration);
+}
+.navbar-collapse .navbar-nav form select:hover {
+  background-color: var(--hoverColor);
 }
 .navbar-collapse .navbar-nav form select:focus-visible {
   outline: none;

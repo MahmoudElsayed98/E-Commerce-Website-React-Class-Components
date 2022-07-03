@@ -33,9 +33,7 @@ class App extends Component {
   fetchApiProductDetails = (id) => {
     const { ProductQuantity } = this.state;
     if (ProductQuantity !== 1) {
-      this.setState({
-        productQuantity: 1,
-      });
+      this.resetProductQuantity();
     }
     if (this.state.productsDetailsLoading === true) {
       this.setState({
@@ -76,9 +74,7 @@ class App extends Component {
         // } else {
         // p.price = p.qty * product.price;
         // this.calculateCartProductsTotalPrice();
-        this.setState({
-          productQuantity: 1,
-        });
+        this.resetProductQuantity();
         // }
       }
     });
@@ -90,12 +86,15 @@ class App extends Component {
         cartProductsTotalSalary: productClone.price,
       });
       this.calculateCartProductsTotalPrice();
-      this.setState({
-        productQuantity: 1,
-      });
+      this.resetProductQuantity();
     }
     this.setState({
       cartProducts: cartProductsClone,
+    });
+  };
+  resetProductQuantity = () => {
+    this.setState({
+      productQuantity: 1,
     });
   };
   removeProductFromCart = (product) => {

@@ -1,7 +1,8 @@
 .categories-links {
   background-color: var(--secondaryColor);
 }
-.categories-links nav .active {
+.categories-links nav .active,
+.categories-links nav a:hover {
   background-color: var(--mainColor);
 }
 .categories-links nav a {

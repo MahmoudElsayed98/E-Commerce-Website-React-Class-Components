@@ -20,6 +20,7 @@ body {
   --hoverColor: #0b4ebb;
   --thirdColor: #fff;
   --mainBorder: 1px solid #dee2e6;
+  --mainDuration: 0.5s;
 }
 ::-webkit-scrollbar {
   width: 10px;

@@ -17,6 +17,22 @@
   z-index: -1;
   opacity: 0.03;
 }
+.home .container .row img {
+  animation-name: up-down;
+  animation-duration: 1.25s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  /* animation-fill-mode: both; */
+}
+@keyframes up-down {
+  from {
+    top: 10px;
+  }
+  to {
+    top: -10px;
+  }
+}
 .home .text {
   color: var(--mainColor);
 }
