@@ -10,12 +10,8 @@ class Home extends Component {
       <div className="home">
         <div className="container w-100 h-100">
           <div className="row justify-content-center align-items-center flex-column flex-lg-row h-100 p-3">
-            <div className="col-9 col-md-7 col-lg-6 mb-3 mb-lg-0">
-              <img
-                src={image}
-                className="img-fluid position-relative"
-                alt="Welcome Img"
-              />
+            <div className="position-relative col-9 col-md-7 col-lg-6 mb-3 mb-lg-0">
+              <img src={image} className="img-fluid" alt="Welcome Img" />
             </div>
             <div className="col-12 col-md-7 col-lg-6 text-center text">
               <h1 className="text-uppercase mb-lg-3">

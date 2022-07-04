@@ -26,9 +26,7 @@
   top: 2.5px;
   height: 15px;
   background-color: red;
-  font-size: 12px;
-  font-family: "Roboto", sans-serif;
-  display: none;
+  font-size: 11.5px;
 }
 .cart:hover a span p,
 .cart:hover a span svg {

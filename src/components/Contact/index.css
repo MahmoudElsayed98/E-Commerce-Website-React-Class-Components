@@ -14,6 +14,30 @@
   z-index: -1;
   opacity: 0.03;
 }
-form textarea {
+.contact form {
+  width: 55%;
+}
+@media (max-width: 1199px) {
+  .contact form {
+    width: 65%;
+  }
+}
+@media (max-width: 991px) {
+  .contact form {
+    width: 85%;
+  }
+}
+@media (max-width: 767px) {
+  .contact form {
+    width: 100%;
+  }
+}
+.contact form textarea {
   resize: none;
+}
+.contact form input,
+.contact form input:focus,
+.contact form textarea:focus,
+.contact form textarea {
+  background-color: transparent;
 }

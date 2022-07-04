@@ -9,6 +9,7 @@ import {
   CartProductsContext,
   ProductQuantityContext,
   CartProductsTotalSalaryContext,
+  IsCartProductsChangedContext,
 } from "../../../../App";
 import { Link } from "react-router-dom";
 
@@ -54,9 +55,15 @@ class Icons extends Component {
                           cartProductsTotalSalary.toFixed(2)}
                       </p>
                       <TiShoppingCart className="fs-1 position relative" />
-                      <span className="changed position-absolute end-0 justify-content-center align-items-center rounded-circle text-light">
-                        {cartProducts.length}
-                      </span>
+                      <IsCartProductsChangedContext.Consumer>
+                        {(isCartProductsChanged) =>
+                          isCartProductsChanged && (
+                            <span className="changed fw-bold position-absolute end-0 justify-content-center align-items-center rounded-circle text-light">
+                              {cartProducts.length}
+                            </span>
+                          )
+                        }
+                      </IsCartProductsChangedContext.Consumer>
                     </span>
                   )}
                 </CartProductsTotalSalaryContext.Consumer>

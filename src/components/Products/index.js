@@ -5,6 +5,9 @@ import "./index.css";
 // import Loading from "./Loading";
 import ProductCard from "./ProductCard";
 import ProductCardSkeleton from "./ProductCardSkeleton";
+// import { CartProductsContext } from "../../App";
+// import { RiCloseFill } from "react-icons/ri";
+// import { Link } from "react-router-dom";
 class Products extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +17,7 @@ class Products extends Component {
       error: "",
       productsLoading: false,
     };
+    // this.addedToCartProductRef = createRef();
   }
   enableLoading() {
     if (this.state.productsLoading === true) {
@@ -36,6 +40,11 @@ class Products extends Component {
       this.fetchApiData();
       // }, 3000);
     }
+    // if (this.addedToCartProductRef.current) {
+    //   setTimeout(() => {
+    //     this.addedToCartProductRef.current.remove();
+    //   }, 3000);
+    // }
   }
   fetchApiData() {
     axios
@@ -76,6 +85,50 @@ class Products extends Component {
             </div>
           </div>
         </div>
+        {/* <div className="cart-products-added-successfully position-fixed">
+          <CartProductsContext.Consumer>
+            {(cartProducts) =>
+              cartProducts.map((p) => (
+                <div
+                  className="addedtocart-product bg-light mb-3 border px-4 py-3 rounded d-flex align-items-center position-relative"
+                  ref={this.addedToCartProductRef}
+                  key={p.id}
+                >
+                  <button
+                    className="btn btn-primary p-0 position-absolute d-flex justify-content-center align-items-center rounded-circle"
+                    onClick={(e) => e.currentTarget.parentElement.remove()}
+                  >
+                    <RiCloseFill className="text-light" />
+                  </button>
+                  <div className="image rounded border p-2 me-3">
+                    <img
+                      src={p.image}
+                      className="img-fluid"
+                      alt={p.title + "Img"}
+                    />
+                  </div>
+                  <div className="info">
+                    <h6 className="fw-bold mb-1">{p.title}</h6>
+                    <p className="mb-0">
+                      Success: You have added <br />{" "}
+                      <Link
+                        to={`/E-Commerce-Website-React-Class-Components/products/${p.id}`}
+                      >
+                        {p.title}
+                      </Link>{" "}
+                      to your{" "}
+                      <Link
+                        to={`/E-Commerce-Website-React-Class-Components/cart`}
+                      >
+                        shopping cart!
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+              ))
+            }
+          </CartProductsContext.Consumer>
+        </div> */}
       </>
     );
   }

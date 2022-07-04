@@ -39,7 +39,7 @@ class App extends Component {
     console.log(this.state.message);
     return (
       <div className="contact py-4">
-        <div className="container">
+        <div className="container d-md-flex justify-content-md-center">
           <Form id="contact-form" onSubmit={this.handleSubmit} method="POST">
             <Form.Group className="mb-3">
               <Form.Label>Full Name</Form.Label>

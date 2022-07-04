@@ -8,7 +8,6 @@ import {
   Button,
 } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
-
 import logo from "../../../assets/images/logo.png";
 import Icons from "./Icons";
 import { FaBars } from "react-icons/fa";

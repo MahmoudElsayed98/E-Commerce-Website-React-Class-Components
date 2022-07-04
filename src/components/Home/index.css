@@ -16,7 +16,7 @@
   z-index: -1;
   opacity: 0.03;
 }
-.home .container .row img {
+.home .container .row div:first-of-type {
   animation-name: up-down;
   animation-duration: calc(var(--mainDuration) * 3);
   animation-iteration-count: infinite;

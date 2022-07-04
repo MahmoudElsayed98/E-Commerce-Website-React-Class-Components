@@ -16,6 +16,7 @@ import Cart from "./components/Cart/Cart";
 export const CartProductsContext = createContext();
 export const ProductQuantityContext = createContext();
 export const CartProductsTotalSalaryContext = createContext();
+export const IsCartProductsChangedContext = createContext();
 
 class App extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class App extends Component {
       cartProductsTotalSalary: 0,
       product: {},
       productsDetailsLoading: false,
+      isCartProductsChanged: false,
     };
   }
   fetchApiProductDetails = (id) => {
@@ -90,6 +92,7 @@ class App extends Component {
     }
     this.setState({
       cartProducts: cartProductsClone,
+      isCartProductsChanged: true,
     });
   };
   resetProductQuantity = () => {
@@ -109,6 +112,12 @@ class App extends Component {
       cartProducts: newCartProducts,
       cartProductsTotalSalary: newCartProductsTotalSalary,
     });
+    //if cartProducts is empty
+    if (cartProducts.length === 1) {
+      this.setState({
+        isCartProductsChanged: false,
+      });
+    }
   };
   componentDidUpdate(prevProps, prevState) {
     if (
@@ -135,6 +144,7 @@ class App extends Component {
       cartProducts,
       cartProductsTotalSalary,
       deliveryCost,
+      isCartProductsChanged,
     } = this.state;
     return (
       <CartProductsContext.Provider value={cartProducts}>
@@ -142,114 +152,118 @@ class App extends Component {
           <CartProductsTotalSalaryContext.Provider
             value={cartProductsTotalSalary}
           >
-            <div className="E-Commerce Website">
-              <Header removeProductFromCart={this.removeProductFromCart} />
-              <Routes>
-                <Route
-                  path="/E-Commerce-Website-React-Class-Components/"
-                  element={<Home />}
-                />
-                <Route
-                  path="/E-Commerce-Website-React-Class-Components/cart"
-                  element={
-                    <Cart
-                      removeProductFromCart={this.removeProductFromCart}
-                      deliveryCost={deliveryCost}
+            <IsCartProductsChangedContext.Provider
+              value={isCartProductsChanged}
+            >
+              <div className="E-Commerce Website">
+                <Header removeProductFromCart={this.removeProductFromCart} />
+                <Routes>
+                  <Route
+                    path="/E-Commerce-Website-React-Class-Components/"
+                    element={<Home />}
+                  />
+                  <Route
+                    path="/E-Commerce-Website-React-Class-Components/cart"
+                    element={
+                      <Cart
+                        removeProductFromCart={this.removeProductFromCart}
+                        deliveryCost={deliveryCost}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/E-Commerce-Website-React-Class-Components/products"
+                    element={<ProductsHeader />}
+                  >
+                    <Route
+                      index
+                      element={
+                        <Products
+                          category=""
+                          skeletonCardsNo={20}
+                          addToCart={this.addToCart}
+                        />
+                      }
                     />
-                  }
-                />
-                <Route
-                  path="/E-Commerce-Website-React-Class-Components/products"
-                  element={<ProductsHeader />}
-                >
+                    <Route
+                      path="all"
+                      element={
+                        <Products
+                          category=""
+                          skeletonCardsNo={20}
+                          addToCart={this.addToCart}
+                        />
+                      }
+                    />
+                    <Route
+                      path="men's%20clothing"
+                      element={
+                        <Products
+                          category={"category/men's clothing"}
+                          skeletonCardsNo={4}
+                          addToCart={this.addToCart}
+                        />
+                      }
+                    />
+                    <Route
+                      path="women's%20clothing"
+                      element={
+                        <Products
+                          category={"category/women's clothing"}
+                          skeletonCardsNo={6}
+                          addToCart={this.addToCart}
+                        />
+                      }
+                    />
+                    <Route
+                      path="jewelery"
+                      element={
+                        <Products
+                          category="category/jewelery"
+                          skeletonCardsNo={4}
+                          addToCart={this.addToCart}
+                        />
+                      }
+                    />
+                    <Route
+                      path="electronics"
+                      element={
+                        <Products
+                          category="category/electronics"
+                          skeletonCardsNo={6}
+                          addToCart={this.addToCart}
+                        />
+                      }
+                    />
+                    <Route
+                      path=":id"
+                      element={
+                        <ProductDetails
+                          cartProducts={cartProducts}
+                          product={product}
+                          productQuantity={productQuantity}
+                          productsDetailsLoading={productsDetailsLoading}
+                          fetchApiProductDetails={this.fetchApiProductDetails}
+                          addToCart={this.addToCart}
+                          increaseProductQuantity={this.increaseProductQuantity}
+                          decreaseProductQuantity={this.decreaseProductQuantity}
+                        />
+                      }
+                    />
+                  </Route>
                   <Route
-                    index
-                    element={
-                      <Products
-                        category=""
-                        skeletonCardsNo={20}
-                        addToCart={this.addToCart}
-                      />
-                    }
+                    path="E-Commerce-Website-React-Class-Components/about"
+                    element={<About />}
                   />
                   <Route
-                    path="all"
-                    element={
-                      <Products
-                        category=""
-                        skeletonCardsNo={20}
-                        addToCart={this.addToCart}
-                      />
-                    }
+                    path="E-Commerce-Website-React-Class-Components/contact"
+                    element={<Contact />}
                   />
-                  <Route
-                    path="men's%20clothing"
-                    element={
-                      <Products
-                        category={"category/men's clothing"}
-                        skeletonCardsNo={4}
-                        addToCart={this.addToCart}
-                      />
-                    }
-                  />
-                  <Route
-                    path="women's%20clothing"
-                    element={
-                      <Products
-                        category={"category/women's clothing"}
-                        skeletonCardsNo={6}
-                        addToCart={this.addToCart}
-                      />
-                    }
-                  />
-                  <Route
-                    path="jewelery"
-                    element={
-                      <Products
-                        category="category/jewelery"
-                        skeletonCardsNo={4}
-                        addToCart={this.addToCart}
-                      />
-                    }
-                  />
-                  <Route
-                    path="electronics"
-                    element={
-                      <Products
-                        category="category/electronics"
-                        skeletonCardsNo={6}
-                        addToCart={this.addToCart}
-                      />
-                    }
-                  />
-                  <Route
-                    path=":id"
-                    element={
-                      <ProductDetails
-                        cartProducts={cartProducts}
-                        product={product}
-                        productQuantity={productQuantity}
-                        productsDetailsLoading={productsDetailsLoading}
-                        fetchApiProductDetails={this.fetchApiProductDetails}
-                        addToCart={this.addToCart}
-                        increaseProductQuantity={this.increaseProductQuantity}
-                        decreaseProductQuantity={this.decreaseProductQuantity}
-                      />
-                    }
-                  />
-                </Route>
-                <Route
-                  path="E-Commerce-Website-React-Class-Components/about"
-                  element={<About />}
-                />
-                <Route
-                  path="E-Commerce-Website-React-Class-Components/contact"
-                  element={<Contact />}
-                />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-              <Footer />
-            </div>
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+                <Footer />
+              </div>
+            </IsCartProductsChangedContext.Provider>
           </CartProductsTotalSalaryContext.Provider>
         </ProductQuantityContext.Provider>
       </CartProductsContext.Provider>

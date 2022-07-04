@@ -16,3 +16,26 @@
 .products .container .content {
   gap: 15px;
 }
+.cart-products-added-successfully {
+  z-index: 1000;
+  top: 20px;
+  right: 20px;
+  overflow: auto;
+}
+.addedtocart-product {
+  width: 500px;
+  /* color: var(--mainColor); */
+}
+.addedtocart-product button {
+  width: 25px;
+  height: 25px;
+  top: 15px;
+  right: 15px;
+}
+.addedtocart-product .image {
+  width: 15%;
+  background-color: var(--thirdColor);
+}
+.addedtocart-product .info {
+  width: 80%;
+}
