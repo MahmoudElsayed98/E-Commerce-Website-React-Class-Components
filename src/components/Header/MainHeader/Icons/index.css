@@ -11,8 +11,10 @@
   transition: var(--mainDuration);
 }
 .cart {
-  position: relative;
   transition: var(--mainDuration);
+  width: fit-content;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 .cart a span p {
   color: var(--mainColor);
@@ -23,7 +25,8 @@
 }
 .cart a span > .changed {
   width: 15px;
-  top: 2.5px;
+  top: 3.5px;
+  right: -4.5px;
   height: 15px;
   background-color: red;
   font-size: 11.5px;
@@ -32,11 +35,11 @@
 .cart:hover a span svg {
   color: var(--secondaryColor);
 }
-.cart span::after {
+.cart a > span::after {
   content: "";
   position: absolute;
-  top: 42.5px;
-  right: 10px;
+  top: 44.5px;
+  right: 8.5px;
   border: 10px solid;
   border-color: transparent transparent var(--mainColor) transparent;
   transition: var(--mainDuration);
@@ -44,16 +47,19 @@
 }
 .cart .cart-content {
   position: absolute;
-  top: 62.5px;
+  top: 64.5px;
   right: -2.5px;
   width: 550px;
-  max-height: 360px;
+  max-height: 320px;
   background-color: var(--mainColor);
   color: var(--thirdColor);
   display: none;
   transition: var(--mainDuration);
   z-index: 1;
   overflow-y: auto;
+}
+.cart .cart-content .cart-item {
+  height: 160px;
 }
 .cart .cart-item:not(:first-of-type) {
   border-top: 2px solid var(--hoverColor);
@@ -83,13 +89,24 @@
     display: block;
   }
 }
+.icons {
+  width: 30%;
+}
+.icons .sign-in {
+  margin-right: 3px;
+}
+.icons .sign-in p {
+  font-size: 15px;
+}
 .sign-in svg,
+.sign-in a > p,
 .icons + .cart svg {
   color: var(--mainColor);
   transition: var(--mainDuration);
 }
 .sign-in:hover,
 .sign-in:hover svg,
+.sign-in:hover a > p,
 .icons + .cart svg:hover,
 .icons + .cart:hover {
   color: var(--secondaryColor);
@@ -98,8 +115,16 @@
   .sign-in,
   .cart,
   .sign-in svg,
+  .sign-in a p,
   .icons + .cart svg,
   .cart a span p {
     color: var(--thirdColor);
+  }
+  .cart a span > .changed {
+    top: -7.5px;
+  }
+  .cart {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }

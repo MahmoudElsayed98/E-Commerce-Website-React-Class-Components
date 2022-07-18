@@ -18,26 +18,36 @@ class Icons extends Component {
     const { removeProductFromCart } = this.props;
     return (
       <>
-        <div className="icons d-flex flex-column flex-lg-row align-items-center">
+        <div className="icons d-flex flex-column flex-lg-row align-items-center justify-content-center">
           <div className="sign-in d-flex flex-column justify-content-center align-items-center">
-            <FaUserCircle className="fs-3" />
-            <p>Sign In</p>
+            <Link
+              to="/E-Commerce-Website-React-Class-Components/sign-in"
+              className="text-decoration-none"
+            >
+              <FaUserCircle className="fs-3" />
+              <p className="fw-bold">Login</p>
+            </Link>
           </div>
           <div className="sign-in d-flex flex-column justify-content-center align-items-center">
-            <FaUserEdit className="fs-3" />
-            <p>Register</p>
+            <Link
+              to="/E-Commerce-Website-React-Class-Components/register"
+              className="text-decoration-none"
+            >
+              <FaUserEdit className="fs-3" />
+              <p className="fw-bold">Sign Up</p>
+            </Link>
           </div>
           <div className="sign-in d-flex flex-column justify-content-center align-items-center">
             <AiOutlineHeart className="fs-3" />
-            <p>Wishlist</p>
+            <p className="fw-bold">Wishlist</p>
           </div>
           <div className="sign-in d-flex flex-column justify-content-center align-items-center">
             <BiGitCompare className="fs-3" />
-            <p>Compare</p>
+            <p className="fw-bold">Compare</p>
           </div>
         </div>
         <div
-          className="cart d-flex align-items-center justify-content-center"
+          className="cart d-flex align-items-center justify-content-center position-relative"
           role="button"
         >
           <Link
@@ -58,7 +68,7 @@ class Icons extends Component {
                       <IsCartProductsChangedContext.Consumer>
                         {(isCartProductsChanged) =>
                           isCartProductsChanged && (
-                            <span className="changed fw-bold position-absolute end-0 justify-content-center align-items-center rounded-circle text-light">
+                            <span className="changed fw-bold position-absolute justify-content-center align-items-center rounded-circle text-light">
                               {cartProducts.length}
                             </span>
                           )

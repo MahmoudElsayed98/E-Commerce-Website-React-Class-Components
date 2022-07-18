@@ -1,5 +1,5 @@
 .cart-comp {
-  min-height: calc(100vh - 168.97px);
+  min-height: calc(100vh - (32px + 81.47px + 57px));
   position: relative;
 }
 .cart-comp::after {
@@ -17,7 +17,7 @@
 .cart-info {
   transform: translate(-50%, -50%);
 }
-.cart-item {
+.cart-comp .cart-item {
   height: 161.18px;
 }
 .cart-comp .cart-item:hover,

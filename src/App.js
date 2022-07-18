@@ -12,6 +12,8 @@ import ProductDetails from "./components/Products/ProductDetails";
 import axios from "axios";
 import Footer from "./components/Footer";
 import Cart from "./components/Cart/Cart";
+import SignIn from "./components/SignIn";
+import Register from "./components/Register";
 
 export const CartProductsContext = createContext();
 export const ProductQuantityContext = createContext();
@@ -101,13 +103,13 @@ class App extends Component {
     });
   };
   removeProductFromCart = (product) => {
-    const { cartProducts } = this.state;
+    console.log(product);
+    const { cartProducts, cartProductsTotalSalary } = this.state;
     const cartProductsClone = cartProducts;
     const newCartProducts = cartProductsClone.filter(
       (p) => p.id !== product.id
     );
-    const newCartProductsTotalSalary =
-      this.state.cartProductsTotalSalary - product.price;
+    const newCartProductsTotalSalary = cartProductsTotalSalary - product.price;
     this.setState({
       cartProducts: newCartProducts,
       cartProductsTotalSalary: newCartProductsTotalSalary,
@@ -258,6 +260,14 @@ class App extends Component {
                   <Route
                     path="E-Commerce-Website-React-Class-Components/contact"
                     element={<Contact />}
+                  />
+                  <Route
+                    path="E-Commerce-Website-React-Class-Components/sign-in"
+                    element={<SignIn />}
+                  />
+                  <Route
+                    path="E-Commerce-Website-React-Class-Components/register"
+                    element={<Register />}
                   />
                   <Route path="*" element={<NotFound />} />
                 </Routes>

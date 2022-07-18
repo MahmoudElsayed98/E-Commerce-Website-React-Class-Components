@@ -16,21 +16,6 @@
   z-index: -1;
   opacity: 0.03;
 }
-.home .container .row div:first-of-type {
-  animation-name: up-down;
-  animation-duration: calc(var(--mainDuration) * 3);
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-direction: alternate;
-}
-@keyframes up-down {
-  from {
-    top: 10px;
-  }
-  to {
-    top: -10px;
-  }
-}
 .home .text {
   color: var(--mainColor);
 }
@@ -68,6 +53,12 @@
   }
   .home .text .btn-primary svg {
     font-size: 1.15rem;
+  }
+  .home .container .row div:first-of-type {
+    animation-play-state: paused;
+  }
+  .home .container .row div:last-of-type {
+    animation-play-state: paused;
   }
 }
 @media (max-width: 767px) {

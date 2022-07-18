@@ -38,11 +38,14 @@ class App extends Component {
     console.log(this.state.email);
     console.log(this.state.message);
     return (
-      <div className="contact py-4">
-        <div className="container d-md-flex justify-content-md-center">
+      <div className="contact py-3">
+        <div className="container d-md-flex flex-column align-items-md-center">
+          <h1 className="fw-bold pt-4 py-md-4 mb-0 text-center text-uppercase">
+            Contact Us
+          </h1>
           <Form id="contact-form" onSubmit={this.handleSubmit} method="POST">
-            <Form.Group className="mb-3">
-              <Form.Label>Full Name</Form.Label>
+            <Form.Group className="mb-3 d-md-flex align-items-center justify-content-between">
+              <Form.Label className="mb-0 text-center">Full Name</Form.Label>
               <Form.Control
                 type="text"
                 id="name"
@@ -51,8 +54,10 @@ class App extends Component {
                 placeholder="Enter your full name"
               />
             </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Email Address</Form.Label>
+            <Form.Group className="mb-3 d-md-flex align-items-center justify-content-between">
+              <Form.Label className="mb-0 text-center">
+                Email Address
+              </Form.Label>
               <Form.Control
                 type="email"
                 id="email"
@@ -61,11 +66,9 @@ class App extends Component {
                 onChange={(e) => this.setState({ email: e.target.value })}
                 placeholder="name@example.com"
               />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
             </Form.Group>
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3 d-md-flex justify-content-end align-items-center">
+              <Form.Label className="mb-0 text-center ">Subject</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
@@ -75,11 +78,12 @@ class App extends Component {
                 onChange={(e) => this.setState({ message: e.target.value })}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
+            <Button
+              variant="primary"
+              type="submit"
+              className=" d-block ms-md-auto"
+            >
+              Send Your Message
             </Button>
           </Form>
         </div>

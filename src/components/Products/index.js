@@ -31,6 +31,7 @@ class Products extends Component {
     // setTimeout(() => {
     this.fetchApiData();
     // }, 3000);
+    // console.log(this.addedToCartProductRef.current);
   }
   componentDidUpdate(prevProps) {
     if (prevProps.category !== this.props.category) {
@@ -42,7 +43,11 @@ class Products extends Component {
     }
     // if (this.addedToCartProductRef.current) {
     //   setTimeout(() => {
-    //     this.addedToCartProductRef.current.remove();
+    //     this.addedToCartProductRef.current.style.setProperty(
+    //       "display",
+    //       "none",
+    //       "important"
+    //     );
     //   }, 3000);
     // }
   }
@@ -96,7 +101,13 @@ class Products extends Component {
                 >
                   <button
                     className="btn btn-primary p-0 position-absolute d-flex justify-content-center align-items-center rounded-circle"
-                    onClick={(e) => e.currentTarget.parentElement.remove()}
+                    onClick={(e) =>
+                      e.currentTarget.parentElement.style.setProperty(
+                        "display",
+                        "none",
+                        "important"
+                      )
+                    }
                   >
                     <RiCloseFill className="text-light" />
                   </button>

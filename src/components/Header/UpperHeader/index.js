@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FaEnvelope, FaHome } from "react-icons/fa";
-import { FcAbout } from "react-icons/fc";
+import { BsExclamationCircleFill } from "react-icons/bs";
 import { MdDeliveryDining } from "react-icons/md";
 import { IoStorefrontSharp } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
@@ -30,7 +30,7 @@ class UpperHeader extends Component {
               to="/E-Commerce-Website-React-Class-Components/about"
               className="text-decoration-none d-flex justify-content-center align-items-center me-2"
             >
-              <FcAbout className="me-1" />
+              <BsExclamationCircleFill className="me-1" />
               About Us
             </NavLink>
             <NavLink
