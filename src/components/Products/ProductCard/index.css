@@ -1,10 +1,19 @@
 .product-card {
   width: calc((100% - 45px) / 4);
+  margin-bottom: 15px;
 }
 .product-card .image {
   border-left: var(--mainBorder);
   border-right: var(--mainBorder);
   border-top: var(--mainBorder);
+}
+.product-card > .image,
+.product-card > .text,
+.product-card > .btn-primary,
+.product-card > .text p span > svg,
+.product-card > .text h6 a,
+.product-card > .text p {
+  transition: var(--mainDuration);
 }
 .product-card:hover > .image,
 .product-card:hover > .text,

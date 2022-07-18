@@ -1,6 +1,7 @@
 .card-skeleton {
   width: calc((100% - 45px) / 4);
   height: 571.65px;
+  margin-bottom: 15px;
 }
 
 .card-skeleton .image {

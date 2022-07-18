@@ -41,7 +41,7 @@ function About() {
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicod.com/posts/5")
+      .get("https://jsonplaceholder.typicode.com/posts/5")
       .then((response) => {
         dispatch({ type: "FETCH_SUCCESS", payload: response.data });
       })

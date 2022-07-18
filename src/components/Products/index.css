@@ -1,6 +1,7 @@
 .products {
   min-height: calc(100vh - (32px + 81.47px + 49px));
   position: relative;
+  padding-top: 15px;
 }
 .products::after {
   content: "";
@@ -14,7 +15,7 @@
   opacity: 0.03;
 }
 .products .container .content {
-  gap: 15px;
+  column-gap: 15px;
 }
 .cart-products-added-successfully {
   z-index: 1000;

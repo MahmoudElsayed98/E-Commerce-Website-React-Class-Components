@@ -62,7 +62,7 @@
   height: 160px;
 }
 .cart .cart-item:not(:first-of-type) {
-  border-top: 2px solid var(--hoverColor);
+  box-shadow: 0px -2px 0px 0px var(--hoverColor);
 }
 .cart .cart-item a {
   height: 160px;

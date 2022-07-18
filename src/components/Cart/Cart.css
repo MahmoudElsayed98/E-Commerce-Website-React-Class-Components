@@ -20,6 +20,13 @@
 .cart-comp .cart-item {
   height: 161.18px;
 }
+.cart-comp .order-summary {
+  margin-bottom: 15px;
+}
+.cart-comp .order-summary,
+.cart-comp .cart-item {
+  transition: var(--mainDuration);
+}
 .cart-comp .cart-item:hover,
 .cart-comp .order-summary:hover,
 .cart-comp .cart-item:hover a:nth-of-type(2) {
