@@ -34,13 +34,10 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.name);
-    console.log(this.state.email);
-    console.log(this.state.message);
     return (
-      <div className="contact py-3">
-        <div className="container d-md-flex flex-column align-items-md-center">
-          <h1 className="fw-bold pt-4 py-md-4 mb-0 text-center text-uppercase">
+      <div className="contact">
+        <div className="container d-flex flex-column align-items-center justify-content-center h-100">
+          <h1 className="fw-bold pb-md-4 mb-0 text-center text-uppercase">
             Contact Us
           </h1>
           <Form id="contact-form" onSubmit={this.handleSubmit} method="POST">

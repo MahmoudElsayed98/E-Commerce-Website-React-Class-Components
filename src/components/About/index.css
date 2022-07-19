@@ -1,6 +1,7 @@
 .about {
-  height: calc(100vh - (32px + 81.47px + 57px));
+  min-height: calc(100vh - (32px + 81.47px + 57px));
   position: relative;
+  color: var(--mainColor);
 }
 .about::after {
   content: "";
@@ -13,4 +14,38 @@
   height: 100%;
   z-index: -1;
   opacity: 0.03;
+}
+.about .container p {
+  width: 85%;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.about .container h1 {
+  font-size: 50px;
+}
+@media (max-width: 1199px) {
+  .about .container h1 {
+    font-size: 45px;
+  }
+  .about .container p {
+    width: 87.5%;
+    font-size: 16px;
+  }
+}
+@media (max-width: 991px) {
+  .about .container h1 {
+    font-size: 40px;
+  }
+  .about .container p {
+    width: 100%;
+    font-size: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .about .container h1 {
+    font-size: 35px;
+  }
+  .about .container p {
+    font-size: 13.25px;
+  }
 }

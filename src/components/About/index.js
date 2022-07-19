@@ -1,252 +1,45 @@
-// import React, { Component } from "react";
-// import "./index.css";
-
-// class About extends Component {
-//   render() {
-//     return <div className="about text-center py-4">About</div>;
-//   }
-// }
-
-// export default About;
-
-import axios from "axios";
-import React, { useReducer, useEffect } from "react";
+import React, { Component } from "react";
+import { GoPrimitiveDot } from "react-icons/go";
 import "./index.css";
 
-const initialState = {
-  post: {},
-  error: "",
-  loading: true,
-};
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "FETCH_SUCCESS":
-      return {
-        post: action.payload,
-        loading: false,
-        error: "",
-      };
-    case "FETCH_FAILED":
-      return {
-        post: {},
-        error: "Something Went Wrong",
-        loading: false,
-      };
-    default:
-      return state;
+class About extends Component {
+  render() {
+    return (
+      <div className="about py-4 d-flex justify-content-center align-items-center">
+        <div className="container d-flex flex-column justify-content-center align-items-center">
+          <h1 className="fw-bold mb-1 text-center text-uppercase d-flex align-items-center">
+            <GoPrimitiveDot size="1.75rem" className="me-2" />
+            About Us
+            <GoPrimitiveDot size="1.75rem" className="ms-2" />
+          </h1>
+          <p className="text-center mb-0">
+            Since 2013, e-commerce has been the best selling and most loved
+            OpenCart theme on the market. Now at version 3, it brings many new
+            and revolutionary features such as an advanced page builder with 30+
+            multi-purpose modules that can be added on any page in any grid
+            layout configuration, as well as the best possible customizable
+            options for any area of your store. Journal has the impressive
+            rating of 4.9 from more than 2000 ratings. Journal 3 also comes with
+            fully customizable CSS options with the added possibility of setting
+            each option differently on any breakpoint. This breakthrough feature
+            will greatly enhance your design skills and allow you to create
+            pixel perfect layouts at any screen width. The new advanced Status
+            mechanism allow you to set up modules and menus based on device,
+            customer login status or customer groups. 98% satisfaction rate
+            within our more than 19,000 customers. The new Schedule feature
+            allows you to display any module at specific dates in the future, or
+            to disable any module automatically at a certain time and date.
+            Imagine the possibilities and peace of mind...designing your
+            promotional banners or sliders, or entire product modules that only
+            show up on specific dates and are disabled automatically whenever
+            you don't need them anymore. These are just a few of the outstanding
+            features available in the new Journal 3 framework, there are so many
+            new options and possibilities that it will takes us a very long time
+            to list them all.
+          </p>
+        </div>
+      </div>
+    );
   }
-};
-
-function About() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts/5")
-      .then((response) => {
-        dispatch({ type: "FETCH_SUCCESS", payload: response.data });
-      })
-      .catch(() => {
-        dispatch({ type: "FETCH_FAILED" });
-      });
-  }, []);
-  return (
-    <div className="about py-4 text-center">
-      About
-      <p>
-        {state.loading ? "loading" : state.post.title}
-        {state.error ? state.error : null}
-      </p>
-    </div>
-  );
 }
-
 export default About;
-
-// import axios from "axios";
-// import React, { useEffect, useReducer } from "react";
-// import "./index.css";
-// const initialState = {
-//   loading: true,
-//   error: "",
-//   post: {},
-// };
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case "FETCH_SUCCESS":
-//       return {
-//         loading: false,
-//         error: "",
-//         post: action.payload,
-//       };
-//     case "FETCH_ERROR":
-//       return {
-//         loading: false,
-//         error: "Something went wrong",
-//         post: {},
-//       };
-//     default:
-//       return state;
-//   }
-// };
-// function About() {
-//   const [state, dispatch] = useReducer(reducer, initialState);
-//   useEffect(() => {
-//     console.log("use effect hook");
-//     axios
-//       .get("https://jsonplaceholder.typicode.com/posts/50")
-//       .then((res) => dispatch({ type: "FETCH_SUCCESS", payload: res.data }))
-//       .catch((err) => {
-//         dispatch({ type: "FETCH_ERROR" });
-//       });
-//   }, []);
-//   console.log(state.loading);
-//   return (
-//     <div className="about py-4 text-center">
-//       {state.loading ? "loading" : state.post.title}
-//       {state.error ? state.error : null}
-//     </div>
-//   );
-// }
-
-// export default About;
-// import React, { useReducer } from "react";
-// import "./index.css";
-
-// const initialValue = {
-//   firstCounter: 0,
-// };
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case "increment":
-//       return { firstCounter: state.firstCounter + 1 };
-//     case "decrement":
-//       return { firstCounter: state.firstCounter - 1 };
-//     case "reset":
-//       return initialValue;
-//     default:
-//       return state;
-//   }
-// };
-
-// function About() {
-//   const [count, dispatch] = useReducer(reducer, initialValue);
-//   return (
-//     <div className="about text-center p-5">
-//       <h1> useReducer</h1>
-//       <h4>count {count.firstCounter}</h4>
-//       <div className="mt-3">
-//         <button
-//           className="btn btn-primary me-2"
-//           type="button"
-//           onClick={() => dispatch({ type: "increment" })}
-//         >
-//           increment
-//         </button>
-//         <button
-//           className="btn btn-primary me-2"
-//           type="button"
-//           onClick={() => dispatch({ type: "decrement" })}
-//         >
-//           decrement
-//         </button>
-//         <button
-//           className="btn btn-primary me-2"
-//           type="button"
-//           onClick={() => dispatch({ type: "reset" })}
-//         >
-//           reset
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default About;
-// import React, { useReducer } from "react";
-// import "./index.css";
-
-// const initialState = {
-//   firstCounter: 0,
-//   secondCounter: 10,
-// };
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case "increment":
-//       return {
-//         ...state,
-//         firstCounter: state.firstCounter + action.value,
-//       };
-//     case "decrement":
-//       return {
-//         ...state,
-//         firstCounter: state.firstCounter - action.value,
-//       };
-//     case "increment2":
-//       return {
-//         ...state,
-//         secondCounter: state.secondCounter + action.value,
-//       };
-//     case "decrement2":
-//       return {
-//         ...state,
-//         secondCounter: state.secondCounter - action.value,
-//       };
-//     case "reset":
-//       return initialState;
-//     default:
-//       return state;
-//   }
-// };
-// function About() {
-//   const [count, dispatch] = useReducer(reducer, initialState);
-//   return (
-//     <div className="about text-center py-4">
-//       <h4>First Counter {count.firstCounter}</h4>
-//       <h4>Second Counter {count.secondCounter}</h4>
-//       <button
-//         className="btn btn-primary me-2"
-//         onClick={() => dispatch({ type: "increment", value: 1 })}
-//       >
-//         Increment
-//       </button>
-//       <button
-//         className="btn btn-primary me-2"
-//         onClick={() => dispatch({ type: "decrement", value: 1 })}
-//       >
-//         Decrement
-//       </button>
-//       <button
-//         className="btn btn-primary me-2"
-//         onClick={() => dispatch({ type: "increment", value: 5 })}
-//       >
-//         Increment5
-//       </button>
-//       <button
-//         className="btn btn-primary me-2"
-//         onClick={() => dispatch({ type: "decrement", value: 5 })}
-//       >
-//         Decrement5
-//       </button>
-//       <button
-//         className="btn btn-primary me-2"
-//         onClick={() => dispatch({ type: "increment2", value: 10 })}
-//       >
-//         Increment2
-//       </button>
-//       <button
-//         className="btn btn-primary me-2"
-//         onClick={() => dispatch({ type: "decrement2", value: 10 })}
-//       >
-//         Decrement2
-//       </button>
-//       <button
-//         className="btn btn-primary"
-//         onClick={() => dispatch({ type: "reset", value: 5 })}
-//       >
-//         Reset
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default About;

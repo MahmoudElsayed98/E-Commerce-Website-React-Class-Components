@@ -20,22 +20,22 @@ class Icons extends Component {
       <>
         <div className="icons d-flex flex-column flex-lg-row align-items-center justify-content-center">
           <div className="sign-in d-flex flex-column justify-content-center align-items-center">
-            <Link
-              to="/E-Commerce-Website-React-Class-Components/sign-in"
+            <a
+              href="/E-Commerce-Website-React-Class-Components/sign-in"
               className="text-decoration-none"
             >
               <FaUserCircle className="fs-3" />
               <p className="fw-bold">Login</p>
-            </Link>
+            </a>
           </div>
           <div className="sign-in d-flex flex-column justify-content-center align-items-center">
-            <Link
-              to="/E-Commerce-Website-React-Class-Components/register"
+            <a
+              href="/E-Commerce-Website-React-Class-Components/register"
               className="text-decoration-none"
             >
               <FaUserEdit className="fs-3" />
               <p className="fw-bold">Sign Up</p>
-            </Link>
+            </a>
           </div>
           <div className="sign-in d-flex flex-column justify-content-center align-items-center">
             <AiOutlineHeart className="fs-3" />

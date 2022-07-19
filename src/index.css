@@ -23,7 +23,7 @@ body {
   --mainDuration: 0.5s;
 }
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -34,7 +34,5 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: var(--mainColor);
   border-radius: 100px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--hoverColor);
+  border: 2px solid #eee;
 }
