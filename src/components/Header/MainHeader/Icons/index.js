@@ -15,35 +15,49 @@ import { Link } from "react-router-dom";
 
 class Icons extends Component {
   render() {
-    const { removeProductFromCart } = this.props;
+    const { removeProductFromCart, hideNavbarNav } = this.props;
     return (
       <>
         <div className="icons d-flex flex-column flex-lg-row align-items-center justify-content-center">
-          <div className="sign-in d-flex flex-column justify-content-center align-items-center">
-            <a
-              href="/E-Commerce-Website-React-Class-Components/sign-in"
-              className="text-decoration-none"
+          <div className="sign-in">
+            <Link
+              to="/E-Commerce-Website-React-Class-Components/sign-in"
+              className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
+              onClick={hideNavbarNav}
             >
               <FaUserCircle className="fs-3" />
               <p className="fw-bold">Login</p>
-            </a>
+            </Link>
           </div>
-          <div className="sign-in d-flex flex-column justify-content-center align-items-center">
-            <a
-              href="/E-Commerce-Website-React-Class-Components/register"
-              className="text-decoration-none"
+          <div className="sign-in">
+            <Link
+              to="/E-Commerce-Website-React-Class-Components/register"
+              className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
+              onClick={hideNavbarNav}
             >
               <FaUserEdit className="fs-3" />
               <p className="fw-bold">Sign Up</p>
-            </a>
+            </Link>
           </div>
-          <div className="sign-in d-flex flex-column justify-content-center align-items-center">
-            <AiOutlineHeart className="fs-3" />
-            <p className="fw-bold">Wishlist</p>
+          <div className="sign-in">
+            <Link
+              to="/"
+              className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
+              onClick={hideNavbarNav}
+            >
+              <AiOutlineHeart className="fs-3" />
+              <p className="fw-bold">Wishlist</p>
+            </Link>
           </div>
-          <div className="sign-in d-flex flex-column justify-content-center align-items-center">
-            <BiGitCompare className="fs-3" />
-            <p className="fw-bold">Compare</p>
+          <div className="sign-in">
+            <Link
+              to="/"
+              className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
+              onClick={hideNavbarNav}
+            >
+              <BiGitCompare className="fs-3" />
+              <p className="fw-bold">Compare</p>
+            </Link>
           </div>
         </div>
         <div
@@ -52,7 +66,8 @@ class Icons extends Component {
         >
           <Link
             to="/E-Commerce-Website-React-Class-Components/cart"
-            className="text-decoration-none"
+            className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
+            onClick={hideNavbarNav}
           >
             <CartProductsContext.Consumer>
               {(cartProducts) => (

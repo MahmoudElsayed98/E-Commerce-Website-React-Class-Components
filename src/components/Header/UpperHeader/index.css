@@ -12,7 +12,8 @@
 }
 
 @media (max-width: 991px) {
-  .links a {
+  .links a,
+  .links .delivery {
     font-size: 13.75px;
   }
 }

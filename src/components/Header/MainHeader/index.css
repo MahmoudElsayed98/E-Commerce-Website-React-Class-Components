@@ -2,14 +2,7 @@
   position: relative;
   z-index: 3;
   color: var(--mainColor);
-  box-shadow: 0px 7.5px 7.5px 0px #00000007;
-}
-@media (max-width: 991px) {
-  .navbar {
-    background-color: unset;
-    position: relative;
-    z-index: 6;
-  }
+  box-shadow: 0px 5px 5px 0px #00000007;
 }
 .navbar-light .navbar-brand {
   width: 90px;
@@ -84,6 +77,11 @@
   background-color: var(--hoverColor);
 }
 @media (max-width: 991px) {
+  .navbar {
+    background-color: unset;
+    position: relative;
+    z-index: 6;
+  }
   .navbar > .container {
     position: relative;
   }
@@ -98,7 +96,7 @@
   .navbar-collapse {
     position: absolute;
     width: 100%;
-    top: 65.47px;
+    top: 69px;
     left: 0;
   }
 }

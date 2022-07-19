@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import {
   Container,
   Form,
@@ -14,6 +14,13 @@ import { FaBars } from "react-icons/fa";
 import "./index.css";
 
 class MainHeader extends Component {
+  constructor(props) {
+    super(props);
+    this.barsRef = createRef();
+  }
+  hideNavbarNav = () => {
+    this.barsRef.current.click();
+  };
   render() {
     const { removeProductFromCart } = this.props;
     return (
@@ -22,15 +29,12 @@ class MainHeader extends Component {
           <Navbar.Brand href="/E-Commerce-Website-React-Class-Components/">
             <img src={logo} className="img-fluid" alt="website logo" />
           </Navbar.Brand>
-          <Navbar.Toggle
-            aria-controls="basic-navbar-nav"
-            className="d-flex justify-content-center align-items-center"
-          >
-            <FaBars className="d-block d-lg-none" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" ref={this.barsRef}>
+            <FaBars />
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="">
-              <Form className="d-none d-lg-flex my-auto">
+            <Nav>
+              <Form className="d-none d-lg-flex my-auto ms-3">
                 <select
                   name="categories"
                   id="categories"
@@ -53,7 +57,10 @@ class MainHeader extends Component {
                   <FaSearch />
                 </Button>
               </Form>
-              <Icons removeProductFromCart={removeProductFromCart} />
+              <Icons
+                removeProductFromCart={removeProductFromCart}
+                hideNavbarNav={this.hideNavbarNav}
+              />
             </Nav>
           </Navbar.Collapse>
         </Container>

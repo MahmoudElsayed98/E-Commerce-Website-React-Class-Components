@@ -17,6 +17,7 @@ class Products extends Component {
       error: "",
       productsLoading: false,
     };
+    this.mounted = true;
     // this.addedToCartProductRef = createRef();
   }
   enableLoading() {
@@ -55,16 +56,21 @@ class Products extends Component {
     axios
       .get(`https://fakestoreapi.com/products/${this.props.category}`)
       .then((res) => {
-        this.setState({
-          products: res.data,
-          productsLoading: true,
-        });
+        if (this.mounted) {
+          this.setState({
+            products: res.data,
+            productsLoading: true,
+          });
+        }
       })
       .catch((err) => {
         this.setState({
           error: err,
         });
       });
+  }
+  componentWillUnmount() {
+    this.mounted = false;
   }
   render() {
     const { products, productsLoading } = this.state;
