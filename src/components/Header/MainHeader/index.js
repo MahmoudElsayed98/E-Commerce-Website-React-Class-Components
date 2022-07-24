@@ -18,9 +18,9 @@ class MainHeader extends Component {
     super(props);
     this.barsRef = createRef();
   }
-  hideNavbarNav = () => {
-    this.barsRef.current.click();
-  };
+  // hideNavbarNav = () => {
+  //   this.barsRef.current.click();
+  // };
   render() {
     const { removeProductFromCart } = this.props;
     return (
