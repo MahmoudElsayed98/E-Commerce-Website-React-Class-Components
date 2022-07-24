@@ -1,6 +1,8 @@
 .product-card {
-  width: calc((100% - 45px) / 4);
+  width: calc((100% - 60px) / 4);
   margin-bottom: 15px;
+  margin-right: 15px;
+  height: 571.65px;
 }
 .product-card .image {
   border-left: var(--mainBorder);
@@ -71,7 +73,8 @@
 }
 @media (max-width: 1199px) {
   .product-card {
-    width: calc((100% - 30px) / 3);
+    width: calc((100% - 45px) / 3);
+    height: 547.3px;
   }
   .product-card .text h6 a {
     height: 76px;
@@ -83,7 +86,8 @@
 }
 @media (max-width: 991px) {
   .product-card {
-    width: calc((100% - 15px) / 2);
+    width: calc((100% - 30px) / 2);
+    height: 543.3px;
   }
   .product-card .image img {
     width: 60%;
@@ -95,6 +99,7 @@
 @media (max-width: 767px) {
   .product-card {
     width: 92.5%;
+    margin-right: 0;
   }
   .product-card .image img {
     width: 42.5%;

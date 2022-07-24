@@ -1,7 +1,8 @@
 .card-skeleton {
-  width: calc((100% - 45px) / 4);
+  width: calc((100% - 60px) / 4);
   height: 571.65px;
   margin-bottom: 15px;
+  margin-right: 15px;
 }
 
 .card-skeleton .image {
@@ -9,27 +10,43 @@
 }
 .card-skeleton .text {
   border-top: var(--mainBorder);
-  height: 173.44px;
 }
 .card-skeleton .text .heading {
-  height: 85px;
+  height: 100.04px;
 }
 .card-skeleton .text p {
-  height: 92px;
+  height: 72.29px;
+}
+.card-skeleton > span {
+  height: 38.21px;
 }
 @media (max-width: 1199px) {
   .card-skeleton {
-    width: calc((100% - 30px) / 3);
-    height: 570px;
+    width: calc((100% - 45px) / 3);
+    height: 547.3px;
+  }
+  .card-skeleton .text .heading {
+    height: 76px;
+  }
+  .card-skeleton .text p {
+    height: 72.3px;
+  }
+  .card-skeleton > span {
+    height: 38px;
   }
 }
 @media (max-width: 991px) {
   .card-skeleton {
-    width: calc((100% - 15px) / 2);
+    width: calc((100% - 30px) / 2);
+    height: 543.3px;
+  }
+  .card-skeleton .text .heading {
+    height: 72px;
   }
 }
 @media (max-width: 767px) {
   .card-skeleton {
     width: 92.5%;
+    margin-right: 0;
   }
 }

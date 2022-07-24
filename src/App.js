@@ -1,5 +1,7 @@
 import React, { Component, createContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import { Routes, Route } from "react-router-dom";
@@ -14,6 +16,7 @@ import Footer from "./components/Footer";
 import Cart from "./components/Cart/Cart";
 import SignIn from "./components/SignIn";
 import Register from "./components/Register";
+import AddProductNotify from "./components/Products/AddProductNotify";
 
 export const CartProductsContext = createContext();
 export const ProductQuantityContext = createContext();
@@ -74,6 +77,15 @@ class App extends Component {
         // p.qty++;
         p.qty += productQuantity;
         p.price = p.qty * product.price;
+        toast.success(<AddProductNotify product={p} />, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         this.calculateCartProductsTotalPrice();
         // } else {
         // p.price = p.qty * product.price;
@@ -91,6 +103,15 @@ class App extends Component {
       });
       this.calculateCartProductsTotalPrice();
       this.resetProductQuantity();
+      toast.success(<AddProductNotify product={productClone} />, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
     this.setState({
       cartProducts: cartProductsClone,
@@ -103,7 +124,6 @@ class App extends Component {
     });
   };
   removeProductFromCart = (product) => {
-    console.log(product);
     const { cartProducts, cartProductsTotalSalary } = this.state;
     const cartProductsClone = cartProducts;
     const newCartProducts = cartProductsClone.filter(
@@ -158,6 +178,17 @@ class App extends Component {
               value={isCartProductsChanged}
             >
               <div className="E-Commerce Website">
+                <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
                 <Header removeProductFromCart={this.removeProductFromCart} />
                 <Routes>
                   <Route

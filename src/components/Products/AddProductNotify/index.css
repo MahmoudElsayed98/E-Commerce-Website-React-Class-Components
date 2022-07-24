@@ -1,0 +1,28 @@
+.cart-products-added-successfully {
+  z-index: 1000;
+  top: 20px;
+  right: 20px;
+  overflow: auto;
+}
+
+.Toastify > div > div {
+  width: 500px;
+  right: 184px;
+}
+/* .product-added {
+  width: 500px;
+} */
+/* color: var(--mainColor); */
+/* .product-added button {
+  width: 25px;
+  height: 25px;
+  top: 15px;
+  right: 15px;
+} */
+.product-added .image {
+  width: 15%;
+  background-color: var(--thirdColor);
+}
+.product-added .info {
+  width: 80%;
+}

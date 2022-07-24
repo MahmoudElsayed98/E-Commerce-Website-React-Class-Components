@@ -82,7 +82,7 @@ class Products extends Component {
       <>
         <div className="products">
           <div className="container">
-            <div className="content d-flex w-100 flex-wrap justify-content-center justify-content-md-between">
+            <div className="content d-flex w-100 flex-wrap justify-content-center justify-content-md-start">
               {productsLoading ? (
                 products.map((p) => {
                   return (
