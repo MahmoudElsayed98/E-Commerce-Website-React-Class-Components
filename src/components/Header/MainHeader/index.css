@@ -2,7 +2,7 @@
   position: relative;
   z-index: 3;
   color: var(--mainColor);
-  box-shadow: 0px 5px 5px 0px #00000007;
+  box-shadow: 0px 3px 3px 0px #00000007;
 }
 .navbar-light .navbar-brand {
   width: 90px;

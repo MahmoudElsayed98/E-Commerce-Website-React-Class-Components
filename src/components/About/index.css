@@ -33,6 +33,9 @@
   }
 }
 @media (max-width: 991px) {
+  .about {
+    min-height: calc(100vh - (29.23px + 81.47px + 57px));
+  }
   .about .container h1 {
     font-size: 40px;
   }

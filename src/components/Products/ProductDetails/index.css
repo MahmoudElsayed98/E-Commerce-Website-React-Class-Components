@@ -64,6 +64,9 @@
   }
 }
 @media (max-width: 991px) {
+  .product-details {
+    min-height: calc(100vh - (29.23px + 81.47px + 49px + 57px));
+  }
   .product-details .right-side h3 {
     font-size: 22px;
     /* height: 79.17px; */

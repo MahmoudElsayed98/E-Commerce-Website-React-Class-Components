@@ -7,13 +7,13 @@ import { Link } from "react-router-dom";
 class Home extends Component {
   render() {
     return (
-      <div className="home">
-        <div className="container w-100 h-100">
-          <div className="row justify-content-center align-items-center flex-column flex-lg-row h-100 p-3">
-            <div className="position-relative col-9 col-md-7 col-lg-6 mb-3 mb-lg-0">
-              <img src={image} className="img-fluid" alt="Welcome Img" />
+      <div className="home d-flex justify-content-center align-items-center d-lg-block">
+        <div className="container">
+          <div className="row align-items-center flex-column flex-lg-row">
+            <div className="position-relative col-11 col-md-8 col-lg-6 mb-1 mb-lg-0">
+              <img src={image} className="img-fluid " alt="Welcome Img" />
             </div>
-            <div className="col-12 col-md-7 col-lg-6 text-center text">
+            <div className="col-11 col-md-8 col-lg-6 text-center text">
               <h1 className="text-uppercase mb-lg-3">
                 <span>*</span> All The <span>Best</span> <br /> &nbsp; &nbsp;
                 You Can Get <span>*</span>

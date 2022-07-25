@@ -59,6 +59,9 @@
   font-size: 42px;
 }
 @media (max-width: 991px) {
+  .cart-comp {
+    min-height: calc(100vh - (29.23px + 81.47px + 57px));
+  }
   .cart-comp .cart-item a:nth-of-type(2) {
     font-size: 15px;
   }

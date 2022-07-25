@@ -1,5 +1,5 @@
 .home {
-  height: calc(100vh - (32px + 81.47px + 57px));
+  min-height: calc(100vh - (32px + 81.47px + 57px));
   position: relative;
   z-index: 0;
   background-color: #f8f9fa;
@@ -16,6 +16,9 @@
   z-index: -1;
   opacity: 0.03;
 }
+.home .container .row {
+  height: calc(100vh - (32px + 81.47px + 57px));
+}
 .home .text {
   color: var(--mainColor);
 }
@@ -25,7 +28,7 @@
 }
 @media (max-width: 1199px) {
   .home .text h1 {
-    font-size: 58px;
+    font-size: 55px;
     line-height: 1.3;
   }
 }
@@ -44,8 +47,14 @@
   font-size: 1.25rem;
 }
 @media (max-width: 991px) {
+  .home {
+    min-height: calc(100vh - (29.23px + 81.47px + 57px));
+  }
+  .home .container .row {
+    height: fit-content;
+  }
   .home .text h1 {
-    font-size: 42px;
+    font-size: 47.5px;
     line-height: 1.3;
   }
   .home .text .btn-primary {
@@ -63,7 +72,7 @@
 }
 @media (max-width: 767px) {
   .home .text h1 {
-    font-size: 29px;
+    font-size: 40px;
     line-height: 1.3;
   }
   .home .text .btn-primary {

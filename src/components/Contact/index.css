@@ -40,6 +40,9 @@
   }
 }
 @media (max-width: 991px) {
+  .contact {
+    min-height: calc(100vh - (29.23px + 81.47px + 57px));
+  }
   .contact form {
     width: 85%;
   }
