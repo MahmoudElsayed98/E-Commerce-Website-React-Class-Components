@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 class Home extends Component {
   render() {
     return (
-      <div className="home d-flex justify-content-center align-items-center d-lg-block">
+      <div className="home d-flex justify-content-center align-items-center d-lg-block py-2">
         <div className="container">
           <div className="row align-items-center flex-column flex-lg-row">
             <div className="position-relative col-11 col-md-8 col-lg-6 mb-1 mb-lg-0">
