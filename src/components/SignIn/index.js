@@ -26,7 +26,7 @@ class SignIn extends Component {
     return (
       <div className="login">
         <div className="container d-flex justify-content-center align-items-center h-100">
-          <div className="login-form my-5 py-4 rounded d-flex flex-column align-items-center">
+          <div className="login-form my-4 py-4 rounded d-flex flex-column align-items-center">
             <h1 className="fw-bold mb-0 text-center text-uppercase">login</h1>
             <Form id="login-form" onSubmit={this.handleSubmit} method="POST">
               <Form.Group className="mb-3">
