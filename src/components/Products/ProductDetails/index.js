@@ -21,9 +21,9 @@ class ProductDetails extends Component {
       decreaseProductQuantity,
     } = this.props;
     return (
-      <div className="product-details d-flex align-items-center py-4 my-md-0">
+      <div className="product-details py-4 py-md-0">
         <div className="container">
-          <div className="row d-flex justify-content-center align-items-center">
+          <div className="row d-flex justify-content-center align-items-center py-4">
             {productsDetailsLoading ? (
               <>
                 <div className="left-side col-7 col-md-5 col-lg-4 col-xl-4 me-lg-4">
@@ -32,14 +32,14 @@ class ProductDetails extends Component {
                   </div>
                 </div>
                 <div className="right-side col-12 col-md-7 col-xl-7 text-center text-md-start ">
-                  <h3 className="fw-bold mb-1 mb-md-0 d-flex justify-content-center justify-content-md-start align-items-center">
+                  <h3 className="mb-2 fw-bold d-flex justify-content-center justify-content-md-start align-items-center">
                     {product.title}
                   </h3>
-                  <h4 className="mb-0 mt-md-1 mt-lg-2 d-flex justify-content-center justify-content-md-start align-items-center">
+                  <h4 className="mb-0 d-flex justify-content-center justify-content-md-start align-items-center">
                     {"$"}
                     {product.price}
                   </h4>
-                  <div className="add-to-cart d-flex justify-content-center justify-content-md-start align-items-center my-1 mt-md-1 mt-lg-2 mb-md-0">
+                  <div className="add-to-cart d-flex justify-content-center justify-content-md-start align-items-center my-2">
                     <div className="product-quantity d-flex align-items-center rounded me-2">
                       <span className="d-flex justify-content-center align-items-center w-50 h-100 border-end">
                         {productQuantity}
@@ -64,8 +64,8 @@ class ProductDetails extends Component {
                       Add To Cart
                     </button>
                   </div>
-                  <div className="desc mt-md-1 mt-lg-2 mb-0">
-                    <h5 className="mb-1 mt-2 mt-md-0 mb-lg-1 fw-bold d-flex justify-content-center justify-content-md-start align-items-center">
+                  <div className="desc mb-0">
+                    <h5 className="mb-0 fw-bold d-flex justify-content-center justify-content-md-start align-items-center">
                       <GoPrimitiveDot className="fs-6 me-1" /> Product Details{" "}
                       <GoPrimitiveDot className="fs-6 ms-1" />
                     </h5>
