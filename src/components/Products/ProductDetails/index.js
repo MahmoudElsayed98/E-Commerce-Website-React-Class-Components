@@ -6,7 +6,7 @@ import Loading from "../Loading";
 class ProductDetails extends Component {
   componentDidMount() {
     const id = window.location.href.split("/")[5];
-    // console.log(id);
+    // // console.log(id);
     // setTimeout(
     this.props.fetchApiProductDetails(id);
     // , 2000, id);
