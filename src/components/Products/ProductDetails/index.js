@@ -23,10 +23,10 @@ class ProductDetails extends Component {
     return (
       <div className="product-details py-4 py-md-0">
         <div className="container">
-          <div className="row d-flex justify-content-center align-items-center py-4">
+          <div className="row justify-content-center py-4">
             {productsDetailsLoading ? (
               <>
-                <div className="left-side col-8 col-md-6 col-lg-4 me-lg-4">
+                <div className="left-side col-6 col-md-5 col-lg-4 me-lg-4">
                   <div className="image text-center">
                     <img src={product.image} alt={product.title} />
                   </div>

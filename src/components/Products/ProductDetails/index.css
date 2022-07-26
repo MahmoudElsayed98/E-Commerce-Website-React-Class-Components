@@ -2,7 +2,7 @@
   height: auto;
   position: relative;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .product-details .container .row {
     min-height: calc(100vh - (32px + 81.47px + 49px + 57px));
   }
