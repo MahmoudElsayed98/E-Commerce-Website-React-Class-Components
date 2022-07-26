@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 class Home extends Component {
   render() {
     return (
-      <div className="home d-flex justify-content-center align-items-center d-lg-block">
+      <div className="home d-flex justify-content-center align-items-center d-lg-block py-4 py-lg-0">
         <div className="container">
-          <div className="row align-items-center flex-column flex-lg-row py-2">
+          <div className="row align-items-center flex-column flex-lg-row py-lg-4">
             <div className="position-relative col-11 col-md-8 col-lg-6 mb-1 mb-lg-0">
-              <img src={image} className="img-fluid " alt="Welcome Img" />
+              <img src={image} className="img-fluid" alt="Welcome Img" />
             </div>
             <div className="col-11 col-md-8 col-lg-6 text-center text">
               <h1 className="text-uppercase mb-lg-3">

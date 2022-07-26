@@ -11,7 +11,7 @@
   color: var(--mainColor);
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   .links a,
   .links .delivery {
     font-size: 14.15px;

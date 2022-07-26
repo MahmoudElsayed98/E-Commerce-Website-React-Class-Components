@@ -27,7 +27,7 @@ class Register extends Component {
     return (
       <div className="register">
         <div className="container d-flex justify-content-center align-items-center h-100">
-          <div className="register-form my-5 py-4 rounded d-flex flex-column align-items-center">
+          <div className="register-form my-4 py-4 rounded d-flex flex-column align-items-center">
             <h1 className="fw-bold mb-0 text-center text-uppercase">Sign Up</h1>
             <Form id="register-form" onSubmit={this.handleSubmit} method="POST">
               <Form.Group className="mb-3">

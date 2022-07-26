@@ -5,15 +5,15 @@ import "./index.css";
 class About extends Component {
   render() {
     return (
-      <div className="about py-4 d-flex justify-content-center align-items-center">
+      <div className="about py-4">
         <div className="container d-flex flex-column justify-content-center align-items-center">
-          <h1 className="fw-bold mb-1 text-center text-uppercase d-flex align-items-center">
+          <h1 className="fw-bold mt-4 mb-3 text-center text-uppercase d-flex align-items-center">
             <GoPrimitiveDot size="1.75rem" className="me-2" />
             About Us
             <GoPrimitiveDot size="1.75rem" className="ms-2" />
           </h1>
-          <p className="text-center mb-0">
-            - Since 2013, e-commerce has been the best selling and most loved
+          <p className="text-center text-md-start mb-0 lead">
+            Since 2013, e-commerce has been the best selling and most loved
             OpenCart theme on the market. Now at version 3, it brings many new
             and revolutionary features such as an advanced page builder with 30+
             multi-purpose modules that can be added on any page in any grid
