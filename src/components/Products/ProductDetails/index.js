@@ -21,7 +21,7 @@ class ProductDetails extends Component {
       decreaseProductQuantity,
     } = this.props;
     return (
-      <div className="product-details py-4 py-lg-0">
+      <div className="product-details py-4 py-lg-0 d-flex d-lg-block align-items-center">
         <div className="container">
           <div className="row justify-content-center align-items-center py-lg-4">
             {productsDetailsLoading ? (

@@ -49,7 +49,7 @@ export class Cart extends Component {
                       return (
                         <div
                           key={e.id}
-                          className="cart-item border rounded py-2 d-flex align-items-center mb-3"
+                          className="cart-item border rounded py-2 d-flex align-items-center mb-3 mb-md-0"
                         >
                           <Link
                             to={`/E-Commerce-Website-React-Class-Components/products/${e.id}`}
