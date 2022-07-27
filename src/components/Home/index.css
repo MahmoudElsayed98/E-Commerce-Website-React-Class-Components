@@ -68,9 +68,6 @@
   }
 }
 @media (max-width: 767px) {
-  .home {
-    min-height: calc(100vh - (29.23px + 81.47px + 57px));
-  }
   .home .text h1 {
     font-size: 40px;
     line-height: 1.3;

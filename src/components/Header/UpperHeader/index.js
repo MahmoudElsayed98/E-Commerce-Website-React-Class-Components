@@ -10,7 +10,7 @@ class UpperHeader extends Component {
   render() {
     return (
       <nav className="links">
-        <div className="container px-3 p-1 links position-relative d-flex justify-content-between">
+        <div className="container px-3 p-1 links position-relative d-flex justify-content-md-between">
           <div className="nav-links d-flex">
             <NavLink
               to="/E-Commerce-Website-React-Class-Components/"
@@ -38,11 +38,11 @@ class UpperHeader extends Component {
               className="text-decoration-none d-flex justify-content-center align-items-center me-2"
             >
               <FaEnvelope className="me-1" />
-              Contact
+              Contact Us
             </NavLink>
           </div>
           <div
-            className="delivery d-flex justify-content-center align-items-center"
+            className="delivery d-none d-md-flex justify-content-center align-items-center"
             role="button"
           >
             <MdDeliveryDining className="me-1" />

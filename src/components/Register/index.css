@@ -57,7 +57,7 @@
 }
 @media (max-width: 991px) {
   .register {
-    min-height: calc(100vh - (29.23px + 81.47px + 57px));
+    min-height: calc(100vh - (32px + 81.47px + 57px));
   }
   .register .register-form {
     width: 70%;

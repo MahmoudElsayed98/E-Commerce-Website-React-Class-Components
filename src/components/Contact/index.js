@@ -37,7 +37,7 @@ class App extends Component {
     return (
       <div className="contact py-4">
         <div className="container d-flex flex-column align-items-center">
-          <h1 className="fw-bold pt-4 pb-3 mb-0 text-center text-uppercase">
+          <h1 className="fw-bold pt-4 pb-md-3 mb-0 text-center text-uppercase">
             Contact Us
           </h1>
           <Form id="contact-form" onSubmit={this.handleSubmit} method="POST">

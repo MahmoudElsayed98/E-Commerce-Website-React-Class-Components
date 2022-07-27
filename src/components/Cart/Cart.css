@@ -78,9 +78,6 @@
   }
 }
 @media (max-width: 767px) {
-  .cart-comp {
-    min-height: calc(100vh - (29.23px + 81.47px + 57px));
-  }
   .cart-info p {
     font-size: 25px;
   }

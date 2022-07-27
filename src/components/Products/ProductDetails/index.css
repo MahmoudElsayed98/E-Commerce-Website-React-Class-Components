@@ -68,7 +68,7 @@
 @media (max-width: 991px) {
   .product-details {
     height: auto;
-    min-height: calc(100vh - (29.23px + 81.47px + 49px + 57px));
+    min-height: calc(100vh - (32px + 81.47px + 49px + 57px));
   }
   .product-details .right-side h3 {
     font-size: 25px;
@@ -111,7 +111,7 @@
 }
 @media (max-width: 767px) {
   .product-details {
-    min-height: calc(100vh - (29.23px + 81.47px + 114px + 57px));
+    min-height: calc(100vh - (32px + 81.47px + 114px + 57px));
   }
   .product-details .right-side h3 {
     font-size: 22.5px;

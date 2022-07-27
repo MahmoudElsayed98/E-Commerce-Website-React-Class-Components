@@ -12,10 +12,10 @@
 }
 
 @media (max-width: 767px) {
-  .links a,
+  /* .links a,
   .links .delivery {
     font-size: 14.15px;
-  }
+  } */
 }
 .links span {
   transform: translate(-50%, -50%);

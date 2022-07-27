@@ -7,7 +7,7 @@ class About extends Component {
     return (
       <div className="about py-4">
         <div className="container d-flex flex-column justify-content-center align-items-center">
-          <h1 className="fw-bold mt-4 mb-3 text-center text-uppercase d-flex align-items-center">
+          <h1 className="fw-bold mt-4 text-center text-uppercase d-flex align-items-center">
             <GoPrimitiveDot size="1.75rem" className="me-2" />
             About Us
             <GoPrimitiveDot size="1.75rem" className="ms-2" />
