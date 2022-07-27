@@ -31,7 +31,7 @@ class ProductDetails extends Component {
                     <img src={product.image} alt={product.title} />
                   </div>
                 </div>
-                <div className="right-side col-12 col-lg-7 text-center text-md-start ">
+                <div className="right-side col-12 col-md-9 col-lg-7 text-center text-md-start ">
                   <h3 className="mb-2 mt-4 mt-lg-0 fw-bold d-flex justify-content-center justify-content-lg-start align-items-center text-center text-lg-start">
                     {product.title}
                   </h3>

@@ -110,9 +110,6 @@
   border-color: var(--hoverColor);
 }
 @media (max-width: 767px) {
-  .product-details .left-side {
-    margin-bottom: 15px;
-  }
   .product-details .right-side h3 {
     font-size: 22.5px;
   }
