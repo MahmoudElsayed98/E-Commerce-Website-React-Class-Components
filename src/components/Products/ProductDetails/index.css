@@ -66,6 +66,10 @@
   }
 }
 @media (max-width: 991px) {
+  .product-details {
+    height: auto;
+    min-height: calc(100vh - (29.23px + 81.47px + 49px + 57px));
+  }
   .product-details .right-side h3 {
     font-size: 25px;
     /* height: 79.17px; */
@@ -106,11 +110,6 @@
   border-color: var(--hoverColor);
 }
 @media (max-width: 767px) {
-  .product-details {
-    height: auto;
-    min-height: calc(100vh - (29.23px + 81.47px + 49px + 57px));
-    padding: 1.5px;
-  }
   .product-details .left-side {
     margin-bottom: 15px;
   }

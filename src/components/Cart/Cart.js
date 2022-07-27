@@ -13,12 +13,12 @@ export class Cart extends Component {
   render() {
     const { removeProductFromCart, deliveryCost } = this.props;
     return (
-      <div className="cart-comp">
+      <div className="cart-comp py-4">
         <div className="container">
           <CartProductsContext.Consumer>
             {(cartProducts) => {
               return (
-                <h3 className="fw-bold mb-0 pt-4 d-flex align-items-center">
+                <h3 className="fw-bold mb-4 d-flex align-items-center">
                   <GoPrimitiveDot className="fs-6 me-1" />
                   Shopping Cart ( {cartProducts.length + " Items"} )
                   <GoPrimitiveDot className="fs-6 ms-1" />
@@ -26,8 +26,8 @@ export class Cart extends Component {
               );
             }}
           </CartProductsContext.Consumer>
-          <div className="row justify-content-center align-items-start mt-3">
-            <div className="col-md-7">
+          <div className="row justify-content-center align-items-start">
+            <div className="col-md-8 col-lg-7">
               <CartProductsContext.Consumer>
                 {(cartProducts) =>
                   cartProducts.length === 0 ? (
@@ -39,7 +39,7 @@ export class Cart extends Component {
                         to="/E-Commerce-Website-React-Class-Components/products"
                         className="text-decoration-none"
                       >
-                        <button className="btn btn-lg btn-primary d-block mx-auto mt-3">
+                        <button className="btn btn-lg btn-primary d-block mx-auto mt-2">
                           GO SHOPPING NOW
                         </button>
                       </Link>
@@ -75,7 +75,7 @@ export class Cart extends Component {
                               ${e.price.toFixed(2)}
                             </p>
                             <button
-                              className="btn btn-primary p-0 close rounded d-flex justify-content-center align-items-center"
+                              className="btn btn-primary p-0 close d-flex justify-content-center align-items-center rounded-circle"
                               onClick={() => removeProductFromCart(e)}
                             >
                               <RiCloseFill className="fs-5" />

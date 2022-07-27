@@ -20,9 +20,7 @@
 .cart-comp .cart-item {
   height: 161.18px;
 }
-.cart-comp .order-summary {
-  margin-bottom: 15px;
-}
+
 .cart-comp .order-summary,
 .cart-comp .cart-item {
   transition: var(--mainDuration);
@@ -63,8 +61,8 @@
     font-size: 15px;
   }
   .cart-comp .cart-details .close {
-    width: 22.5px;
-    height: 22.5px;
+    width: 27.5px;
+    height: 27.5px;
   }
   .cart-comp .cart-details .close svg {
     font-size: 16px !important;
