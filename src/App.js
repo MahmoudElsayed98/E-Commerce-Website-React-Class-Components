@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import ProductsHeader from "./components/Products/ProductsHeader";
 import Products from "./components/Products";
 import NotFound from "./components/NotFound";
@@ -219,16 +219,6 @@ class App extends Component {
                       }
                     />
                     <Route
-                      path="all"
-                      element={
-                        <Products
-                          category=""
-                          skeletonCardsNo={20}
-                          addToCart={this.addToCart}
-                        />
-                      }
-                    />
-                    <Route
                       path="men's%20clothing"
                       element={
                         <Products
@@ -285,22 +275,31 @@ class App extends Component {
                     />
                   </Route>
                   <Route
-                    path="E-Commerce-Website-React-Class-Components/about"
+                    path="/E-Commerce-Website-React-Class-Components/about"
                     element={<About />}
                   />
                   <Route
-                    path="E-Commerce-Website-React-Class-Components/contact"
+                    path="/E-Commerce-Website-React-Class-Components/contact"
                     element={<Contact />}
                   />
                   <Route
-                    path="E-Commerce-Website-React-Class-Components/sign-in"
+                    path="/E-Commerce-Website-React-Class-Components/sign-in"
                     element={<SignIn />}
                   />
                   <Route
-                    path="E-Commerce-Website-React-Class-Components/register"
+                    path="/E-Commerce-Website-React-Class-Components/register"
                     element={<Register />}
                   />
-                  <Route path="*" element={<NotFound />} />
+                  <Route
+                    path="*"
+                    element={
+                      <Navigate
+                        to="/E-Commerce-Website-React-Class-Components/"
+                        // replace
+                      />
+                      // <NotFound />
+                    }
+                  />
                 </Routes>
                 <Footer />
               </div>

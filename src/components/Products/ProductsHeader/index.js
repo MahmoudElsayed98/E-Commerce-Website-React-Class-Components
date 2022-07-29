@@ -33,9 +33,9 @@ class ProductsHeader extends Component {
         <div className="categories-links">
           <nav
             className="container list-unstyled mb-0 d-flex flex-wrap justify-content-center text-center text-md-start fw-bold"
-            ref={this.productsRef}
+            // ref={this.productsRef}
           >
-            <NavLink to="all" className="text-light text-decoration-none">
+            <NavLink to="" className="text-light text-decoration-none" end>
               All Products
             </NavLink>
 

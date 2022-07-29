@@ -18,7 +18,6 @@ class Products extends Component {
       productsLoading: false,
     };
     this.mounted = true;
-    // this.addedToCartProductRef = createRef();
   }
   enableLoading() {
     if (this.state.productsLoading === true) {
