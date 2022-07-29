@@ -7,7 +7,7 @@ import Home from "./components/Home";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProductsHeader from "./components/Products/ProductsHeader";
 import Products from "./components/Products";
-import NotFound from "./components/NotFound";
+// import NotFound from "./components/NotFound";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ProductDetails from "./components/Products/ProductDetails";
@@ -22,6 +22,7 @@ export const CartProductsContext = createContext();
 export const ProductQuantityContext = createContext();
 export const CartProductsTotalSalaryContext = createContext();
 export const IsCartProductsChangedContext = createContext();
+export const DeliveryCostContext = createContext();
 
 class App extends Component {
   constructor(props) {
@@ -35,14 +36,15 @@ class App extends Component {
       product: {},
       productsDetailsLoading: false,
       isCartProductsChanged: false,
+      ProductDetailsFetchingFailed: false,
     };
   }
   fetchApiProductDetails = (id) => {
-    const { ProductQuantity } = this.state;
+    const { ProductQuantity, productsDetailsLoading } = this.state;
     if (ProductQuantity !== 1) {
       this.resetProductQuantity();
     }
-    if (this.state.productsDetailsLoading === true) {
+    if (productsDetailsLoading === true) {
       this.setState({
         productsDetailsLoading: false,
       });
@@ -53,6 +55,11 @@ class App extends Component {
         productsDetailsLoading: true,
       });
     });
+    if (id > 20) {
+      this.setState({
+        ProductDetailsFetchingFailed: true,
+      });
+    }
   };
   increaseProductQuantity = () => {
     this.setState({
@@ -167,6 +174,7 @@ class App extends Component {
       cartProductsTotalSalary,
       deliveryCost,
       isCartProductsChanged,
+      ProductDetailsFetchingFailed,
     } = this.state;
     return (
       <CartProductsContext.Provider value={cartProducts}>
@@ -177,132 +185,141 @@ class App extends Component {
             <IsCartProductsChangedContext.Provider
               value={isCartProductsChanged}
             >
-              <div className="E-Commerce Website">
-                <ToastContainer
-                  position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                />
-                <Header removeProductFromCart={this.removeProductFromCart} />
-                <Routes>
-                  <Route
-                    path="/E-Commerce-Website-React-Class-Components/"
-                    element={<Home />}
+              <DeliveryCostContext.Provider value={deliveryCost}>
+                <div className="E-Commerce Website">
+                  <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
                   />
-                  <Route
-                    path="/E-Commerce-Website-React-Class-Components/cart"
-                    element={
-                      <Cart
-                        removeProductFromCart={this.removeProductFromCart}
-                        deliveryCost={deliveryCost}
+                  <Header removeProductFromCart={this.removeProductFromCart} />
+                  <Routes>
+                    <Route
+                      path="/E-Commerce-Website-React-Class-Components/"
+                      element={<Home />}
+                    />
+                    <Route
+                      path="/E-Commerce-Website-React-Class-Components/cart"
+                      element={
+                        <Cart
+                          removeProductFromCart={this.removeProductFromCart}
+                          deliveryCost={deliveryCost}
+                        />
+                      }
+                    />
+                    <Route
+                      path="/E-Commerce-Website-React-Class-Components/products"
+                      element={<ProductsHeader />}
+                    >
+                      <Route
+                        index
+                        element={
+                          <Products
+                            category=""
+                            skeletonCardsNo={20}
+                            addToCart={this.addToCart}
+                          />
+                        }
                       />
-                    }
-                  />
-                  <Route
-                    path="/E-Commerce-Website-React-Class-Components/products"
-                    element={<ProductsHeader />}
-                  >
-                    <Route
-                      index
-                      element={
-                        <Products
-                          category=""
-                          skeletonCardsNo={20}
-                          addToCart={this.addToCart}
-                        />
-                      }
-                    />
-                    <Route
-                      path="men's%20clothing"
-                      element={
-                        <Products
-                          category={"category/men's clothing"}
-                          skeletonCardsNo={4}
-                          addToCart={this.addToCart}
-                        />
-                      }
-                    />
-                    <Route
-                      path="women's%20clothing"
-                      element={
-                        <Products
-                          category={"category/women's clothing"}
-                          skeletonCardsNo={6}
-                          addToCart={this.addToCart}
-                        />
-                      }
-                    />
-                    <Route
-                      path="jewelery"
-                      element={
-                        <Products
-                          category="category/jewelery"
-                          skeletonCardsNo={4}
-                          addToCart={this.addToCart}
-                        />
-                      }
-                    />
-                    <Route
-                      path="electronics"
-                      element={
-                        <Products
-                          category="category/electronics"
-                          skeletonCardsNo={6}
-                          addToCart={this.addToCart}
-                        />
-                      }
-                    />
-                    <Route
-                      path=":id"
-                      element={
-                        <ProductDetails
-                          cartProducts={cartProducts}
-                          product={product}
-                          productQuantity={productQuantity}
-                          productsDetailsLoading={productsDetailsLoading}
-                          fetchApiProductDetails={this.fetchApiProductDetails}
-                          addToCart={this.addToCart}
-                          increaseProductQuantity={this.increaseProductQuantity}
-                          decreaseProductQuantity={this.decreaseProductQuantity}
-                        />
-                      }
-                    />
-                  </Route>
-                  <Route
-                    path="/E-Commerce-Website-React-Class-Components/about"
-                    element={<About />}
-                  />
-                  <Route
-                    path="/E-Commerce-Website-React-Class-Components/contact"
-                    element={<Contact />}
-                  />
-                  <Route
-                    path="/E-Commerce-Website-React-Class-Components/sign-in"
-                    element={<SignIn />}
-                  />
-                  <Route
-                    path="/E-Commerce-Website-React-Class-Components/register"
-                    element={<Register />}
-                  />
-                  <Route
-                    path="*"
-                    element={
-                      <Navigate
-                        to="/E-Commerce-Website-React-Class-Components/"
-                        // replace
+                      <Route
+                        path="men's%20clothing"
+                        element={
+                          <Products
+                            category={"category/men's clothing"}
+                            skeletonCardsNo={4}
+                            addToCart={this.addToCart}
+                          />
+                        }
                       />
-                      // <NotFound />
-                    }
-                  />
-                </Routes>
-                <Footer />
-              </div>
+                      <Route
+                        path="women's%20clothing"
+                        element={
+                          <Products
+                            category={"category/women's clothing"}
+                            skeletonCardsNo={6}
+                            addToCart={this.addToCart}
+                          />
+                        }
+                      />
+                      <Route
+                        path="jewelery"
+                        element={
+                          <Products
+                            category="category/jewelery"
+                            skeletonCardsNo={4}
+                            addToCart={this.addToCart}
+                          />
+                        }
+                      />
+                      <Route
+                        path="electronics"
+                        element={
+                          <Products
+                            category="category/electronics"
+                            skeletonCardsNo={6}
+                            addToCart={this.addToCart}
+                          />
+                        }
+                      />
+                      <Route
+                        path=":id"
+                        element={
+                          <ProductDetails
+                            cartProducts={cartProducts}
+                            product={product}
+                            productQuantity={productQuantity}
+                            productsDetailsLoading={productsDetailsLoading}
+                            fetchApiProductDetails={this.fetchApiProductDetails}
+                            addToCart={this.addToCart}
+                            increaseProductQuantity={
+                              this.increaseProductQuantity
+                            }
+                            decreaseProductQuantity={
+                              this.decreaseProductQuantity
+                            }
+                            ProductDetailsFetchingFailed={
+                              ProductDetailsFetchingFailed
+                            }
+                          />
+                        }
+                      />
+                    </Route>
+                    <Route
+                      path="/E-Commerce-Website-React-Class-Components/about"
+                      element={<About />}
+                    />
+                    <Route
+                      path="/E-Commerce-Website-React-Class-Components/contact"
+                      element={<Contact />}
+                    />
+                    <Route
+                      path="/E-Commerce-Website-React-Class-Components/sign-in"
+                      element={<SignIn />}
+                    />
+                    <Route
+                      path="/E-Commerce-Website-React-Class-Components/register"
+                      element={<Register />}
+                    />
+                    <Route
+                      path="*"
+                      element={
+                        <Navigate
+                          to="/E-Commerce-Website-React-Class-Components/"
+                          // replace
+                        />
+                        // <NotFound />
+                      }
+                    />
+                  </Routes>
+                  <Footer />
+                </div>
+              </DeliveryCostContext.Provider>
             </IsCartProductsChangedContext.Provider>
           </CartProductsTotalSalaryContext.Provider>
         </ProductQuantityContext.Provider>

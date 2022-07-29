@@ -111,7 +111,7 @@ export class Cart extends Component {
                       <hr />
                       <div className="d-flex justify-content-between">
                         <p className="fw-bold">Order Total</p>
-                        <p>
+                        <p className="fw-bold">
                           <CartProductsTotalSalaryContext.Consumer>
                             {(CartProductsTotalSalary) => {
                               const orderTotal =

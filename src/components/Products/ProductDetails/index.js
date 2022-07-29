@@ -6,10 +6,7 @@ import Loading from "../Loading";
 class ProductDetails extends Component {
   componentDidMount() {
     const id = window.location.href.split("/")[5];
-    // console.log(id);
-    // setTimeout(
     this.props.fetchApiProductDetails(id);
-    // , 2000, id);
   }
   render() {
     const {
@@ -19,12 +16,18 @@ class ProductDetails extends Component {
       addToCart,
       increaseProductQuantity,
       decreaseProductQuantity,
+      ProductDetailsFetchingFailed,
     } = this.props;
+    const id = window.location.href.split("/")[5];
     return (
       <div className="product-details py-4 py-lg-0 d-flex d-lg-block align-items-center">
         <div className="container">
           <div className="row justify-content-center align-items-center py-lg-4">
-            {productsDetailsLoading ? (
+            {!productsDetailsLoading ? (
+              <Loading />
+            ) : ProductDetailsFetchingFailed ? (
+              <h3 className="text-center">No Such Product With ID = {id}</h3>
+            ) : (
               <>
                 <div className="left-side col-6 col-md-5 col-lg-4 me-lg-4">
                   <div className="image text-center">
@@ -75,8 +78,6 @@ class ProductDetails extends Component {
                   </div>
                 </div>
               </>
-            ) : (
-              <Loading />
             )}
           </div>
         </div>
