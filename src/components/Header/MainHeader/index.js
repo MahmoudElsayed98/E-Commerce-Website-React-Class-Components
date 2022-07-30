@@ -35,12 +35,7 @@ class MainHeader extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
               <Form className="d-none d-lg-flex my-auto ms-3">
-                <select
-                  name="categories"
-                  id="categories"
-                  role="button"
-                  className="px-1"
-                >
+                <select name="categories" role="button" className="px-1">
                   <option value="all">All Products</option>
                   <option value="men's clothing">Mens</option>
                   <option value="woman's clothing">Womans</option>

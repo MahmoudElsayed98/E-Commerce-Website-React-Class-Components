@@ -13,7 +13,7 @@ export class Cart extends Component {
   render() {
     const { removeProductFromCart, deliveryCost } = this.props;
     return (
-      <div className="cart-comp py-4">
+      <div className="cart-comp py-4 position-relative">
         <div className="container">
           <CartProductsContext.Consumer>
             {(cartProducts) => {
@@ -121,9 +121,11 @@ export class Cart extends Component {
                           </CartProductsTotalSalaryContext.Consumer>
                         </p>
                       </div>
-                      <button className="btn btn-primary d-block w-100">
-                        CHECKOUT
-                      </button>
+                      <Link to="/E-Commerce-Website-React-Class-Components/checkout">
+                        <button className="btn btn-primary d-block w-100">
+                          CHECKOUT
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 )
