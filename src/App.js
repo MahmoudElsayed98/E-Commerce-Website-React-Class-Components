@@ -7,7 +7,7 @@ import Home from "./components/Home";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProductsHeader from "./components/Products/ProductsHeader";
 import Products from "./components/Products";
-// import NotFound from "./components/NotFound";
+import NotFound from "./components/NotFound";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ProductDetails from "./components/Products/ProductDetails";
@@ -17,6 +17,7 @@ import Cart from "./components/Cart/Cart";
 import SignIn from "./components/SignIn";
 import Register from "./components/Register";
 import AddProductNotify from "./components/Products/AddProductNotify";
+import Checkout from "./components/Checkout";
 
 export const CartProductsContext = createContext();
 export const ProductQuantityContext = createContext();
@@ -307,13 +308,22 @@ class App extends Component {
                       element={<Register />}
                     />
                     <Route
+                      path="/E-Commerce-Website-React-Class-Components/checkout"
+                      element={
+                        <Checkout
+                          cartProductsTotalSalary={cartProductsTotalSalary}
+                          deliveryCost={deliveryCost}
+                          cartProducts={cartProducts}
+                        />
+                      }
+                    />
+                    <Route
                       path="*"
                       element={
-                        <Navigate
-                          to="/E-Commerce-Website-React-Class-Components/"
-                          // replace
-                        />
-                        // <NotFound />
+                        // <Navigate
+                        //   to="/E-Commerce-Website-React-Class-Components/"
+                        // />
+                        <NotFound />
                       }
                     />
                   </Routes>

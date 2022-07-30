@@ -29,11 +29,10 @@ class SignIn extends Component {
           <div className="login-form my-4 py-4 rounded d-flex flex-column align-items-center">
             <h1 className="fw-bold mb-0 text-center text-uppercase">login</h1>
             <Form id="login-form" onSubmit={this.handleSubmit} method="POST">
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-3" controlId="formSignInEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
                   type="email"
-                  id="email"
                   aria-describedby="emailHelp"
                   value={this.state.email}
                   onChange={(e) => this.setState({ email: e.target.value })}
@@ -41,18 +40,17 @@ class SignIn extends Component {
                   className="input"
                 />
               </Form.Group>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-3" controlId="formSignInPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="Enter password"
-                  id="password"
                   value={this.state.password}
                   className="input"
                   onChange={(e) => this.setState({ password: e.target.value })}
                 />
               </Form.Group>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-3" controlId="formSignInCheck">
                 <Form.Check type="checkbox" label="Remember me?" />
               </Form.Group>
               <Button variant="primary" type="submit" className="w-100">

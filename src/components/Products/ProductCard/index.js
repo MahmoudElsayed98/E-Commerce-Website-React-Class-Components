@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AiFillStar } from "react-icons/ai";
+// import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./index.css";
 
@@ -20,22 +20,22 @@ class ProductCard extends Component {
             />
           </Link>
         </div>
-        <div className="text px-2 text-center bg-light">
+        <div className="text p-2 text-center bg-light">
           <h6>
             <Link
               to={`/E-Commerce-Website-React-Class-Components/products/${product.id}`}
-              className="d-flex justify-content-center align-items-center text-decoration-none"
+              className="d-flex justify-content-center align-items-center text-decoration-none fw-bold"
             >
               {product.title}
             </Link>
           </h6>
-          <p className="text-capitalize mb-0 d-flex flex-column justify-content-center align-items-center pb-1">
+          <p className="text-capitalize mb-0 d-flex flex-column justify-content-center align-items-center">
             {"$"}
             {product.price} <br />
-            {product.category} <br />
+            {/* {product.category} <br />
             <span className="d-flex justify-content-center align-items-center gap-1">
               {product.rating.rate} <AiFillStar />
-            </span>
+            </span> */}
           </p>
         </div>
         <button

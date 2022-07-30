@@ -30,22 +30,20 @@ class Register extends Component {
           <div className="register-form my-4 py-4 rounded d-flex flex-column align-items-center">
             <h1 className="fw-bold mb-0 text-center text-uppercase">Sign Up</h1>
             <Form id="register-form" onSubmit={this.handleSubmit} method="POST">
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-3" controlId="formRegisterUsername">
                 <Form.Label>Username</Form.Label>
                 <Form.Control
                   type="text"
-                  id="user-name"
                   value={this.state.userName}
                   onChange={(e) => this.setState({ userName: e.target.value })}
                   placeholder="Username"
                   className="input"
                 />
               </Form.Group>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-3" controlId="formRegisterEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
                   type="email"
-                  id="email-sign-up"
                   aria-describedby="emailHelp"
                   value={this.state.email}
                   onChange={(e) => this.setState({ email: e.target.value })}
@@ -53,12 +51,11 @@ class Register extends Component {
                   className="input"
                 />
               </Form.Group>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-3" controlId="formRegisterPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="New password"
-                  id="password-sign-up"
                   value={this.state.password}
                   className="input"
                   onChange={(e) => this.setState({ password: e.target.value })}

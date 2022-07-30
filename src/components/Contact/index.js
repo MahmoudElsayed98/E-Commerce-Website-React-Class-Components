@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "./index.css";
 import { Form, Button } from "react-bootstrap";
 
-class App extends Component {
+class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,37 +40,43 @@ class App extends Component {
           <h1 className="fw-bold pt-4 pb-md-3 mb-0 text-center text-uppercase">
             Contact Us
           </h1>
-          <Form id="contact-form" onSubmit={this.handleSubmit} method="POST">
-            <Form.Group className="mb-3 d-md-flex align-items-center justify-content-between">
+          <Form onSubmit={this.handleSubmit} method="POST">
+            <Form.Group
+              className="mb-3 d-md-flex align-items-center justify-content-between"
+              controlId="formControlName"
+            >
               <Form.Label className="mb-0 text-center">Full Name</Form.Label>
               <Form.Control
                 type="text"
-                id="name"
                 value={this.state.name}
                 onChange={(e) => this.setState({ name: e.target.value })}
                 placeholder="Enter your full name"
               />
             </Form.Group>
-            <Form.Group className="mb-3 d-md-flex align-items-center justify-content-between">
+            <Form.Group
+              className="mb-3 d-md-flex align-items-center justify-content-between"
+              controlId="formControlEmail"
+            >
               <Form.Label className="mb-0 text-center">
                 Email Address
               </Form.Label>
               <Form.Control
                 type="email"
-                id="email"
                 aria-describedby="emailHelp"
                 value={this.state.email}
                 onChange={(e) => this.setState({ email: e.target.value })}
                 placeholder="name@example.com"
               />
             </Form.Group>
-            <Form.Group className="mb-3 d-md-flex justify-content-end align-items-center">
+            <Form.Group
+              className="mb-3 d-md-flex justify-content-end align-items-center"
+              controlId="formControlMessage"
+            >
               <Form.Label className="mb-0 text-center ">Subject</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
                 placeholder="Leave Your Message Here..."
-                id="message"
                 value={this.state.message}
                 onChange={(e) => this.setState({ message: e.target.value })}
               />
@@ -89,4 +95,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Contact;

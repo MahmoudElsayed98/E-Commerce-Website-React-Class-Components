@@ -1,6 +1,5 @@
 .cart-comp {
   min-height: calc(100vh - (32px + 81.47px + 57px));
-  position: relative;
 }
 .cart-comp::after {
   content: "";
