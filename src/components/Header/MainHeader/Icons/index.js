@@ -148,17 +148,31 @@ class Icons extends Component {
                             </div>
 
                             {cartProducts.length !== 0 && (
-                              <div className="product-summary border-top rounded-bottom text-end py-2 px-3 fw-bold">
-                                <p className="mb-0">
-                                  Subtotal : $
-                                  {cartProductsTotalSalary.toFixed(2)}
-                                  <br />
-                                  Total : $
-                                  {(
-                                    cartProductsTotalSalary + deliveryCost
-                                  ).toFixed(2)}
-                                </p>
-                              </div>
+                              <>
+                                <div className="product-summary border-top text-end py-2 px-3 fw-bold">
+                                  <p className="mb-0">
+                                    Subtotal : $
+                                    {cartProductsTotalSalary.toFixed(2)}
+                                    <br />
+                                    Total : $
+                                    {(
+                                      cartProductsTotalSalary + deliveryCost
+                                    ).toFixed(2)}
+                                  </p>
+                                </div>
+                                <div className="buttons bg-light border-bottom border-start border-end p-3 rounded-bottom">
+                                  <Link to="/E-Commerce-Website-React-Class-Components/cart">
+                                    <button className="btn btn-outline-primary text-uppercase me-2">
+                                      view cart
+                                    </button>
+                                  </Link>
+                                  <Link to="/E-Commerce-Website-React-Class-Components/checkout">
+                                    <button className="btn btn-outline-primary text-uppercase">
+                                      Checkout
+                                    </button>
+                                  </Link>
+                                </div>
+                              </>
                             )}
                           </div>
                         </div>

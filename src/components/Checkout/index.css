@@ -55,6 +55,26 @@
   width: 37.5%;
   text-align: center;
 }
+@media (max-width: 991px) {
+  .checkout form input,
+  .checkout form select {
+    width: 50%;
+  }
+  .checkout form label {
+    width: 25%;
+    text-align: center;
+  }
+}
+@media (max-width: 767px) {
+  .checkout form input,
+  .checkout form select {
+    width: 100%;
+  }
+  .checkout form label {
+    width: auto;
+    text-align: center;
+  }
+}
 /* input type date pick item */
 .checkout form input[type="date"]::-webkit-datetime-edit-text {
   color: var(--secondaryColor);

@@ -38,7 +38,7 @@ class Checkout extends Component {
     return (
       <div className="checkout py-4 position-relative">
         <div className="container d-flex flex-column align-items-center">
-          <h1 className="fw-bold pt-4 pb-md-3 mb-0 text-center text-uppercase">
+          <h1 className="fw-bold pt-4 pb-md-3 mb-md-0 mb-1 text-center text-uppercase">
             Checkout
           </h1>
           <Form
@@ -47,12 +47,14 @@ class Checkout extends Component {
             method="POST"
             className="row"
           >
-            <div className="col col-md-6">
+            <div className="col-lg-6">
               <Form.Group
-                className="mb-3 d-md-flex align-items-center justify-content-between"
+                className="mb-3 d-md-flex align-items-center justify-content-center justify-content-lg-between"
                 controlId="formCheckoutName"
               >
-                <Form.Label className="mb-0 text-center">Name</Form.Label>
+                <Form.Label className="mb-md-0 mb-1 text-center">
+                  Name
+                </Form.Label>
                 <Form.Control
                   type="text"
                   value={this.state.name}
@@ -61,10 +63,12 @@ class Checkout extends Component {
                 />
               </Form.Group>
               <Form.Group
-                className="mb-3 d-md-flex align-items-center justify-content-between"
+                className="mb-3 d-md-flex align-items-center justify-content-center justify-content-lg-between"
                 controlId="formCheckoutEmail"
               >
-                <Form.Label className="mb-0 text-center">Email</Form.Label>
+                <Form.Label className="mb-md-0 mb-1 text-center">
+                  Email
+                </Form.Label>
                 <Form.Control
                   type="email"
                   aria-describedby="emailHelp"
@@ -74,12 +78,45 @@ class Checkout extends Component {
                 />
               </Form.Group>
               <Form.Group
-                className="mb-3 d-md-flex align-items-center justify-content-between"
+                className="mb-3 d-md-flex align-items-center justify-content-center justify-content-lg-between"
+                controlId="formCheckoutAddress"
+              >
+                <Form.Label className="mb-md-0 mb-1 text-center">
+                  Address
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  value={this.state.address}
+                  onChange={(e) => this.setState({ address: e.target.value })}
+                  placeholder="Street Address"
+                />
+              </Form.Group>
+              <Form.Group
+                className="mb-3 d-md-flex align-items-center justify-content-center justify-content-lg-between"
+                controlId="formCheckoutZipCode"
+              >
+                <Form.Label className="mb-md-0 mb-1 text-center">
+                  Zip code
+                </Form.Label>
+                <Form.Control
+                  type="Zip Code"
+                  value={this.state.zipCode}
+                  onChange={(e) => this.setState({ zipCode: e.target.value })}
+                  placeholder="xxxxx"
+                />
+              </Form.Group>
+            </div>
+
+            <div className="col-lg-6">
+              <Form.Group
+                className="mb-3 d-md-flex align-items-center justify-content-center justify-content-lg-between"
                 controlId="formCheckoutCountry"
               >
-                <Form.Label className="mb-0 text-center">Country</Form.Label>
+                <Form.Label className="mb-md-0 mb-1 text-center">
+                  Country*
+                </Form.Label>
                 <select
-                  // id="formCheckoutCountry"
+                  id="formCheckoutCountry"
                   className="rounded"
                   name="country"
                   defaultValue="Egypt"
@@ -89,25 +126,10 @@ class Checkout extends Component {
                 </select>
               </Form.Group>
               <Form.Group
-                className="mb-3 d-md-flex align-items-center justify-content-between"
-                controlId="formCheckoutAddress"
-              >
-                <Form.Label className="mb-0 text-center">Address</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={this.state.address}
-                  onChange={(e) => this.setState({ address: e.target.value })}
-                  placeholder="Street Address"
-                />
-              </Form.Group>
-            </div>
-
-            <div className="col-md-6">
-              <Form.Group
-                className="mb-3 d-md-flex align-items-center justify-content-between"
+                className="mb-3 d-md-flex align-items-center justify-content-center justify-content-lg-between"
                 controlId="formCheckoutCreditCardNumber"
               >
-                <Form.Label className="mb-0 text-center">
+                <Form.Label className="mb-md-0 mb-1 text-center">
                   Credit Card Number
                 </Form.Label>
                 <Form.Control
@@ -120,10 +142,10 @@ class Checkout extends Component {
                 />
               </Form.Group>
               <Form.Group
-                className="mb-3 d-md-flex align-items-center justify-content-between"
+                className="mb-3 d-md-flex align-items-center justify-content-center justify-content-lg-between"
                 controlId="formCheckoutExpirationDate"
               >
-                <Form.Label className="mb-0 text-center">
+                <Form.Label className="mb-md-0 mb-1 text-center">
                   Expiration Date
                 </Form.Label>
                 <Form.Control
@@ -132,18 +154,6 @@ class Checkout extends Component {
                   onChange={(e) =>
                     this.setState({ expirationDate: e.target.value })
                   }
-                />
-              </Form.Group>
-              <Form.Group
-                className="mb-3 d-md-flex align-items-center justify-content-between"
-                controlId="formCheckoutZipCode"
-              >
-                <Form.Label className="mb-0 text-center">Zip code</Form.Label>
-                <Form.Control
-                  type="Zip Code"
-                  value={this.state.zipCode}
-                  onChange={(e) => this.setState({ zipCode: e.target.value })}
-                  placeholder="xxxxx"
                 />
               </Form.Group>
             </div>

@@ -55,6 +55,9 @@
 .cart-info p {
   font-size: 42px;
 }
+.order-summary a button {
+  letter-spacing: 1px;
+}
 @media (max-width: 991px) {
   .cart-comp .cart-item a:nth-of-type(2) {
     font-size: 15px;
