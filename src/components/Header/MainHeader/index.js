@@ -8,7 +8,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
-import logo from "../../../assets/images/logo.png";
+import logo from "../../../assets/images/e-commerce website logo.png";
 import Icons from "./Icons";
 import { FaBars } from "react-icons/fa";
 import "./index.css";
@@ -29,7 +29,17 @@ class MainHeader extends Component {
           <Navbar.Brand href="/E-Commerce-Website-React-Class-Components/">
             <img src={logo} className="img-fluid" alt="website logo" />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" ref={this.barsRef}>
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            ref={this.barsRef}
+            onClick={(e) =>
+              e.currentTarget.nextElementSibling.classList.contains("show")
+                ? (e.currentTarget.nextElementSibling.firstElementChild.style.left =
+                    "0")
+                : (e.currentTarget.nextElementSibling.firstElementChild.style.left =
+                    "120%")
+            }
+          >
             <FaBars />
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">

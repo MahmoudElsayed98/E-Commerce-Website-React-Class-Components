@@ -95,11 +95,7 @@ class App extends Component {
           progress: undefined,
         });
         this.calculateCartProductsTotalPrice();
-        // } else {
-        // p.price = p.qty * product.price;
-        // this.calculateCartProductsTotalPrice();
         this.resetProductQuantity();
-        // }
       }
     });
     if (alreadyAdded === false) {
@@ -149,6 +145,14 @@ class App extends Component {
       });
     }
   };
+  handleCheckout = () => {
+    this.setState({
+      cartProducts: [],
+      cartProductsTotalSalary: 0,
+      isCartProductsChanged: false,
+    });
+    // alert("Purchased Successfully");
+  };
   componentDidUpdate(prevProps, prevState) {
     if (
       prevState.cartProductsTotalSalary !== this.state.cartProductsTotalSalary
@@ -187,7 +191,7 @@ class App extends Component {
               value={isCartProductsChanged}
             >
               <DeliveryCostContext.Provider value={deliveryCost}>
-                <div className="E-Commerce Website">
+                <div className="e-commerce-website">
                   <ToastContainer
                     position="top-right"
                     autoClose={5000}
@@ -314,6 +318,7 @@ class App extends Component {
                           cartProductsTotalSalary={cartProductsTotalSalary}
                           deliveryCost={deliveryCost}
                           cartProducts={cartProducts}
+                          handleCheckout={this.handleCheckout}
                         />
                       }
                     />

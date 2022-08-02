@@ -23,6 +23,7 @@
 .contact form textarea,
 .contact form textarea:focus {
   color: var(--mainColor);
+  box-shadow: none;
 }
 .contact form input::placeholder,
 .contact form textarea::placeholder {

@@ -17,9 +17,31 @@
     font-size: 14.15px;
   } */
 }
-.links span {
-  transform: translate(-50%, -50%);
-}
+
 .delivery svg {
   font-size: 20px;
+}
+
+.links .dropdown {
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.links .dropdown .btn:focus {
+  box-shadow: none;
+}
+.links button#dropdown-basic p,
+.links button#dropdown-basic::after {
+  color: var(--secondaryColor);
+}
+.links .dropdown-menu.show {
+  background-color: var(--hoverColor);
+  padding: 0;
+}
+.links a.dropdown-item {
+  color: var(--thirdColor);
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+}
+.links a.dropdown-item:hover {
+  background-color: var(--secondaryColor);
 }

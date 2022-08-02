@@ -160,14 +160,14 @@ class Icons extends Component {
                                     ).toFixed(2)}
                                   </p>
                                 </div>
-                                <div className="buttons bg-light border-bottom border-start border-end p-3 rounded-bottom">
+                                <div className="buttons border-top p-3 rounded-bottom">
                                   <Link to="/E-Commerce-Website-React-Class-Components/cart">
-                                    <button className="btn btn-outline-primary text-uppercase me-2">
+                                    <button className="btn btn-outline-light text-uppercase me-2 fw-bold">
                                       view cart
                                     </button>
                                   </Link>
                                   <Link to="/E-Commerce-Website-React-Class-Components/checkout">
-                                    <button className="btn btn-outline-primary text-uppercase">
+                                    <button className="btn btn-outline-light text-uppercase fw-bold">
                                       Checkout
                                     </button>
                                   </Link>

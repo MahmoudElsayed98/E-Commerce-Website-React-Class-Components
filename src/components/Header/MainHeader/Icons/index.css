@@ -140,3 +140,9 @@
     padding-bottom: 0;
   }
 }
+.cart .buttons {
+  background-color: var(--hoverColor);
+}
+.cart .buttons .btn-outline-light:hover {
+  color: var(--mainColor);
+}

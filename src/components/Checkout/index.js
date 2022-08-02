@@ -34,7 +34,12 @@ class Checkout extends Component {
   }
 
   render() {
-    const { deliveryCost, cartProductsTotalSalary, cartProducts } = this.props;
+    const {
+      deliveryCost,
+      cartProductsTotalSalary,
+      cartProducts,
+      handleCheckout,
+    } = this.props;
     return (
       <div className="checkout py-4 position-relative">
         <div className="container d-flex flex-column align-items-center">
@@ -96,7 +101,7 @@ class Checkout extends Component {
                 controlId="formCheckoutZipCode"
               >
                 <Form.Label className="mb-md-0 mb-1 text-center">
-                  Zip code
+                  Zip Code
                 </Form.Label>
                 <Form.Control
                   type="Zip Code"
@@ -160,7 +165,8 @@ class Checkout extends Component {
             <Button
               variant="primary"
               type="submit"
-              className=" d-block mx-auto w-25 text-center"
+              className=" d-block mx-auto text-center"
+              onClick={() => handleCheckout()}
             >
               PURCHASE
               {cartProducts.length !== 0

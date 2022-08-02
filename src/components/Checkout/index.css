@@ -14,6 +14,17 @@
   z-index: -1;
   opacity: 0.03;
 }
+.checkout .btn-primary {
+  background-color: var(--mainColor);
+  width: 25%;
+}
+.checkout .btn-primary:hover {
+  background-color: var(--hoverColor);
+  border-color: var(--hoverColor);
+}
+.checkout .btn-primary:focus {
+  box-shadow: none;
+}
 .checkout .container h1 {
   font-size: 50px;
 }
@@ -26,10 +37,17 @@
   .checkout .container h1 {
     font-size: 40px;
   }
+  .checkout .btn-primary {
+    width: 30%;
+  }
 }
 @media (max-width: 767px) {
   .checkout .container h1 {
     font-size: 35px;
+  }
+  .checkout .btn-primary {
+    background-color: var(--mainColor);
+    width: 50%;
   }
 }
 .checkout form select {
@@ -50,6 +68,10 @@
 .checkout form input,
 .checkout form select {
   width: 62.5%;
+}
+.checkout form input:focus {
+  box-shadow: none;
+  color: var(--mainColor);
 }
 .checkout form label {
   width: 37.5%;
@@ -92,3 +114,4 @@
 .checkout form input[type="date"]::-webkit-calendar-picker-indicator {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
 }
+/* input type date pick item */

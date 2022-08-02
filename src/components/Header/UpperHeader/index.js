@@ -4,10 +4,21 @@ import { BsExclamationCircleFill } from "react-icons/bs";
 import { MdDeliveryDining } from "react-icons/md";
 import { IoStorefrontSharp } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
+import englishLogo from "../../../assets/images/english logo.png";
+import arabicLogo from "../../../assets/images/arabic logo.png";
 import "./index.css";
+import { Dropdown } from "react-bootstrap";
 
 class UpperHeader extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      lang: "Eng",
+    };
+  }
   render() {
+    const { lang } = this.state;
     return (
       <nav className="links">
         <div className="container px-3 p-1 links position-relative d-flex justify-content-md-between">
@@ -48,12 +59,39 @@ class UpperHeader extends Component {
             <MdDeliveryDining className="me-1" />
             Delivery
           </div>
-          <span
-            className="position-absolute top-50 start-50 p-1 d-lg-block d-none"
-            role="button"
-          >
-            $ US Dollar
-          </span>
+          <Dropdown className="position-absolute top-50 start-50 d-lg-block d-none">
+            <Dropdown.Toggle
+              variant=""
+              id="dropdown-basic"
+              className="d-md-flex align-items-center"
+            >
+              <img
+                src={lang === "Eng" ? englishLogo : arabicLogo}
+                alt={lang === "Eng" ? "English Logo" : "Arabic Logo"}
+                className="me-2"
+              />
+              <p className="mb-0">{lang === "Eng" ? "English" : "Arabic"}</p>
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item
+                href="#/action-1"
+                className="d-md-flex align-items-center"
+                onClick={() => this.setState({ lang: "Eng" })}
+              >
+                <img src={englishLogo} alt="English Logo" className="me-2" />
+                <p className="mb-0">English</p>
+              </Dropdown.Item>
+              <Dropdown.Item
+                href="#/action-2"
+                className="d-md-flex align-items-center"
+                onClick={() => this.setState({ lang: "Ar" })}
+              >
+                <img src={arabicLogo} alt="Arabic Logo" className="me-2" />
+                <p className="mb-0">Arabic</p>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </nav>
     );
