@@ -88,16 +88,17 @@
   .navbar > .container {
     position: relative;
   }
-  .navbar .navbar-collapse {
+  /* .navbar .navbar-collapse {
     overflow-x: hidden;
-  }
+  } */
   .navbar-expand-lg .navbar-nav {
     background-color: var(--mainColor);
     border-radius: 5px;
     padding: 12.5px;
     height: 299px;
     position: relative;
-    left: 120%;
+    /* left: 120%; */
+    left: 0;
     transition: var(--mainDuration);
   }
   .navbar-collapse {

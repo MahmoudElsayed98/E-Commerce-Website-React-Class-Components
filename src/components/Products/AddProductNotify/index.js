@@ -4,7 +4,7 @@ import "./index.css";
 
 class AddProductNotify extends Component {
   render() {
-    const { product } = this.props;
+    const { product, target } = this.props;
     return (
       <div
         className="product-added d-flex align-items-center justify-content-center"
@@ -27,8 +27,11 @@ class AddProductNotify extends Component {
               {product.title}
             </Link>{" "}
             to your{" "}
-            <Link to={`/E-Commerce-Website-React-Class-Components/cart`}>
-              shopping cart!
+            <Link
+              to={`/E-Commerce-Website-React-Class-Components/${target}`}
+              className="text-capitalize"
+            >
+              {target === "cart" ? "shopping cart" : "wishlist"}
             </Link>
           </p>
         </div>

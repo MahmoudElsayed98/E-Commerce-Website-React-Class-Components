@@ -32,13 +32,13 @@ class MainHeader extends Component {
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             ref={this.barsRef}
-            onClick={(e) =>
-              e.currentTarget.nextElementSibling.classList.contains("show")
-                ? (e.currentTarget.nextElementSibling.firstElementChild.style.left =
-                    "0")
-                : (e.currentTarget.nextElementSibling.firstElementChild.style.left =
-                    "120%")
-            }
+            // onClick={(e) =>
+            //   e.currentTarget.nextElementSibling.classList.contains("show")
+            //     ? (e.currentTarget.nextElementSibling.firstElementChild.style.left =
+            //         "0")
+            //     : (e.currentTarget.nextElementSibling.firstElementChild.style.left =
+            //         "120%")
+            // }
           >
             <FaBars />
           </Navbar.Toggle>

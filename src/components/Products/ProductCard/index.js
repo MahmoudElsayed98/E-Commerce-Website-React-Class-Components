@@ -1,13 +1,18 @@
 import React, { Component } from "react";
-// import { AiFillStar } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./index.css";
 
 class ProductCard extends Component {
   render() {
-    const { product, addToCart } = this.props;
+    const { product, addToCart, addToWishlist } = this.props;
     return (
-      <div className="product-card rounded-top">
+      <div className="product-card rounded-top position-relative">
+        <AiOutlineHeart
+          className="position-absolute fs-2"
+          role="button"
+          onClick={() => addToWishlist(product)}
+        />
         <div className="image rounded-top">
           <Link
             to={`/E-Commerce-Website-React-Class-Components/products/${product.id}`}
