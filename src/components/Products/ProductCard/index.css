@@ -2,13 +2,25 @@
   width: calc((100% - 60px) / 4);
   margin-bottom: 15px;
   margin-right: 15px;
-  /* height: 571.65px; */
+  overflow: hidden;
+}
+.product-card > svg {
+  color: var(--secondaryColor);
+  right: -30px;
+  top: 10px;
+}
+.product-card:hover > svg {
+  right: 10px;
+}
+.product-card > svg:hover {
+  color: var(--mainColor);
 }
 .product-card .image {
   border-left: var(--mainBorder);
   border-right: var(--mainBorder);
   border-top: var(--mainBorder);
 }
+.product-card > svg,
 .product-card > .image,
 .product-card > .text,
 .product-card > .btn-primary,
@@ -22,9 +34,7 @@
 .product-card:hover > .btn-primary {
   border-color: var(--secondaryColor);
 }
-.product-card:hover > .text p span > svg {
-  color: var(--mainColor);
-}
+.product-card:hover > .text p span > svg,
 .product-card:hover > .text h6 a {
   color: var(--mainColor);
 }

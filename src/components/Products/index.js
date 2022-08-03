@@ -57,7 +57,7 @@ class Products extends Component {
   }
   render() {
     const { products, productsLoading } = this.state;
-    const { skeletonCardsNo, addToCart } = this.props;
+    const { skeletonCardsNo, addToCart, addToWishlist } = this.props;
     return (
       <>
         <div className="products">
@@ -66,7 +66,12 @@ class Products extends Component {
               {productsLoading ? (
                 products.map((p) => {
                   return (
-                    <ProductCard product={p} key={p.id} addToCart={addToCart} />
+                    <ProductCard
+                      product={p}
+                      key={p.id}
+                      addToCart={addToCart}
+                      addToWishlist={addToWishlist}
+                    />
                   );
                 })
               ) : (

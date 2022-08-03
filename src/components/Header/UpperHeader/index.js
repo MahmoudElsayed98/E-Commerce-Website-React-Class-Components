@@ -75,7 +75,6 @@ class UpperHeader extends Component {
 
             <Dropdown.Menu>
               <Dropdown.Item
-                href="#/action-1"
                 className="d-md-flex align-items-center"
                 onClick={() => this.setState({ lang: "Eng" })}
               >
@@ -83,7 +82,6 @@ class UpperHeader extends Component {
                 <p className="mb-0">English</p>
               </Dropdown.Item>
               <Dropdown.Item
-                href="#/action-2"
                 className="d-md-flex align-items-center"
                 onClick={() => this.setState({ lang: "Ar" })}
               >

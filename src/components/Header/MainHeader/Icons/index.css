@@ -23,13 +23,21 @@
 .cart a span {
   display: flex;
 }
-.cart a span > .changed {
-  width: 15px;
-  top: 3.5px;
-  right: -4.5px;
-  height: 15px;
+.icons span.changed,
+.cart span.changed {
+  width: 17px;
+  height: 17px;
   background-color: red;
+  border: 2.5px solid #f8f9fa;
   font-size: 11.5px;
+}
+.icons span.changed {
+  top: 0.5px;
+  right: 8px;
+}
+.cart span.changed {
+  top: -4px;
+  right: -2.5px;
 }
 .cart:hover a span p,
 .cart:hover a span svg {
@@ -132,8 +140,12 @@
   .cart a span p {
     color: var(--thirdColor);
   }
+  .icons span.changed,
   .cart a span > .changed {
-    top: -7.5px;
+    border-color: var(--mainColor);
+  }
+  .cart a span > .changed {
+    right: -4.5px;
   }
   .cart {
     padding-top: 0;
@@ -141,8 +153,17 @@
   }
 }
 .cart .buttons {
-  background-color: var(--hoverColor);
+  background-color: var(--secondaryColor);
 }
-.cart .buttons .btn-outline-light:hover {
+.cart .buttons a:first-of-type .btn-light,
+.cart .buttons a:last-of-type .btn-light:hover {
   color: var(--mainColor);
+  background-color: var(--thirdColor);
+  border-color: var(--thirdColor);
+}
+.cart .buttons a:first-of-type .btn-light:hover,
+.cart .buttons a:last-of-type .btn-light {
+  background-color: var(--mainColor);
+  color: var(--thirdColor);
+  border-color: var(--mainColor);
 }
