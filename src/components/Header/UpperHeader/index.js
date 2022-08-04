@@ -8,90 +8,101 @@ import englishLogo from "../../../assets/images/english logo.png";
 import arabicLogo from "../../../assets/images/arabic logo.png";
 import "./index.css";
 import { Dropdown } from "react-bootstrap";
+import { ChangeLanguageContext, LanguageContext } from "../../../App";
 
 class UpperHeader extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      lang: "Eng",
-    };
-  }
   render() {
-    const { lang } = this.state;
     return (
-      <nav className="links">
-        <div className="container px-3 p-1 links position-relative d-flex justify-content-md-between">
-          <div className="nav-links d-flex">
-            <NavLink
-              to="/E-Commerce-Website-React-Class-Components/"
-              className="text-decoration-none d-flex justify-content-center align-items-center me-2"
-            >
-              <FaHome className="me-1" />
-              Home
-            </NavLink>
-            <NavLink
-              to="/E-Commerce-Website-React-Class-Components/products"
-              className="text-decoration-none d-flex justify-content-center align-items-center me-2"
-            >
-              <IoStorefrontSharp className="me-1" />
-              Shop
-            </NavLink>
-            <NavLink
-              to="/E-Commerce-Website-React-Class-Components/about"
-              className="text-decoration-none d-flex justify-content-center align-items-center me-2"
-            >
-              <BsExclamationCircleFill className="me-1" />
-              About Us
-            </NavLink>
-            <NavLink
-              to="/E-Commerce-Website-React-Class-Components/contact"
-              className="text-decoration-none d-flex justify-content-center align-items-center me-2"
-            >
-              <FaEnvelope className="me-1" />
-              Contact Us
-            </NavLink>
-          </div>
-          <div
-            className="delivery d-none d-md-flex justify-content-center align-items-center"
-            role="button"
-          >
-            <MdDeliveryDining className="me-1" />
-            Delivery
-          </div>
-          <Dropdown className="position-absolute top-50 start-50 d-lg-block d-none">
-            <Dropdown.Toggle
-              variant=""
-              id="dropdown-basic"
-              className="d-md-flex align-items-center"
-            >
-              <img
-                src={lang === "Eng" ? englishLogo : arabicLogo}
-                alt={lang === "Eng" ? "English Logo" : "Arabic Logo"}
-                className="me-2"
-              />
-              <p className="mb-0">{lang === "Eng" ? "English" : "Arabic"}</p>
-            </Dropdown.Toggle>
+      <ChangeLanguageContext.Consumer>
+        {(changeLanguage) => (
+          <LanguageContext.Consumer>
+            {(lang) => (
+              <nav className="links">
+                <div className="container px-3 p-1 links position-relative d-flex justify-content-md-between">
+                  <div className="nav-links d-flex">
+                    <NavLink
+                      to="/E-Commerce-Website-React-Class-Components/"
+                      className="text-decoration-none d-flex justify-content-center align-items-center me-1"
+                    >
+                      <FaHome className="mx-1" />
+                      {lang === "Eng" ? "Home" : "الرئيسية"}
+                    </NavLink>
+                    <NavLink
+                      to="/E-Commerce-Website-React-Class-Components/products"
+                      className="text-decoration-none d-flex justify-content-center align-items-center me-1"
+                    >
+                      <IoStorefrontSharp className="mx-1" />
+                      {lang === "Eng" ? "Shop" : "المتجر"}
+                    </NavLink>
+                    <NavLink
+                      to="/E-Commerce-Website-React-Class-Components/about"
+                      className="text-decoration-none d-flex justify-content-center align-items-center me-1"
+                    >
+                      <BsExclamationCircleFill className="mx-1" />
+                      {lang === "Eng" ? "About Us" : "نبذة عنا"}
+                    </NavLink>
+                    <NavLink
+                      to="/E-Commerce-Website-React-Class-Components/contact"
+                      className="text-decoration-none d-flex justify-content-center align-items-center me-1"
+                    >
+                      <FaEnvelope className="mx-1" />
+                      {lang === "Eng" ? "Contact Us" : "التواصل معنا"}
+                    </NavLink>
+                  </div>
+                  <div
+                    className="delivery d-none d-md-flex justify-content-center align-items-center"
+                    role="button"
+                  >
+                    <MdDeliveryDining className="mx-1" />
+                    {lang === "Eng" ? "Delivery" : "الدليفري"}
+                  </div>
+                  <Dropdown className="position-absolute top-50 start-50 d-lg-block d-none">
+                    <Dropdown.Toggle
+                      variant=""
+                      id="dropdown-basic"
+                      className="d-md-flex align-items-center"
+                    >
+                      <img
+                        src={lang === "Eng" ? englishLogo : arabicLogo}
+                        alt={lang === "Eng" ? "English Logo" : "Arabic Logo"}
+                        className="mx-2"
+                      />
+                      <p className="mb-0">
+                        {lang === "Eng" ? "English" : "العربية"}
+                      </p>
+                    </Dropdown.Toggle>
 
-            <Dropdown.Menu>
-              <Dropdown.Item
-                className="d-md-flex align-items-center"
-                onClick={() => this.setState({ lang: "Eng" })}
-              >
-                <img src={englishLogo} alt="English Logo" className="me-2" />
-                <p className="mb-0">English</p>
-              </Dropdown.Item>
-              <Dropdown.Item
-                className="d-md-flex align-items-center"
-                onClick={() => this.setState({ lang: "Ar" })}
-              >
-                <img src={arabicLogo} alt="Arabic Logo" className="me-2" />
-                <p className="mb-0">Arabic</p>
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
-      </nav>
+                    <Dropdown.Menu>
+                      <Dropdown.Item
+                        className="d-md-flex align-items-center"
+                        onClick={() => changeLanguage("Eng")}
+                      >
+                        <img
+                          src={englishLogo}
+                          alt="English Logo"
+                          className="mx-2"
+                        />
+                        <p className="mb-0">English</p>
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        className="d-md-flex align-items-center"
+                        onClick={() => changeLanguage("Ar")}
+                      >
+                        <img
+                          src={arabicLogo}
+                          alt="Arabic Logo"
+                          className="mx-2"
+                        />
+                        <p className="mb-0">العربية</p>
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+              </nav>
+            )}
+          </LanguageContext.Consumer>
+        )}
+      </ChangeLanguageContext.Consumer>
     );
   }
 }

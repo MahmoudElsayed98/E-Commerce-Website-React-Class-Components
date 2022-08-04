@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import "./index.css";
 import image from "../../assets/images/glossy-e-commerce.png";
-import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+import {
+  HiOutlineArrowNarrowRight,
+  HiOutlineArrowNarrowLeft,
+} from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 class Home extends Component {
   render() {
+    const { lang } = this.props;
     return (
       <div className="home d-flex justify-content-center align-items-center d-lg-block py-4 py-lg-0">
         <div className="container">
@@ -15,14 +19,22 @@ class Home extends Component {
             </div>
             <div className="col-11 col-md-8 col-lg-6 text-center text">
               <h1 className="text-uppercase mb-lg-3">
-                <span>*</span> All The <span>Best</span> <br /> &nbsp; &nbsp;
-                You Can Get <span>*</span>
+                <span>*</span> {lang === "Eng" ? "All The" : "أفضل"}{" "}
+                <span>{lang === "Eng" ? "Best" : "المنتجات"}</span> <br />{" "}
+                &nbsp; &nbsp;{" "}
+                {lang === "Eng" ? "You Can Get" : "ستجدها هنــــا"}{" "}
+                <span>*</span>
               </h1>
               <Link
                 className="btn btn-lg btn-primary mt-2 mt-lg-3 text-uppercase mx-auto d-flex justify-content-center align-items-center ok"
                 to="/E-Commerce-Website-React-Class-Components/products"
               >
-                Shop Now <HiOutlineArrowNarrowRight className="ms-1" />
+                {lang === "Eng" ? "Shop Now" : "التسوق الان"}
+                {lang === "Eng" ? (
+                  <HiOutlineArrowNarrowRight className="ms-1" />
+                ) : (
+                  <HiOutlineArrowNarrowLeft className="me-1" />
+                )}
               </Link>
             </div>
           </div>

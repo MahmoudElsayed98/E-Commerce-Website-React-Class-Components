@@ -50,8 +50,6 @@
 }
 .navbar-collapse .navbar-nav form select {
   background-color: var(--mainColor);
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
   color: var(--thirdColor);
   border: 1px solid var(--mainColor);
   width: fit-content;
@@ -73,8 +71,6 @@
   background-color: var(--mainColor);
   border-color: var(--mainColor);
   color: var(--thirdColor);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
 }
 .navbar-collapse .navbar-nav form .btn-outline-dark:hover {
   background-color: var(--hoverColor);

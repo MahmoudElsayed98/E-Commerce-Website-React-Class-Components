@@ -34,23 +34,29 @@ class Contact extends Component {
   }
 
   render() {
+    const { lang } = this.props;
     return (
       <div className="contact py-4">
         <div className="container d-flex flex-column align-items-center">
           <h1 className="fw-bold pt-4 pb-md-3 mb-0 text-center text-uppercase">
-            Contact Us
+            {lang === "Eng" ? "Contact Us" : "التواصل معنا"}
           </h1>
           <Form onSubmit={this.handleSubmit} method="POST">
             <Form.Group
               className="mb-3 d-md-flex align-items-center justify-content-between"
               controlId="formControlName"
             >
-              <Form.Label className="mb-0 text-center">Full Name</Form.Label>
+              <Form.Label className="mb-0 text-center">
+                {" "}
+                {lang === "Eng" ? "Full Name" : "الاسم بالكامل"}
+              </Form.Label>
               <Form.Control
                 type="text"
                 value={this.state.name}
                 onChange={(e) => this.setState({ name: e.target.value })}
-                placeholder="Enter your full name"
+                placeholder={`${
+                  lang === "Eng" ? "Enter Full Name" : "ادخل الاسم بالكامل"
+                }`}
               />
             </Form.Group>
             <Form.Group
@@ -58,25 +64,34 @@ class Contact extends Component {
               controlId="formControlEmail"
             >
               <Form.Label className="mb-0 text-center">
-                Email Address
+                {lang === "Eng" ? "Email Address" : "البريد الالكترونى"}
               </Form.Label>
               <Form.Control
                 type="email"
                 aria-describedby="emailHelp"
                 value={this.state.email}
                 onChange={(e) => this.setState({ email: e.target.value })}
-                placeholder="name@example.com"
+                placeholder={`${
+                  lang === "Eng"
+                    ? "Enter Email Address"
+                    : "ادخل البريد الالكترونى"
+                }`}
               />
             </Form.Group>
             <Form.Group
               className="mb-3 d-md-flex justify-content-end align-items-center"
               controlId="formControlMessage"
             >
-              <Form.Label className="mb-0 text-center ">Subject</Form.Label>
+              <Form.Label className="mb-0 text-center ">
+                {" "}
+                {lang === "Eng" ? "Subject" : "الموضوع"}
+              </Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
-                placeholder="Leave Your Message Here..."
+                placeholder={`${
+                  lang === "Eng" ? "Leave Your Message Here" : "اترك رسالتك هنا"
+                }...`}
                 value={this.state.message}
                 onChange={(e) => this.setState({ message: e.target.value })}
               />
@@ -86,7 +101,7 @@ class Contact extends Component {
               type="submit"
               className=" d-block ms-md-auto"
             >
-              Send Your Message
+              {lang === "Eng" ? "Send Your Message" : "ارسل رسالتك"}
             </Button>
           </Form>
         </div>
