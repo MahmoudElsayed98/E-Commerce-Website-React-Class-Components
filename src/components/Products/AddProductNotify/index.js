@@ -4,7 +4,7 @@ import "./index.css";
 
 class AddProductNotify extends Component {
   render() {
-    const { product, target } = this.props;
+    const { product, target, alreadyAdded } = this.props;
     return (
       <div
         className="product-added d-flex align-items-center justify-content-center"
@@ -20,7 +20,7 @@ class AddProductNotify extends Component {
         <div className="info">
           <h6 className="fw-bold mb-1">{product.title}</h6>
           <p className="mb-0">
-            Success: You have added <br />{" "}
+            Success: You have {alreadyAdded && "already"} added <br />{" "}
             <Link
               to={`/E-Commerce-Website-React-Class-Components/products/${product.id}`}
             >

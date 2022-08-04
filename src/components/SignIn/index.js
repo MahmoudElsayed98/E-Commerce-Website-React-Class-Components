@@ -23,51 +23,69 @@ class SignIn extends Component {
     this.setState({ email: "", password: "" });
   }
   render() {
+    const { lang } = this.props;
     return (
       <div className="login">
         <div className="container d-flex justify-content-center align-items-center h-100">
           <div className="login-form my-4 py-4 rounded d-flex flex-column align-items-center">
-            <h1 className="fw-bold mb-0 text-center text-uppercase">login</h1>
+            <h1 className="fw-bold mb-0 text-center text-uppercase">
+              {lang === "Eng" ? "login" : "تسجيل الدخول"}
+            </h1>
             <Form id="login-form" onSubmit={this.handleSubmit} method="POST">
               <Form.Group className="mb-3" controlId="formSignInEmail">
-                <Form.Label>Email address</Form.Label>
+                <Form.Label>
+                  {lang === "Eng" ? "Email Address" : "البريد الالكترونى"}
+                </Form.Label>
                 <Form.Control
                   type="email"
                   aria-describedby="emailHelp"
                   value={this.state.email}
                   onChange={(e) => this.setState({ email: e.target.value })}
-                  placeholder="name@example.com"
+                  placeholder={`${
+                    lang === "Eng"
+                      ? "Enter Email Address"
+                      : "ادخل البريد الالكترونى"
+                  }`}
                   className="input"
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formSignInPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>
+                  {lang === "Eng" ? "Password" : "كلمة المرور"}
+                </Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder="Enter password"
+                  placeholder={`${
+                    lang === "Eng" ? "Enter password" : "ادخل كلمة المرور"
+                  }`}
                   value={this.state.password}
                   className="input"
                   onChange={(e) => this.setState({ password: e.target.value })}
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formSignInCheck">
-                <Form.Check type="checkbox" label="Remember me?" />
+                <Form.Check
+                  type="checkbox"
+                  label={`${lang === "Eng" ? "Remember me? " : "تذكرنى ؟"}`}
+                />
               </Form.Group>
               <Button variant="primary" type="submit" className="w-100">
-                LOGIN
+                {lang === "Eng" ? "LOGIN" : "تسجيل الدخول"}
               </Button>
               <Form.Text className="d-flex justify-content-end">
                 <a
                   href="sign-in/forgot-password"
                   className="text-decoration-none"
                 >
-                  Forgot Password?
+                  {lang === "Eng"
+                    ? "Forgot Password? "
+                    : "هل نسيت كلمة المرور؟"}
                 </a>
               </Form.Text>
               <div className="or position-relative">
                 <hr />
                 <span className="position-absolute start-50 top-50 rounded d-flex justify-content-center align-items-center">
-                  OR
+                  {lang === "Eng" ? "OR" : "أو"}
                 </span>
               </div>
               <div className="socials text-center">
@@ -79,14 +97,14 @@ class SignIn extends Component {
                     <AiFillGoogleCircle className="me-2" />
                   </a>
                   <a href="#twitter">
-                    <AiFillTwitterCircle />{" "}
+                    <AiFillTwitterCircle className="me-2" />{" "}
                   </a>
                 </IconContext.Provider>
               </div>
               <div className="go-to-sign-up text-center mt-3">
-                Need an account?{" "}
+                {lang === "Eng" ? "Need an account? " : "مستخدم جديد؟ "}
                 <Link to="/E-Commerce-Website-React-Class-Components/register">
-                  SIGN UP
+                  {lang === "Eng" ? "SIGN UP" : "تسجيل الاشتراك"}
                 </Link>
               </div>
             </Form>

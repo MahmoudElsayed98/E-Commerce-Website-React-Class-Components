@@ -1,4 +1,4 @@
-import React, { Component, createContext } from "react";
+import React, { Component, createContext, createRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,12 +27,15 @@ export const CartProductsTotalSalaryContext = createContext();
 export const IsCartProductsChangedContext = createContext();
 export const IsWishlistProductsChangedContext = createContext();
 export const DeliveryCostContext = createContext();
+export const ChangeLanguageContext = createContext();
+export const LanguageContext = createContext();
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      lang: "Eng",
       wishlistProducts: [],
       cartProducts: [],
       productQuantity: 1,
@@ -44,7 +47,17 @@ class App extends Component {
       ProductDetailsFetchingFailed: false,
       isWhislistProductsChanged: false,
     };
+    this.websiteRef = createRef();
   }
+  changeLanguage = (language) => {
+    if (language === "Eng") {
+      this.websiteRef.current.style.direction = "ltr";
+      this.setState({ lang: "Eng" });
+    } else {
+      this.websiteRef.current.style.direction = "rtl";
+      this.setState({ lang: "Ar" });
+    }
+  };
   fetchApiProductDetails = (id) => {
     const { ProductQuantity, productsDetailsLoading } = this.state;
     if (ProductQuantity !== 1) {
@@ -88,15 +101,22 @@ class App extends Component {
       if (p.id === product.id) {
         alreadyAdded = true;
         // Already Added
-        toast.success(<AddProductNotify product={p} target="wishlist" />, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        toast.success(
+          <AddProductNotify
+            product={p}
+            target="wishlist"
+            alreadyAdded={true}
+          />,
+          {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
       }
     });
     if (alreadyAdded === false) {
@@ -247,6 +267,7 @@ class App extends Component {
       ProductDetailsFetchingFailed,
       wishlistProducts,
       isWhislistProductsChanged,
+      lang,
     } = this.state;
     return (
       <CartProductsContext.Provider value={cartProducts}>
@@ -262,168 +283,181 @@ class App extends Component {
                   <IsWishlistProductsChangedContext.Provider
                     value={isWhislistProductsChanged}
                   >
-                    <div className="e-commerce-website">
-                      <ToastContainer
-                        position="top-right"
-                        autoClose={5000}
-                        hideProgressBar={false}
-                        newestOnTop={false}
-                        closeOnClick
-                        rtl={false}
-                        pauseOnFocusLoss
-                        draggable
-                        pauseOnHover
-                      />
-                      <Header
-                        removeProductFromCart={this.removeProductFromCart}
-                      />
-                      <Routes>
-                        <Route
-                          path="/E-Commerce-Website-React-Class-Components/"
-                          element={<Home />}
-                        />
-                        <Route
-                          path="/E-Commerce-Website-React-Class-Components/cart"
-                          element={
-                            <Cart
-                              removeProductFromCart={this.removeProductFromCart}
-                              deliveryCost={deliveryCost}
-                            />
-                          }
-                        />
-                        <Route
-                          path="/E-Commerce-Website-React-Class-Components/products"
-                          element={<ProductsHeader />}
+                    <ChangeLanguageContext.Provider value={this.changeLanguage}>
+                      <LanguageContext.Provider value={lang}>
+                        <div
+                          className="e-commerce-website"
+                          ref={this.websiteRef}
                         >
-                          <Route
-                            index
-                            element={
-                              <Products
-                                category=""
-                                skeletonCardsNo={20}
-                                addToCart={this.addToCart}
-                                addToWishlist={this.addToWishlist}
-                              />
-                            }
+                          <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
                           />
-                          <Route
-                            path="men's%20clothing"
-                            element={
-                              <Products
-                                category={"category/men's clothing"}
-                                skeletonCardsNo={4}
-                                addToCart={this.addToCart}
-                                addToWishlist={this.addToWishlist}
-                              />
-                            }
+                          <Header
+                            removeProductFromCart={this.removeProductFromCart}
                           />
-                          <Route
-                            path="women's%20clothing"
-                            element={
-                              <Products
-                                category={"category/women's clothing"}
-                                skeletonCardsNo={6}
-                                addToCart={this.addToCart}
-                                addToWishlist={this.addToWishlist}
-                              />
-                            }
-                          />
-                          <Route
-                            path="jewelery"
-                            element={
-                              <Products
-                                category="category/jewelery"
-                                skeletonCardsNo={4}
-                                addToCart={this.addToCart}
-                                addToWishlist={this.addToWishlist}
-                              />
-                            }
-                          />
-                          <Route
-                            path="electronics"
-                            element={
-                              <Products
-                                category="category/electronics"
-                                skeletonCardsNo={6}
-                                addToCart={this.addToCart}
-                                addToWishlist={this.addToWishlist}
-                              />
-                            }
-                          />
-                          <Route
-                            path=":id"
-                            element={
-                              <ProductDetails
-                                cartProducts={cartProducts}
-                                product={product}
-                                productQuantity={productQuantity}
-                                productsDetailsLoading={productsDetailsLoading}
-                                fetchApiProductDetails={
-                                  this.fetchApiProductDetails
-                                }
-                                addToCart={this.addToCart}
-                                increaseProductQuantity={
-                                  this.increaseProductQuantity
-                                }
-                                decreaseProductQuantity={
-                                  this.decreaseProductQuantity
-                                }
-                                ProductDetailsFetchingFailed={
-                                  ProductDetailsFetchingFailed
-                                }
-                              />
-                            }
-                          />
-                        </Route>
-                        <Route
-                          path="/E-Commerce-Website-React-Class-Components/about"
-                          element={<About />}
-                        />
-                        <Route
-                          path="/E-Commerce-Website-React-Class-Components/contact"
-                          element={<Contact />}
-                        />
-                        <Route
-                          path="/E-Commerce-Website-React-Class-Components/sign-in"
-                          element={<SignIn />}
-                        />
-                        <Route
-                          path="/E-Commerce-Website-React-Class-Components/register"
-                          element={<Register />}
-                        />
-                        <Route
-                          path="/E-Commerce-Website-React-Class-Components/wishlist"
-                          element={
-                            <Wishlist
-                              removeProductFromWishlist={
-                                this.removeProductFromWishlist
+                          <Routes>
+                            <Route
+                              path="/E-Commerce-Website-React-Class-Components/"
+                              element={<Home lang={lang} />}
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Class-Components/cart"
+                              element={
+                                <Cart
+                                  removeProductFromCart={
+                                    this.removeProductFromCart
+                                  }
+                                  deliveryCost={deliveryCost}
+                                />
                               }
                             />
-                          }
-                        />
-                        <Route
-                          path="/E-Commerce-Website-React-Class-Components/checkout"
-                          element={
-                            <Checkout
-                              cartProductsTotalSalary={cartProductsTotalSalary}
-                              deliveryCost={deliveryCost}
-                              cartProducts={cartProducts}
-                              handleCheckout={this.handleCheckout}
+                            <Route
+                              path="/E-Commerce-Website-React-Class-Components/products"
+                              element={<ProductsHeader />}
+                            >
+                              <Route
+                                index
+                                element={
+                                  <Products
+                                    category=""
+                                    skeletonCardsNo={20}
+                                    addToCart={this.addToCart}
+                                    addToWishlist={this.addToWishlist}
+                                  />
+                                }
+                              />
+                              <Route
+                                path="men's%20clothing"
+                                element={
+                                  <Products
+                                    category={"category/men's clothing"}
+                                    skeletonCardsNo={4}
+                                    addToCart={this.addToCart}
+                                    addToWishlist={this.addToWishlist}
+                                  />
+                                }
+                              />
+                              <Route
+                                path="women's%20clothing"
+                                element={
+                                  <Products
+                                    category={"category/women's clothing"}
+                                    skeletonCardsNo={6}
+                                    addToCart={this.addToCart}
+                                    addToWishlist={this.addToWishlist}
+                                  />
+                                }
+                              />
+                              <Route
+                                path="jewelery"
+                                element={
+                                  <Products
+                                    category="category/jewelery"
+                                    skeletonCardsNo={4}
+                                    addToCart={this.addToCart}
+                                    addToWishlist={this.addToWishlist}
+                                  />
+                                }
+                              />
+                              <Route
+                                path="electronics"
+                                element={
+                                  <Products
+                                    category="category/electronics"
+                                    skeletonCardsNo={6}
+                                    addToCart={this.addToCart}
+                                    addToWishlist={this.addToWishlist}
+                                  />
+                                }
+                              />
+                              <Route
+                                path=":id"
+                                element={
+                                  <ProductDetails
+                                    cartProducts={cartProducts}
+                                    product={product}
+                                    productQuantity={productQuantity}
+                                    productsDetailsLoading={
+                                      productsDetailsLoading
+                                    }
+                                    fetchApiProductDetails={
+                                      this.fetchApiProductDetails
+                                    }
+                                    addToCart={this.addToCart}
+                                    increaseProductQuantity={
+                                      this.increaseProductQuantity
+                                    }
+                                    decreaseProductQuantity={
+                                      this.decreaseProductQuantity
+                                    }
+                                    ProductDetailsFetchingFailed={
+                                      ProductDetailsFetchingFailed
+                                    }
+                                  />
+                                }
+                              />
+                            </Route>
+                            <Route
+                              path="/E-Commerce-Website-React-Class-Components/about"
+                              element={<About lang={lang} />}
                             />
-                          }
-                        />
-                        <Route
-                          path="*"
-                          element={
-                            // <Navigate
-                            //   to="/E-Commerce-Website-React-Class-Components/"
-                            // />
-                            <NotFound />
-                          }
-                        />
-                      </Routes>
-                      <Footer />
-                    </div>
+                            <Route
+                              path="/E-Commerce-Website-React-Class-Components/contact"
+                              element={<Contact lang={lang} />}
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Class-Components/sign-in"
+                              element={<SignIn lang={lang} />}
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Class-Components/register"
+                              element={<Register lang={lang} />}
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Class-Components/wishlist"
+                              element={
+                                <Wishlist
+                                  removeProductFromWishlist={
+                                    this.removeProductFromWishlist
+                                  }
+                                />
+                              }
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Class-Components/checkout"
+                              element={
+                                <Checkout
+                                  cartProductsTotalSalary={
+                                    cartProductsTotalSalary
+                                  }
+                                  deliveryCost={deliveryCost}
+                                  cartProducts={cartProducts}
+                                  handleCheckout={this.handleCheckout}
+                                />
+                              }
+                            />
+                            <Route
+                              path="*"
+                              element={
+                                // <Navigate
+                                //   to="/E-Commerce-Website-React-Class-Components/"
+                                // />
+                                <NotFound />
+                              }
+                            />
+                          </Routes>
+                          <Footer lang={lang} />
+                        </div>
+                      </LanguageContext.Provider>
+                    </ChangeLanguageContext.Provider>
                   </IsWishlistProductsChangedContext.Provider>
                 </WishlistProductsContext.Provider>
               </DeliveryCostContext.Provider>
