@@ -56,7 +56,6 @@
 .cart .cart-content {
   position: absolute;
   top: 64.5px;
-  right: -2.5px;
   width: 550px;
   background-color: var(--mainColor);
   color: var(--thirdColor);

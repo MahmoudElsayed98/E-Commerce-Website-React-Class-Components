@@ -19,7 +19,7 @@ class Wishlist extends Component {
                     <GoPrimitiveDot className="fs-6 me-1" />
                     {lang === "Eng"
                       ? `Wishlist ( ${wishlistProducts.length + " Items"} )`
-                      : `Wishlist ( ${wishlistProducts.length + " Items"} )`}
+                      : `المفضلة ( ${wishlistProducts.length + " منتجات"} )`}
                     <GoPrimitiveDot className="fs-6 ms-1" />
                   </h3>
 
@@ -28,14 +28,18 @@ class Wishlist extends Component {
                       {wishlistProducts.length === 0 ? (
                         <span className="w-100 cart-info d-block position-absolute top-50 start-50">
                           <p className="mb-0 text-center">
-                            Your wishlist is empty!
+                            {lang === "Eng"
+                              ? "Your wishlist is currently empty!"
+                              : "قائمة رغباتك فارغة حالياً!"}
                           </p>
                           <Link
                             to="/E-Commerce-Website-React-Class-Components/products"
                             className="text-decoration-none"
                           >
                             <button className="btn btn-lg btn-primary d-block mx-auto mt-2">
-                              GO SHOPPING NOW
+                              {lang === "Eng"
+                                ? "GO SHOPPING NOW"
+                                : "الذهاب للتسوق الآن"}
                             </button>
                           </Link>
                         </span>

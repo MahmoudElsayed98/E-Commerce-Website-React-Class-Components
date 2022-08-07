@@ -128,7 +128,14 @@ class Icons extends Component {
                                           )}
                                         </span>
                                       </Link>
-                                      <div className="cart-content rounded text-center">
+                                      <div
+                                        className="cart-content rounded text-center"
+                                        style={
+                                          lang === "Eng"
+                                            ? { right: "-2.5px" }
+                                            : { left: "-2.5px" }
+                                        }
+                                      >
                                         <div className="content d-flex flex-column">
                                           {cartProducts.length === 0 ? (
                                             <span className="d-block p-3">

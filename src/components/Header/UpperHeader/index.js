@@ -46,7 +46,7 @@ class UpperHeader extends Component {
                       className="text-decoration-none d-flex justify-content-center align-items-center me-1"
                     >
                       <FaEnvelope className="mx-1" />
-                      {lang === "Eng" ? "Contact Us" : "التواصل معنا"}
+                      {lang === "Eng" ? "Contact Us" : "تواصل معنا"}
                     </NavLink>
                   </div>
                   <div

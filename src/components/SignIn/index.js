@@ -28,7 +28,7 @@ class SignIn extends Component {
       <div className="login">
         <div className="container d-flex justify-content-center align-items-center h-100">
           <div className="login-form my-4 py-4 rounded d-flex flex-column align-items-center">
-            <h1 className="fw-bold mb-0 text-center text-uppercase">
+            <h1 className="fw-bold mb-0 text-center text-uppercase mb-3">
               {lang === "Eng" ? "login" : "تسجيل الدخول"}
             </h1>
             <Form id="login-form" onSubmit={this.handleSubmit} method="POST">
@@ -66,7 +66,7 @@ class SignIn extends Component {
               <Form.Group className="mb-3" controlId="formSignInCheck">
                 <Form.Check
                   type="checkbox"
-                  label={`${lang === "Eng" ? "Remember me? " : "تذكرنى ؟"}`}
+                  label={`${lang === "Eng" ? "Remember me? " : "تذكرنى؟"}`}
                 />
               </Form.Group>
               <Button variant="primary" type="submit" className="w-100">
