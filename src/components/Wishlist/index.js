@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./index.css";
 import { GoPrimitiveDot } from "react-icons/go";
+import { FaTrashAlt } from "react-icons/fa";
 import { LanguageContext, WishlistProductsContext } from "../../App.js";
 import { Link } from "react-router-dom";
-import { RiCloseFill } from "react-icons/ri";
 
 class Wishlist extends Component {
   render() {
@@ -63,20 +63,19 @@ class Wishlist extends Component {
                             </Link>
                             <Link
                               to={`/E-Commerce-Website-React-Class-Components/products/${e.id}`}
-                              className="d-flex align-items-center title text-dark text-center"
+                              className="d-flex align-items-center justify-content-center title text-dark text-center"
                             >
                               {e.title}
                             </Link>
                             <div className="cart-details d-flex align-items-center justify-content-evenly">
-                              <p className="text-center mb-0">x {e.qty}</p>
                               <p className="text-center mb-0">
                                 ${e.price.toFixed(2)}
                               </p>
                               <button
-                                className="btn btn-primary p-0 close d-flex justify-content-center align-items-center rounded-circle"
+                                className="btn p-0 close d-flex justify-content-center align-items-center rounded-circle"
                                 onClick={() => removeProductFromWishlist(e)}
                               >
-                                <RiCloseFill className="fs-5" />
+                                <FaTrashAlt className="fs-5" />
                               </button>
                             </div>
                           </div>

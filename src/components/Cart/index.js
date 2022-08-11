@@ -7,7 +7,8 @@ import {
   LanguageContext,
 } from "../../App.js";
 import { Link } from "react-router-dom";
-import { RiCloseFill } from "react-icons/ri";
+// import { RiCloseFill } from "react-icons/ri";
+import { FaTrashAlt } from "react-icons/fa";
 
 export class Cart extends Component {
   render() {
@@ -27,9 +28,7 @@ export class Cart extends Component {
                           ? `Shopping Cart ( ${
                               cartProducts.length + " Items"
                             } )`
-                          : `عربة التسوق ( ${
-                              cartProducts.length + " منتجات"
-                            } )`}
+                          : `سلة التسوق ( ${cartProducts.length + " منتجات"} )`}
                         <GoPrimitiveDot className="fs-6 ms-1" />
                       </h3>
                       <div className="row justify-content-center align-items-start">
@@ -39,7 +38,7 @@ export class Cart extends Component {
                               <p className="mb-0 text-center">
                                 {lang === "Eng"
                                   ? "Your shopping cart is currently empty!"
-                                  : "عربة التسوق الخاصة بك فارغة حالياً!"}
+                                  : "سلة التسوق الخاصة بك فارغة حالياً!"}
                               </p>
                               <Link
                                 to="/E-Commerce-Website-React-Class-Components/products"
@@ -82,10 +81,10 @@ export class Cart extends Component {
                                     ${e.price.toFixed(2)}
                                   </p>
                                   <button
-                                    className="btn btn-primary p-0 close d-flex justify-content-center align-items-center rounded-circle"
+                                    className="btn p-0 close d-flex justify-content-center align-items-center rounded-circle"
                                     onClick={() => removeProductFromCart(e)}
                                   >
-                                    <RiCloseFill className="fs-5" />
+                                    <FaTrashAlt className="fs-5" />
                                   </button>
                                 </div>
                               </div>

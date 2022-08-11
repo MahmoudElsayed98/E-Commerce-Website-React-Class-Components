@@ -109,6 +109,9 @@
   background-color: var(--hoverColor);
   border-color: var(--hoverColor);
 }
+.product-details .btn-primary:focus {
+  box-shadow: none;
+}
 @media (max-width: 767px) {
   .product-details {
     min-height: calc(100vh - (32px + 81.47px + 114px + 57px));

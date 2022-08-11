@@ -166,3 +166,12 @@
 .cart .buttons button:focus {
   box-shadow: none;
 }
+.cart-content .cart-item .cart-details button svg {
+  color: var(--thirdColor);
+}
+.cart-item .cart-details button:focus {
+  box-shadow: none;
+}
+.cart-content .cart-item .cart-details button:hover svg {
+  color: var(--secondaryColor);
+}

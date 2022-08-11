@@ -21,13 +21,17 @@
 }
 
 .cart-comp .order-summary,
-.cart-comp .cart-item {
+.cart-comp .cart-item,
+.cart-comp .cart-item button {
   transition: var(--mainDuration);
 }
 .cart-comp .cart-item:hover,
 .cart-comp .order-summary:hover,
 .cart-comp .cart-item:hover a:nth-of-type(2) {
   border-color: var(--secondaryColor) !important;
+  color: var(--mainColor) !important;
+}
+.cart-comp .cart-item:hover button {
   color: var(--mainColor) !important;
 }
 .cart-item a {

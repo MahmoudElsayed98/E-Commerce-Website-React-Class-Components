@@ -6,8 +6,12 @@
 }
 .product-card > svg {
   color: var(--secondaryColor);
-  right: -30px;
+  right: -37.5px;
   top: 10px;
+  font-size: 35px;
+}
+.product-card .fill-heart {
+  z-index: 2;
 }
 .product-card:hover > svg {
   right: 10px;

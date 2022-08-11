@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { FaUserCircle, FaUserEdit } from "react-icons/fa";
-import { RiCloseFill } from "react-icons/ri";
-import { AiOutlineHeart } from "react-icons/ai";
+import { FaUserCircle, FaUserEdit, FaTrashAlt } from "react-icons/fa";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BiGitCompare } from "react-icons/bi";
 import { TiShoppingCart } from "react-icons/ti";
 import "./index.css";
@@ -70,7 +69,11 @@ class Icons extends Component {
                                           className="position-relative text-decoration-none d-flex flex-column justify-content-center align-items-center"
                                           onClick={hideNavbarNav}
                                         >
-                                          <AiOutlineHeart className="fs-3" />
+                                          {wishlistProducts.length === 0 ? (
+                                            <AiOutlineHeart className="fs-3" />
+                                          ) : (
+                                            <AiFillHeart className="fs-3" />
+                                          )}
                                           {isWishlistProductsChanged && (
                                             <span className="changed fw-bold position-absolute d-flex justify-content-center align-items-center rounded-circle text-light">
                                               {wishlistProducts.length}
@@ -183,12 +186,12 @@ class Icons extends Component {
                                                       ${e.price.toFixed(2)}
                                                     </p>
                                                     <button
-                                                      className="btn btn-primary p-0 close rounded-circle d-flex justify-content-center align-items-center"
+                                                      className="btn p-0 close rounded-circle d-flex justify-content-center align-items-center"
                                                       onClick={() =>
                                                         removeProductFromCart(e)
                                                       }
                                                     >
-                                                      <RiCloseFill className="fs-5 text-light" />
+                                                      <FaTrashAlt className="fs-5" />
                                                     </button>
                                                   </div>
                                                 </div>

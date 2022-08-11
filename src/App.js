@@ -35,7 +35,6 @@ export const LanguageContext = createContext();
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       lang: "Eng",
       wishlistProducts: [],
