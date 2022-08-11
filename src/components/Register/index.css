@@ -17,6 +17,9 @@
 .register .register-form {
   width: 45%;
   border: var(--mainBorder);
+}
+.register .register-form,
+.register .register-form input {
   transition: var(--mainDuration);
 }
 .register .register-form:hover {
@@ -27,6 +30,9 @@
 }
 .register form input:focus {
   box-shadow: none;
+}
+.register form input:focus,
+.register form input:hover {
   border-color: var(--mainColor);
 }
 .register form .input,
@@ -76,6 +82,9 @@
   .register .container h1 {
     font-size: 35px;
   }
+}
+.register form .btn-primary:focus {
+  box-shadow: none;
 }
 .register form .input,
 .register form .input:focus {

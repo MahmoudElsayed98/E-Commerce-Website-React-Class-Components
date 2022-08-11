@@ -31,7 +31,7 @@ class Register extends Component {
           <div className="register-form my-4 py-4 rounded d-flex flex-column align-items-center">
             <h1 className="fw-bold mb-0 text-center text-uppercase mb-3">
               {" "}
-              {lang === "Eng" ? "Sign Up" : "تسجيل الاشتراك"}
+              {lang === "Eng" ? "Sign Up" : "مستخدم جديد"}
             </h1>
             <Form id="register-form" onSubmit={this.handleSubmit} method="POST">
               <Form.Group className="mb-3" controlId="formRegisterUsername">
@@ -74,7 +74,7 @@ class Register extends Component {
                 <Form.Control
                   type="password"
                   placeholder={`${
-                    lang === "Eng" ? "Enter Password" : "ادخل كلمة المرور   "
+                    lang === "Eng" ? "Enter Password" : "ادخل كلمة المرور"
                   }`}
                   value={this.state.password}
                   className="input"
@@ -82,7 +82,7 @@ class Register extends Component {
                 />
               </Form.Group>
               <Button variant="primary" type="submit" className="w-100 mb-3">
-                {lang === "Eng" ? "SIGN UP" : "تسجيل الاشتراك"}
+                {lang === "Eng" ? "SIGN UP" : "إنشاء حساب"}
               </Button>
               <div className="or position-relative">
                 <hr />

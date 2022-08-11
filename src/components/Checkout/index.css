@@ -8,7 +8,6 @@
   top: 0;
   left: 0;
   background-image: url("/src/assets/images/istockphoto-1096460950-612x612.jpg");
-  /* background-size: cover; */
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -53,7 +52,15 @@
 .checkout form select {
   border: 1px solid #ced4da;
   width: fit-content;
+}
+.checkout form input,
+.checkout form select,
+.checkout form .react-tel-input .flag-dropdown {
   transition: var(--mainDuration);
+}
+.checkout form select,
+.checkout form input {
+  color: var(--mainColor);
 }
 .checkout form select:focus-visible {
   outline: none;
@@ -62,11 +69,21 @@
   width: fit-content;
 }
 .checkout form input::placeholder,
-.checkout form select {
+.checkout form select,
+.checkout .react-tel-input input {
   color: var(--secondaryColor);
 }
+.checkout form input:hover,
+.checkout form input:focus,
+.checkout form select:hover,
+.checkout form select:focus,
+.checkout form .react-tel-input:hover .flag-dropdown,
+.checkout form .react-tel-input input:focus + .flag-dropdown {
+  border-color: var(--secondaryColor);
+}
 .checkout form input,
-.checkout form select {
+.checkout form select,
+.checkout .react-tel-input {
   width: 62.5%;
 }
 .checkout form input:focus {
@@ -79,7 +96,8 @@
 }
 @media (max-width: 991px) {
   .checkout form input,
-  .checkout form select {
+  .checkout form select,
+  .checkout .react-tel-input {
     width: 50%;
   }
   .checkout form label {
@@ -89,13 +107,17 @@
 }
 @media (max-width: 767px) {
   .checkout form input,
-  .checkout form select {
+  .checkout form select,
+  .checkout .react-tel-input {
     width: 100%;
   }
   .checkout form label {
     width: auto;
     text-align: center;
   }
+}
+.checkout .react-tel-input input {
+  width: 100%;
 }
 /* input type date pick item */
 .checkout form input[type="date"]::-webkit-datetime-edit-text {

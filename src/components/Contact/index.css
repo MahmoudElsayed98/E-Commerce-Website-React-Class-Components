@@ -9,7 +9,6 @@
   top: 0;
   left: 0;
   background-image: url("/src/assets/images/istockphoto-1096460950-612x612.jpg");
-  /* background-size: cover; */
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -24,6 +23,14 @@
 .contact form textarea:focus {
   color: var(--mainColor);
   box-shadow: none;
+}
+.contact form input,
+.contact form textarea {
+  transition: var(--mainDuration);
+}
+.contact form input:hover,
+.contact form textarea:hover {
+  border-color: var(--secondaryColor);
 }
 .contact form input::placeholder,
 .contact form textarea::placeholder {

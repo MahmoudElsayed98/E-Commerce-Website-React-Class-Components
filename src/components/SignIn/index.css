@@ -17,6 +17,9 @@
 .login .login-form {
   width: 45%;
   border: var(--mainBorder);
+}
+.login form .input,
+.login .login-form {
   transition: var(--mainDuration);
 }
 .login .login-form:hover {
@@ -27,13 +30,18 @@
 }
 .login form input:focus {
   box-shadow: none;
+}
+.login form input:focus,
+.login form input:hover {
   border-color: var(--mainColor);
 }
 .login form .input,
 .login form input:focus {
   color: var(--mainColor);
 }
-
+.login form .btn-primary:focus {
+  box-shadow: none;
+}
 .login form hr + span {
   transform: translate(-50%, -50%);
   width: 32.5px;

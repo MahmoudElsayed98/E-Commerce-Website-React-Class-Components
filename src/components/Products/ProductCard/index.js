@@ -50,7 +50,7 @@ class ProductCard extends Component {
               className="add-to-card-btn btn btn-primary w-100 text-uppercase"
               onClick={() => addToCart(product)}
             >
-              {lang === "Eng" ? "Add To Cart" : "أضف الى السلة"}
+              {lang === "Eng" ? "Add To Cart" : "إضافة الى السلة"}
             </button>
           </div>
         )}

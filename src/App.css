@@ -1,0 +1,14 @@
+.Toastify__toast-container {
+  width: 500px;
+}
+@media (max-width: 767px) {
+  .Toastify__toast-container {
+    width: 343px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .Toastify__toast-container {
+    right: 1em;
+    top: 1em;
+  }
+}

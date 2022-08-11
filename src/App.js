@@ -2,9 +2,10 @@ import React, { Component, createContext, createRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "react-phone-input-2/lib/style.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ProductsHeader from "./components/Products/ProductsHeader";
 import Products from "./components/Products";
 import NotFound from "./components/NotFound";
@@ -19,6 +20,7 @@ import Register from "./components/Register";
 import AddProductNotify from "./components/Products/AddProductNotify";
 import Checkout from "./components/Checkout";
 import Wishlist from "./components/Wishlist";
+import "./App.css";
 
 export const CartProductsContext = createContext();
 export const WishlistProductsContext = createContext();
@@ -60,6 +62,11 @@ class App extends Component {
   };
   fetchApiProductDetails = (id) => {
     const { ProductQuantity, productsDetailsLoading } = this.state;
+    if (id < 20) {
+      this.setState({
+        ProductDetailsFetchingFailed: false,
+      });
+    }
     if (ProductQuantity !== 1) {
       this.resetProductQuantity();
     }
@@ -290,6 +297,7 @@ class App extends Component {
                           ref={this.websiteRef}
                         >
                           <ToastContainer
+                            // style={{ width: "500px" }}
                             position="top-right"
                             autoClose={5000}
                             hideProgressBar={false}

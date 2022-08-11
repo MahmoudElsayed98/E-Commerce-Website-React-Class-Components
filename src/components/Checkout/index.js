@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
-import Countries from "./Countries";
+import CountriesAR from "./CountriesAR";
 import { LanguageContext } from "../../App";
+import { CountryDropdown } from "react-country-region-selector";
+import PhoneInput from "react-phone-input-2";
 import "./index.css";
 
 class Checkout extends Component {
@@ -15,6 +17,7 @@ class Checkout extends Component {
       cardNumber: "",
       expirationDate: "",
       zipCode: "",
+      phone: "",
     };
   }
 
@@ -31,6 +34,7 @@ class Checkout extends Component {
       cardNumber: "",
       expirationDate: "",
       zipCode: "",
+      phone: "",
     });
   }
 
@@ -41,6 +45,16 @@ class Checkout extends Component {
       cartProducts,
       handleCheckout,
     } = this.props;
+    const {
+      name,
+      email,
+      country,
+      address,
+      cardNumber,
+      expirationDate,
+      zipCode,
+      phone,
+    } = this.state;
     return (
       <LanguageContext.Consumer>
         {(lang) => (
@@ -65,7 +79,7 @@ class Checkout extends Component {
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      value={this.state.name}
+                      value={name}
                       onChange={(e) => this.setState({ name: e.target.value })}
                       placeholder={`${
                         lang === "Eng"
@@ -79,14 +93,12 @@ class Checkout extends Component {
                     controlId="formCheckoutEmail"
                   >
                     <Form.Label className="mb-md-0 mb-1 text-center">
-                      {lang === "Eng"
-                        ? "Enter Email Address"
-                        : "ادخل البريد الإلكترونى"}
+                      {lang === "Eng" ? "Email Address" : "البريد الإلكترونى"}
                     </Form.Label>
                     <Form.Control
                       type="email"
                       aria-describedby="emailHelp"
-                      value={this.state.email}
+                      value={email}
                       onChange={(e) => this.setState({ email: e.target.value })}
                       placeholder={`${
                         lang === "Eng"
@@ -104,7 +116,7 @@ class Checkout extends Component {
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      value={this.state.address}
+                      value={address}
                       onChange={(e) =>
                         this.setState({ address: e.target.value })
                       }
@@ -124,7 +136,7 @@ class Checkout extends Component {
                     </Form.Label>
                     <Form.Control
                       type="Zip Code"
-                      value={this.state.zipCode}
+                      value={zipCode}
                       onChange={(e) =>
                         this.setState({ zipCode: e.target.value })
                       }
@@ -136,22 +148,66 @@ class Checkout extends Component {
                 <div className="col-lg-6">
                   <Form.Group
                     className="mb-3 d-md-flex align-items-center justify-content-center justify-content-lg-between"
-                    controlId="formCheckoutCountry"
+                    // controlId="formCheckoutCountry"
                   >
                     <Form.Label className="mb-md-0 mb-1 text-center">
                       {lang === "Eng" ? "Country*" : "البلد"}
                     </Form.Label>
-                    <select
-                      id="formCheckoutCountry"
-                      className="rounded"
-                      name="country"
-                      onChange={(e) =>
-                        this.setState({ country: e.target.value })
-                      }
-                    >
-                      <Countries />
-                    </select>
+                    {lang === "Eng" ? (
+                      <CountryDropdown
+                        className="rounded"
+                        name="country"
+                        blacklist={["IL", "CX"]}
+                        value={country}
+                        onChange={(val) => this.setState({ country: val })}
+                      />
+                    ) : (
+                      <select
+                        // id="formCheckoutCountry"
+                        className="rounded"
+                        name="country"
+                        value={country}
+                        onChange={(e) =>
+                          this.setState({ country: e.target.value })
+                        }
+                      >
+                        <CountriesAR />
+                      </select>
+                    )}
                   </Form.Group>
+                  {lang === "Eng" ? (
+                    <Form.Group
+                      className="mb-3 d-md-flex align-items-center justify-content-center justify-content-lg-between"
+                      controlId="formCheckoutExpirationDate"
+                    >
+                      <Form.Label className="mb-md-0 mb-1 text-center">
+                        {lang === "Eng" ? "Phone Number" : "رقم الهاتف "}
+                      </Form.Label>
+                      <PhoneInput
+                        country={"eg"}
+                        value={phone}
+                        excludeCountries={["il", "cx"]}
+                        onChange={(phone) => this.setState({ phone })}
+                      />
+                    </Form.Group>
+                  ) : (
+                    <Form.Group
+                      className="mb-3 d-md-flex align-items-center justify-content-center justify-content-lg-between"
+                      controlId="formCheckoutExpirationDate"
+                    >
+                      <Form.Label className="mb-md-0 mb-1 text-center">
+                        {lang === "Eng" ? "Phone Number" : "رقم الهاتف "}
+                      </Form.Label>
+                      <Form.Control
+                        type="tel"
+                        value={phone}
+                        onChange={(e) =>
+                          this.setState({ phone: e.target.value })
+                        }
+                        placeholder="ادخل رقم الهاتف"
+                      />
+                    </Form.Group>
+                  )}
                   <Form.Group
                     className="mb-3 d-md-flex align-items-center justify-content-center justify-content-lg-between"
                     controlId="formCheckoutCreditCardNumber"
@@ -163,7 +219,7 @@ class Checkout extends Component {
                     </Form.Label>
                     <Form.Control
                       type="tel"
-                      value={this.state.cardNumber}
+                      value={cardNumber}
                       onChange={(e) =>
                         this.setState({ cardNumber: e.target.value })
                       }
@@ -181,7 +237,7 @@ class Checkout extends Component {
                     </Form.Label>
                     <Form.Control
                       type="date"
-                      value={this.state.expirationDate}
+                      value={expirationDate}
                       onChange={(e) =>
                         this.setState({ expirationDate: e.target.value })
                       }

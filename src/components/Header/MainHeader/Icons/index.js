@@ -122,7 +122,14 @@ class Icons extends Component {
                                           <TiShoppingCart className="fs-1" />
 
                                           {isCartProductsChanged && (
-                                            <span className="changed fw-bold position-absolute d-flex justify-content-center align-items-center rounded-circle text-light">
+                                            <span
+                                              style={
+                                                lang === "Eng"
+                                                  ? { right: "-2.5px" }
+                                                  : { left: "-2.5px" }
+                                              }
+                                              className="changed fw-bold position-absolute d-flex justify-content-center align-items-center rounded-circle text-light"
+                                            >
                                               {cartProducts.length}
                                             </span>
                                           )}
@@ -194,12 +201,18 @@ class Icons extends Component {
                                           <>
                                             <div className="product-summary border-top text-end py-2 px-3 fw-bold">
                                               <p className="mb-0">
-                                                Subtotal : $
+                                                {lang === "Eng"
+                                                  ? "Subtotal"
+                                                  : "المبلغ الإجمالى "}
+                                                : $
                                                 {cartProductsTotalSalary.toFixed(
                                                   2
                                                 )}
                                                 <br />
-                                                Total : $
+                                                {lang === "Eng"
+                                                  ? "Total"
+                                                  : "المبلغ الكلى "}
+                                                : $
                                                 {(
                                                   cartProductsTotalSalary +
                                                   deliveryCost
@@ -209,12 +222,16 @@ class Icons extends Component {
                                             <div className="buttons rounded-bottom pb-3">
                                               <Link to="/E-Commerce-Website-React-Class-Components/cart">
                                                 <button className="btn btn-light text-uppercase me-2 fw-bold">
-                                                  view cart
+                                                  {lang === "Eng"
+                                                    ? "view cart"
+                                                    : "عربة التسوق"}
                                                 </button>
                                               </Link>
                                               <Link to="/E-Commerce-Website-React-Class-Components/checkout">
-                                                <button className="btn btn-light text-uppercase fw-bold">
-                                                  Checkout
+                                                <button className="btn btn-light text-uppercase me-2 fw-bold">
+                                                  {lang === "Eng"
+                                                    ? "Checkout"
+                                                    : "الدفع"}
                                                 </button>
                                               </Link>
                                             </div>
