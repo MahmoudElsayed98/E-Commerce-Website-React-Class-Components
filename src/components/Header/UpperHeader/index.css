@@ -1,3 +1,6 @@
+.links {
+  max-height: 32px;
+}
 .links a,
 .links span,
 .links .delivery {
@@ -13,4 +16,12 @@
 
 .delivery svg {
   font-size: 20px;
+}
+.dropdown .dropdown-menu {
+  min-width: auto;
+  padding: 0;
+}
+.dropdown.lang button#dropdown-basic {
+  padding: 0;
+  border: none;
 }

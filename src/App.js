@@ -100,7 +100,7 @@ class App extends Component {
   };
   //
   addToWishlist = (product) => {
-    const { wishlistProducts } = this.state;
+    const { wishlistProducts, lang } = this.state;
     const whislistProductsClone = wishlistProducts;
     let alreadyAdded = false;
     whislistProductsClone.forEach((p) => {
@@ -112,10 +112,11 @@ class App extends Component {
             product={p}
             target="wishlist"
             alreadyAdded={true}
+            goal={"add"}
           />,
           {
-            position: "top-right",
-            autoClose: 5000,
+            position: `${lang === "Eng" ? "top-right" : "top-left"}`,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -130,10 +131,14 @@ class App extends Component {
       whislistProductsClone.push({ ...productClone });
       // Added
       toast.success(
-        <AddProductNotify product={productClone} target="wishlist" />,
+        <AddProductNotify
+          product={productClone}
+          target="wishlist"
+          goal="add"
+        />,
         {
-          position: "top-right",
-          autoClose: 5000,
+          position: `${lang === "Eng" ? "top-right" : "top-left"}`,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -149,7 +154,7 @@ class App extends Component {
   };
   //
   addToCart = (product) => {
-    const { cartProducts, productQuantity } = this.state;
+    const { cartProducts, productQuantity, lang } = this.state;
     const cartProductsClone = cartProducts;
     let alreadyAdded = false;
     cartProductsClone.forEach((p) => {
@@ -159,15 +164,18 @@ class App extends Component {
         // p.qty++;
         p.qty += productQuantity;
         p.price = p.qty * product.price;
-        toast.success(<AddProductNotify product={p} target="cart" />, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        toast.success(
+          <AddProductNotify product={p} target="cart" goal="add" />,
+          {
+            position: `${lang === "Eng" ? "top-right" : "top-left"}`,
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
         this.calculateCartProductsTotalPrice();
         this.resetProductQuantity();
       }
@@ -181,15 +189,18 @@ class App extends Component {
       });
       this.calculateCartProductsTotalPrice();
       this.resetProductQuantity();
-      toast.success(<AddProductNotify product={productClone} target="cart" />, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.success(
+        <AddProductNotify product={productClone} target="cart" goal="add" />,
+        {
+          position: `${lang === "Eng" ? "top-right" : "top-left"}`,
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
     }
     this.setState({
       cartProducts: cartProductsClone,
@@ -202,7 +213,7 @@ class App extends Component {
     });
   };
   removeProductFromCart = (product) => {
-    const { cartProducts, cartProductsTotalSalary } = this.state;
+    const { cartProducts, cartProductsTotalSalary, lang } = this.state;
     const cartProductsClone = cartProducts;
     const newCartProducts = cartProductsClone.filter(
       (p) => p.id !== product.id
@@ -212,6 +223,18 @@ class App extends Component {
       cartProducts: newCartProducts,
       cartProductsTotalSalary: newCartProductsTotalSalary,
     });
+    toast.success(
+      <AddProductNotify product={product} target="cart" goal={"remove"} />,
+      {
+        position: `${lang === "Eng" ? "top-right" : "top-left"}`,
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
     //if cartProducts is empty
     if (cartProducts.length === 1) {
       this.setState({
@@ -220,7 +243,7 @@ class App extends Component {
     }
   };
   removeProductFromWishlist = (product) => {
-    const { wishlistProducts } = this.state;
+    const { wishlistProducts, lang } = this.state;
     const wishlistProductsClone = wishlistProducts;
     const newWishlistProducts = wishlistProductsClone.filter(
       (p) => p.id !== product.id
@@ -228,6 +251,18 @@ class App extends Component {
     this.setState({
       wishlistProducts: newWishlistProducts,
     });
+    toast.success(
+      <AddProductNotify product={product} target="wishlist" goal={"remove"} />,
+      {
+        position: `${lang === "Eng" ? "top-right" : "top-left"}`,
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
     //if wishlistProducts is empty
     if (wishlistProducts.length === 1) {
       this.setState({
@@ -296,9 +331,8 @@ class App extends Component {
                           ref={this.websiteRef}
                         >
                           <ToastContainer
-                            // style={{ width: "500px" }}
                             position="top-right"
-                            autoClose={5000}
+                            autoClose={3000}
                             hideProgressBar={false}
                             newestOnTop={false}
                             closeOnClick

@@ -122,7 +122,14 @@ class Icons extends Component {
                                                 2
                                               )}
                                           </p>
-                                          <TiShoppingCart className="fs-1" />
+                                          <TiShoppingCart
+                                            className="fs-1"
+                                            style={
+                                              lang !== "Eng" && {
+                                                transform: "scaleX(-1)",
+                                              }
+                                            }
+                                          />
 
                                           {isCartProductsChanged && (
                                             <span
@@ -227,7 +234,7 @@ class Icons extends Component {
                                                 <button className="btn btn-light text-uppercase me-2 fw-bold">
                                                   {lang === "Eng"
                                                     ? "view cart"
-                                                    : "عربة التسوق"}
+                                                    : "سلة التسوق"}
                                                 </button>
                                               </Link>
                                               <Link to="/E-Commerce-Website-React-Class-Components/checkout">

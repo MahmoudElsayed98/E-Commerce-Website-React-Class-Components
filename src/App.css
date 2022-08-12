@@ -8,7 +8,12 @@
 }
 @media only screen and (max-width: 480px) {
   .Toastify__toast-container {
+    width: 343px;
     right: 1em;
     top: 1em;
+    left: auto;
+  }
+  .Toastify__toast {
+    margin-bottom: 1rem;
   }
 }

@@ -5,7 +5,7 @@ import "./index.css";
 
 class AddProductNotify extends Component {
   render() {
-    const { product, target, alreadyAdded } = this.props;
+    const { product, target, alreadyAdded, goal } = this.props;
     return (
       <LanguageContext.Consumer>
         {(lang) => (
@@ -24,10 +24,18 @@ class AddProductNotify extends Component {
               <h6 className="fw-bold mb-1">{product.title}</h6>
               <p className="mb-0">
                 {lang === "Eng"
-                  ? `You have ${
-                      alreadyAdded ? "already" : "successfully"
-                    } added `
-                  : " تمت اضافة"}
+                  ? `You have ${alreadyAdded ? "already" : "successfully"} ${
+                      goal === "remove"
+                        ? "removed"
+                        : goal === "add"
+                        ? "added"
+                        : ""
+                    } `
+                  : goal === "add"
+                  ? " تمت اضافة"
+                  : goal === "remove"
+                  ? "تم حذف "
+                  : ""}
                 <br />{" "}
                 <Link
                   to={`/E-Commerce-Website-React-Class-Components/products/${product.id}`}
@@ -35,7 +43,13 @@ class AddProductNotify extends Component {
                   {product.title}
                   <br />
                 </Link>{" "}
-                {lang === "Eng" ? `to your ` : "الى "}
+                {lang === "Eng"
+                  ? goal === "add"
+                    ? "to your "
+                    : "from your "
+                  : goal === "remove"
+                  ? "من "
+                  : "الى "}
                 <Link
                   to={`/E-Commerce-Website-React-Class-Components/${target}`}
                   className="text-capitalize"
@@ -43,7 +57,7 @@ class AddProductNotify extends Component {
                   {target === "cart"
                     ? lang === "Eng"
                       ? "shopping cart"
-                      : "عربة التسوق الخاصة بك"
+                      : "سلة التسوق الخاصة بك"
                     : lang === "Eng"
                     ? "wishlist"
                     : "المفضلة"}

@@ -36,7 +36,7 @@
   right: 8px;
 }
 .cart span.changed {
-  top: -4px;
+  top: -2px;
 }
 .cart:hover a span p,
 .cart:hover a span svg {
@@ -141,8 +141,16 @@
   .icons span.changed,
   .cart a span > .changed {
     border-color: var(--mainColor);
+    width: 15px;
+    height: 15px;
+    font-size: 8.5px;
+    top: -3px;
+    right: -3.5px !important;
   }
-
+  .icons span.changed {
+    top: 3.5px;
+    right: 11px !important;
+  }
   .cart {
     padding-top: 0;
     padding-bottom: 0;

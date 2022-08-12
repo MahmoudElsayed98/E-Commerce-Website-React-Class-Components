@@ -9,7 +9,7 @@ export class Language extends Component {
     const { lang, changeLanguage } = this.props;
     return (
       <>
-        <Dropdown className="position-absolute top-50 start-50 d-none d-lg-block">
+        <Dropdown className="position-absolute top-50 start-50 d-none d-lg-block language">
           <Dropdown.Toggle
             variant=""
             id="dropdown-basic"
