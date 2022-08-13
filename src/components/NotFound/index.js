@@ -4,7 +4,9 @@ import "./index.css";
 class NotFound extends Component {
   render() {
     return (
-      <div className="not-found py-4 text-center fs-5">Page Not Found</div>
+      <div className="not-found py-4 text-center fs-5">
+        Unfortunately, this page doesn't exist.
+      </div>
     );
   }
 }

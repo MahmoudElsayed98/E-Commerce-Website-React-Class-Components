@@ -33,10 +33,12 @@
 }
 .icons span.changed {
   top: 0.5px;
-  right: 8px;
 }
 .cart span.changed {
   top: -2px;
+}
+.cart .cart-detail {
+  height: 40px;
 }
 .cart:hover a span p,
 .cart:hover a span svg {
@@ -99,7 +101,6 @@
 .cart .content::-webkit-scrollbar-thumb {
   background: var(--mainColor);
   border: 1px solid var(--thirdColor);
-  /* border: none; */
 }
 @media (min-width: 992px) {
   .cart:hover > .cart-content,
@@ -138,18 +139,18 @@
   .cart a span p {
     color: var(--thirdColor);
   }
+  .sign-in a {
+    width: 100%;
+  }
   .icons span.changed,
   .cart a span > .changed {
     border-color: var(--mainColor);
     width: 15px;
     height: 15px;
     font-size: 8.5px;
-    top: -3px;
-    right: -3.5px !important;
   }
-  .icons span.changed {
-    top: 3.5px;
-    right: 11px !important;
+  .cart a span > .changed {
+    top: 1px;
   }
   .cart {
     padding-top: 0;

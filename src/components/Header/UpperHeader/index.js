@@ -105,7 +105,7 @@ class UpperHeader extends Component {
                         <img
                           src={arabicLogo}
                           alt="Arabic Logo"
-                          className="mx-2"
+                          className={`${lang === "Eng" ? "me-2" : "ms-2"}`}
                         />
                         <p className="mb-0">العربية</p>
                       </Dropdown.Item>

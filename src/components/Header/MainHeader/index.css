@@ -95,7 +95,7 @@
     position: relative;
     /* left: 120%; */
     left: 0;
-    transition: var(--mainDuration);
+    /* transition: var(--mainDuration); */
   }
   .navbar-collapse {
     position: absolute;

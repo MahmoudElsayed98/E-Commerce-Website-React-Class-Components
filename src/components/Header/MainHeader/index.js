@@ -17,11 +17,26 @@ import { LanguageContext } from "../../../App";
 class MainHeader extends Component {
   constructor(props) {
     super(props);
-    this.barsRef = createRef();
+    this.toggleBtnRef = createRef();
   }
-  // hideNavbarNav = () => {
-  //   this.barsRef.current.click();
-  // };
+  handleNavbar = (e) => {
+    const toggleBtn = this.toggleBtnRef.current;
+    const navbarNav = toggleBtn.nextElementSibling;
+    if (e.target !== toggleBtn && e.target !== navbarNav) {
+      if (
+        !toggleBtn.classList.contains("collapsed") &&
+        navbarNav.classList.contains("show")
+      ) {
+        toggleBtn.click();
+      }
+    }
+  };
+  componentDidMount() {
+    document.addEventListener("click", this.handleNavbar);
+  }
+  // componentWillUnmount() {
+  //   document.removeEventListener("click", this.handleNavbar);
+  // }
   render() {
     const { removeProductFromCart } = this.props;
     return (
@@ -36,15 +51,9 @@ class MainHeader extends Component {
                 <img src={logo} className="img-fluid" alt="website logo" />
               </Navbar.Brand>
               <Navbar.Toggle
+                className="p-0"
                 aria-controls="basic-navbar-nav"
-                ref={this.barsRef}
-                // onClick={(e) =>
-                //   e.currentTarget.nextElementSibling.classList.contains("show")
-                //     ? (e.currentTarget.nextElementSibling.firstElementChild.style.left =
-                //         "0")
-                //     : (e.currentTarget.nextElementSibling.firstElementChild.style.left =
-                //         "120%")
-                // }
+                ref={this.toggleBtnRef}
               >
                 <FaBars />
               </Navbar.Toggle>

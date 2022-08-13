@@ -41,8 +41,13 @@ class Icons extends Component {
                                           className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
                                           onClick={hideNavbarNav}
                                         >
-                                          <FaUserCircle className="fs-3" />
-                                          <p className="fw-bold">
+                                          <FaUserCircle className="fs-3 mb-1 mb-lg-0" />
+                                          <p className="fw-bold d-block d-lg-none">
+                                            {lang === "Eng"
+                                              ? "Login"
+                                              : "تسجيل الدخول"}
+                                          </p>
+                                          <p className="fw-bold d-none d-lg-block">
                                             {lang === "Eng"
                                               ? "Login"
                                               : "الدخول"}
@@ -55,7 +60,7 @@ class Icons extends Component {
                                           className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
                                           onClick={hideNavbarNav}
                                         >
-                                          <FaUserEdit className="fs-3" />
+                                          <FaUserEdit className="fs-3 mb-1 mb-lg-0" />
                                           <p className="fw-bold">
                                             {lang === "Eng"
                                               ? "Sign Up"
@@ -70,12 +75,19 @@ class Icons extends Component {
                                           onClick={hideNavbarNav}
                                         >
                                           {wishlistProducts.length === 0 ? (
-                                            <AiOutlineHeart className="fs-3" />
+                                            <AiOutlineHeart className="fs-3 mb-1 mb-lg-0" />
                                           ) : (
-                                            <AiFillHeart className="fs-3" />
+                                            <AiFillHeart className="fs-3 mb-1 mb-lg-0" />
                                           )}
                                           {isWishlistProductsChanged && (
-                                            <span className="changed fw-bold position-absolute d-flex justify-content-center align-items-center rounded-circle text-light">
+                                            <span
+                                              style={
+                                                lang === "Eng"
+                                                  ? { right: "8px" }
+                                                  : { left: "8px" }
+                                              }
+                                              className="changed fw-bold position-absolute d-flex justify-content-center align-items-center rounded-circle text-light"
+                                            >
                                               {wishlistProducts.length}
                                             </span>
                                           )}
@@ -92,7 +104,7 @@ class Icons extends Component {
                                           className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
                                           onClick={hideNavbarNav}
                                         >
-                                          <BiGitCompare className="fs-3" />
+                                          <BiGitCompare className="fs-3 mb-1 mb-lg-0" />
                                           <p className="fw-bold">
                                             {lang === "Eng"
                                               ? "Compare"
@@ -110,7 +122,7 @@ class Icons extends Component {
                                         className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
                                         onClick={hideNavbarNav}
                                       >
-                                        <span className="position-relative d-flex justify-content-center align-items-center">
+                                        <span className="cart-detail position-relative d-flex justify-content-center align-items-center">
                                           <p className="mb-0">
                                             {cartProducts.length +
                                               ` ${

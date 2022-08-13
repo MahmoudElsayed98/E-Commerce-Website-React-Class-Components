@@ -6,15 +6,20 @@
 }
 .product-card > svg {
   color: var(--secondaryColor);
-  right: -37.5px;
   top: 10px;
-  font-size: 35px;
+  right: 10px;
+  font-size: 40px;
 }
 .product-card .fill-heart {
   z-index: 2;
 }
-.product-card:hover > svg {
-  right: 10px;
+@media (min-width: 992px) {
+  .product-card > svg {
+    right: -37.5px;
+  }
+  .product-card:hover > svg {
+    right: 10px;
+  }
 }
 .product-card > svg:hover {
   color: var(--mainColor);
